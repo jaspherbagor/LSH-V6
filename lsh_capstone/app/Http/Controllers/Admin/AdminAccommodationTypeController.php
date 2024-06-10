@@ -12,7 +12,7 @@ class AdminAccommodationTypeController extends Controller
     public function index()
     {
         // Retrieve all accommodation types from the database
-        $accommodation_types = AccommodationType::get();
+        $accommodation_types = AccommodationType::where('remark', 'active')->get();
         // Return a view with the list of accommodation types
         return view('admin.accommodation_type_view', compact('accommodation_types'));
     }
@@ -45,6 +45,7 @@ class AdminAccommodationTypeController extends Controller
         $obj = new AccommodationType();
         $obj->photo = $final_name;
         $obj->name = $request->name;
+        $obj->remark = 'active';
         // Save the new accommodation type to the database
         $obj->save();
 
@@ -104,9 +105,9 @@ class AdminAccommodationTypeController extends Controller
         // Retrieve the accommodation type data based on the provided ID
         $single_data = AccommodationType::where('id', $id)->first();
         // Remove the photo file of the accommodation type from the uploads directory
-        unlink(public_path('uploads/' . $single_data->photo));
+        //unlink(public_path('uploads/' . $single_data->photo));
         // Delete the accommodation type record from the database
-        $single_data->delete();
+        $single_data->remark = 'deleted';
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Accommodation type is deleted successfully!');
