@@ -15,7 +15,7 @@ class AdminReviewController extends Controller
     public function index()
     {
         // Retrieve all reviews and rates from the database
-        $reviews = AccommodationRate::all();
+        $reviews = AccommodationRate::where('remark', 'active')->get();
         
         // Return the 'admin.review_view' view with the reviews and rates data
         return view('admin.review_view', compact('reviews'));
@@ -30,7 +30,8 @@ class AdminReviewController extends Controller
         // Check if the rate data exists
         if ($rate_data) {
             // Delete the accommodation rate data from the database
-            $rate_data->delete();
+            $rate_data->remark = 'deleted';
+            $rate_data->update();
 
             // Redirect back with a success message
             return redirect()->back()->with('success', 'Rate has been successfully deleted!');
