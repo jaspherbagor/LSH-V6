@@ -19,6 +19,7 @@ class CustomerOrderController extends Controller
         // Retrieve all orders for the authenticated customer
         $completed_orders = Order::where('customer_id', Auth::guard('customer')->user()->id)
                     ->where('status', 'Completed')
+                    ->where('remark', 'active')
                     ->get();
         
         // Render the 'customer.orders' view and pass the list of orders to it
@@ -29,6 +30,7 @@ class CustomerOrderController extends Controller
     {
         $pending_orders = Order::where('customer_id', Auth::guard('customer')->user()->id)
                     ->where('status', 'Pending')
+                    ->where('remark', 'active')
                     ->get();
 
         return view('customer.pending_orders', compact('pending_orders'));
@@ -38,6 +40,7 @@ class CustomerOrderController extends Controller
     {
         $declined_orders = Order::where('customer_id', Auth::guard('customer')->user()->id)
                     ->where('status', 'Declined')
+                    ->where('remark', 'active')
                     ->get();
 
         return view('customer.declined_orders', compact('declined_orders'));
@@ -47,7 +50,7 @@ class CustomerOrderController extends Controller
     public function invoice($id)
     {
         // Retrieve the specific order based on the provided order ID
-        $order = Order::where('id', $id)->first();
+        $order = Order::where('id', $id)->where('remark', 'active')->first();
         
         // Retrieve the order details associated with the specific order
         $order_detail = OrderDetail::where('order_id', $id)->get();
