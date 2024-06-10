@@ -15,7 +15,7 @@ class AdminPostController extends Controller
     public function index()
     {
         // Retrieve all posts from the database
-        $posts = Post::all();
+        $posts = Post::where('remark', 'active')->get();
         
         // Return the 'admin.post_view' view with the posts data
         return view('admin.post_view', compact('posts'));
@@ -59,6 +59,8 @@ class AdminPostController extends Controller
         
         // Set the total view count to 1
         $obj->total_view = 1;
+
+        $obj->remark = 'active';
 
         // Save the new Post object to the database
         $obj->save();
@@ -125,10 +127,11 @@ class AdminPostController extends Controller
         $single_data = Post::where('id', $id)->first();
 
         // Remove the photo file associated with the post
-        unlink(public_path('uploads/' . $single_data->photo));
+        //unlink(public_path('uploads/' . $single_data->photo));
 
+        $single_data->remark = 'deleted';
         // Delete the post from the database
-        $single_data->delete();
+        $single_data->update();
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Post is deleted successfully!');
