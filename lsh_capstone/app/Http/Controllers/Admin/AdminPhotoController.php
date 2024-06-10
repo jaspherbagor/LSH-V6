@@ -15,7 +15,7 @@ class AdminPhotoController extends Controller
     public function index()
     {
         // Retrieve all photos from the database
-        $photos = Photo::all();
+        $photos = Photo::where('remark', 'active')->get();
         
         // Return the 'admin.photo_view' view with the photos data
         return view('admin.photo_view', compact('photos'));
@@ -51,6 +51,7 @@ class AdminPhotoController extends Controller
         // Assign the photo name and caption from the request data to the Photo object
         $obj->photo = $final_name;
         $obj->caption = $request->caption;
+        $obj->remark = 'active';
 
         // Save the new Photo object to the database
         $obj->save();
@@ -115,10 +116,11 @@ class AdminPhotoController extends Controller
         $single_data = Photo::where('id', $id)->first();
 
         // Remove the photo file from the 'uploads' directory
-        unlink(public_path('uploads/' . $single_data->photo));
+        //unlink(public_path('uploads/' . $single_data->photo));
 
+        $single_data->remark = 'deleted';
         // Delete the photo from the database
-        $single_data->delete();
+        $single_data->update();
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Photo is deleted successfully!');
