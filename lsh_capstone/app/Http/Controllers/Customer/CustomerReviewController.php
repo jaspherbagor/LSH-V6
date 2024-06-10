@@ -16,7 +16,7 @@ class CustomerReviewController extends Controller
     public function index()
     {
         // Retrieve all rates (reviews) submitted by the authenticated customer
-        $rates = AccommodationRate::where('customer_id', Auth::guard('customer')->user()->id)->get();
+        $rates = AccommodationRate::where('customer_id', Auth::guard('customer')->user()->id)->where('remark', 'active')->get();
 
         // Render the 'customer.review_view' view and pass the list of rates to it
         return view('customer.review_view', compact('rates'));
@@ -55,6 +55,7 @@ class CustomerReviewController extends Controller
         $review_data->accommodation_id = $id; // Set the accommodation ID
         $review_data->rate = $request->rate; // Set the rate
         $review_data->review_heading = $request->review_heading; // Set the review heading
+        $review_data->remark = 'active';
         $review_data->review_description = $request->review_description; // Set the review description
         $review_data->save(); // Save the new review data to the database
 
@@ -95,7 +96,9 @@ class CustomerReviewController extends Controller
         $review_data = AccommodationRate::where('id', $id)->first();
 
         // Delete the review from the database
-        $review_data->delete();
+        $review_data->remark = 'deleted';
+
+        $review_data->update();
 
         // Redirect back with a success message indicating that the review was deleted successfully
         return redirect()->back()->with('success', 'Review has been successfully deleted!');
