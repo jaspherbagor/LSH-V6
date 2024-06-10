@@ -20,7 +20,7 @@ class AdminOrderController extends Controller
     public function index()
     {
         // Retrieve all orders from the database
-        $orders = Order::all();
+        $orders = Order::where('remark', 'active')->get();
         
         // Return the 'admin.orders' view with the orders data
         return view('admin.orders', compact('orders'));
@@ -28,21 +28,21 @@ class AdminOrderController extends Controller
 
     public function pending_order()
     {
-        $pending_orders = Order::where('status', 'Pending')->get();
+        $pending_orders = Order::where('status', 'Pending')->where('remark', 'active')->get();
 
         return view('admin.pending_orders', compact('pending_orders'));
     }
 
     public function declined_order()
     {
-        $declined_orders = Order::where('status', 'Declined')->get();
+        $declined_orders = Order::where('status', 'Declined')->where('remark', 'active')->get();
 
         return view('admin.declined_orders', compact('declined_orders'));
     }
 
     public function completed_order()
     {
-        $completed_orders = Order::where('status', 'Completed')->get();
+        $completed_orders = Order::where('status', 'Completed')->where('remark', 'active')->get();
 
         return view('admin.completed_orders', compact('completed_orders'));
     }
@@ -119,10 +119,14 @@ class AdminOrderController extends Controller
     public function delete($id)
     {
         // Delete the order from the database based on the provided order ID
-        Order::where('id', $id)->delete();
+        $order = Order::where('id', $id)->first();
+        $order->remark = 'deleted';
+        $order->update();
 
         // Delete the order details associated with the order ID
-        OrderDetail::where('order_id', $id)->delete();
+        $order_detail = OrderDetail::where('order_id', $id)->first();
+        $order_detail->remark = 'deleted';
+        $order_detail->update();
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Order is deleted successfully!');

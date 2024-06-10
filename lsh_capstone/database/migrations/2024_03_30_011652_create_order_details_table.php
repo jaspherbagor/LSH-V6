@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('adult');
             $table->text('children');
             $table->text('subtotal');
+            $table->text('remark')->nullable();
             $table->timestamps();
         });
     }
