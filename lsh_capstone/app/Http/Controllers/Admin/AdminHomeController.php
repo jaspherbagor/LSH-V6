@@ -18,10 +18,10 @@ class AdminHomeController extends Controller
     public function index()
     {
         // Count the total completed orders
-        $total_completed_orders = Order::where('status', 'Completed')->count();
+        $total_completed_orders = Order::where('status', 'Completed')->where('remark', 'active')->count();
 
         // Count the total pending orders
-        $total_pending_orders = Order::where('status', 'Pending')->count();
+        $total_pending_orders = Order::where('status', 'Pending')->where('remark', 'active')->count();
 
         // Count the total active customers
         $total_active_customers = Customer::where('status', 1)->count();
@@ -30,13 +30,13 @@ class AdminHomeController extends Controller
         $total_pending_customers = Customer::where('status', 0)->count();
 
         // Count the total rooms
-        $total_accommodations = Accommodation::count();
+        $total_accommodations = Accommodation::where('remark', 'active')->count();
 
         // Count the total active subscribers
-        $total_subscribers = Subscriber::where('status', 1)->count();
+        $total_subscribers = Subscriber::where('status', 1)->where('remark', 'active')->count();
 
         // Retrieve the 5 most recent orders in descending order of their IDs
-        $recent_orders = Order::orderBy('id', 'desc')->where('status', 'Completed')->skip(0)->take(5)->get();
+        $recent_orders = Order::orderBy('id', 'desc')->where('status', 'Completed')->where('remark', 'active')->skip(0)->take(5)->get();
 
         // Return the 'admin.home' view with all the calculated data
         return view('admin.home', compact('total_completed_orders', 'total_pending_orders', 'total_active_customers', 'total_pending_customers', 'total_accommodations', 'total_subscribers', 'recent_orders'));
