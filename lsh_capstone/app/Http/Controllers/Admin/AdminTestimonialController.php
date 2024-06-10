@@ -15,7 +15,7 @@ class AdminTestimonialController extends Controller
     public function index()
     {
         // Retrieve all testimonials from the database
-        $testimonials = Testimonial::get();
+        $testimonials = Testimonial::where('remark', 'active')->get();
         // Return the view with the testimonials data
         return view('admin.testimonial_view', compact('testimonials'));
     }
@@ -53,6 +53,7 @@ class AdminTestimonialController extends Controller
         $obj->name = $request->name;
         $obj->designation = $request->designation;
         $obj->comment = $request->comment;
+        $obj->remark = 'active';
         // Save the testimonial to the database
         $obj->save();
 
@@ -114,9 +115,10 @@ class AdminTestimonialController extends Controller
         // Retrieve the testimonial data for the given ID
         $single_data = Testimonial::where('id', $id)->first();
         // Remove the photo file associated with the testimonial
-        unlink(public_path('uploads/' . $single_data->photo));
+        //unlink(public_path('uploads/' . $single_data->photo));
+        $single_data->remark = 'deleted';
         // Delete the testimonial from the database
-        $single_data->delete();
+        $single_data->update();
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Testimonial is deleted successfully!');
