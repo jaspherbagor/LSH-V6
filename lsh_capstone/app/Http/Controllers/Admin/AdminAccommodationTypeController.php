@@ -108,6 +108,7 @@ class AdminAccommodationTypeController extends Controller
         //unlink(public_path('uploads/' . $single_data->photo));
         // Delete the accommodation type record from the database
         $single_data->remark = 'deleted';
+        $single_data->update();
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Accommodation type is deleted successfully!');

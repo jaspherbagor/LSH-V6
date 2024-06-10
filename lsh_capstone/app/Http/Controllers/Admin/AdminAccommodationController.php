@@ -13,9 +13,9 @@ class AdminAccommodationController extends Controller
     public function index($accomtype_id)
     {
         // Retrieve the accommodation type based on the provided ID
-        $accommodation_type = AccommodationType::where('id', $accomtype_id)->first();
+        $accommodation_type = AccommodationType::where('id', $accomtype_id)->where('remark', 'active')->first();
         // Retrieve all accommodations associated with the given accommodation type ID
-        $accommodations = Accommodation::where('accommodation_type_id', $accomtype_id)->get();
+        $accommodations = Accommodation::where('accommodation_type_id', $accomtype_id)->where('remark', 'active')->get();
         // Return a view with the accommodations and accommodation type data
         return view('admin.accommodation_view', compact('accommodations', 'accommodation_type'));
     }
@@ -56,6 +56,8 @@ class AdminAccommodationController extends Controller
         $obj->contact_number = $request->contact_number;
         $obj->contact_email = $request->contact_email;
         $obj->map = $request->map;
+        $obj->status = 'pending';
+        $obj->remark = 'active';
         // Save the new accommodation to the database
         $obj->save();
 
@@ -120,9 +122,10 @@ class AdminAccommodationController extends Controller
         // Retrieve the accommodation data based on the provided ID
         $single_data = Accommodation::where('id', $id)->first();
         // Remove the photo file of the accommodation from the uploads directory
-        unlink(public_path('uploads/' . $single_data->photo));
+        //unlink(public_path('uploads/' . $single_data->photo));
         // Delete the accommodation record from the database
-        $single_data->delete();
+        $single_data->remark = 'deleted';
+        $single_data->update();
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Accommodation is deleted successfully!');
@@ -132,7 +135,7 @@ class AdminAccommodationController extends Controller
     public function accommodation_all()
     {
         // Retrieve all accommodations from the database
-        $accommodation_all = Accommodation::get();
+        $accommodation_all = Accommodation::where('remark', 'active')->get();
         // Return a view with the list of all accommodations
         return view('admin.accommodation_all', compact('accommodation_all'));
     }
