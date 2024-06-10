@@ -20,22 +20,22 @@ class HomeController extends Controller
     public function index()
     {
         // Retrieve all testimonials from the database
-        $testimonial_all = Testimonial::get();
+        $testimonial_all = Testimonial::where('remark', 'active')->get();
         
         // Retrieve all slides from the database
-        $slide_all = Slide::get();
+        $slide_all = Slide::where('remark', 'active')->get();
         
         // Retrieve all features from the database
-        $feature_all = Feature::get();
+        $feature_all = Feature::where('remark', 'active')->get();
         
         // Retrieve the latest 3 posts, ordered by ID in descending order
-        $post_all = Post::orderBy('id', 'desc')->limit(3)->get();
+        $post_all = Post::where('remark', 'active')->orderBy('id', 'desc')->limit(3)->get();
         
         // Retrieve the latest 4 rooms, ordered by ID in descending order
-        $room_all = Room::orderBy('id', 'desc')->limit(4)->get();
+        $room_all = Room::where('remark', 'active')->orderBy('id', 'desc')->limit(4)->get();
         
         // Retrieve all accommodation types from the database
-        $accommodation_types = AccommodationType::get();
+        $accommodation_types = AccommodationType::where('remark', 'active')->get();
         
         // Render the 'front.home' view and pass the retrieved data to it
         return view('front.home', compact('slide_all', 'feature_all', 'testimonial_all', 'post_all', 'room_all', 'accommodation_types'));

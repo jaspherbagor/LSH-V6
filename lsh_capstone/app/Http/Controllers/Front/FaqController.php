@@ -14,7 +14,7 @@ class FaqController extends Controller
     public function index()
     {
         // Retrieve all FAQs from the database
-        $faq_all = Faq::get();
+        $faq_all = Faq::where('remark', 'active')->get();
         
         // Render the 'front.faq' view and pass the list of FAQs to it
         return view('front.faq', compact('faq_all'));
