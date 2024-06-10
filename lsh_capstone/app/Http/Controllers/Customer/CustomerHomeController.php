@@ -18,24 +18,29 @@ class CustomerHomeController extends Controller
         // Retrieve the total count of completed orders for the authenticated customer
         $total_completed_orders = Order::where('status', 'Completed')
                                        ->where('customer_id', Auth::guard('customer')->user()->id)
+                                       ->where('remark', 'active')
                                        ->count();
 
         // Retrieve the total count of pending orders for the authenticated customer
         $total_pending_orders = Order::where('status', 'Pending')
                                      ->where('customer_id', Auth::guard('customer')->user()->id)
+                                     ->where('remark', 'active')
                                      ->count();
 
         // Retrieve the 5 most recent orders for the authenticated customer, ordered by ID in descending order
         $recent_orders = Order::where('customer_id', Auth::guard('customer')->user()->id)
                             ->where('status', 'Completed')
+                            ->where('remark', 'active')
                             ->orderBy('id', 'desc')
                             ->skip(0)
                             ->take(5)
                             ->get();
 
         // Retrieve the total count of reviews (accommodation rates) submitted by the authenticated customer
-        $total_reviews = AccommodationRate::where('customer_id', Auth::guard('customer')->user()->id)
-                                          ->count();
+        $total_reviews = AccommodationRate::where('customer_id', Auth::guard('customer')
+                                        ->user()->id)
+                                        ->where('remark', 'active')
+                                        ->count();
 
         // Render the 'customer.home' view and pass the retrieved data to it
         return view('customer.home', compact('total_completed_orders', 'total_pending_orders', 'recent_orders', 'total_reviews'));
