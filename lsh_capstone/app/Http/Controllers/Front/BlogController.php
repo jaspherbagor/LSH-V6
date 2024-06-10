@@ -14,7 +14,7 @@ class BlogController extends Controller
     public function index()
     {
         // Retrieve all blog posts ordered by ID in descending order and paginate them (9 posts per page)
-        $post_all = Post::orderBy('id', 'desc')->paginate(9);
+        $post_all = Post::where('remark', 'active')->orderBy('id', 'desc')->paginate(9);
         
         // Render the 'front.blog' view and pass the paginated list of posts to it
         return view('front.blog', compact('post_all'));
