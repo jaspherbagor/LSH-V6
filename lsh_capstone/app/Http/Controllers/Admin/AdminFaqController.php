@@ -12,7 +12,7 @@ class AdminFaqController extends Controller
     public function index()
     {
         // Retrieve all FAQs from the database
-        $faqs = Faq::get();
+        $faqs = Faq::where('remark', 'active')->get();
         // Return a view with the list of FAQs
         return view('admin.faq_view', compact('faqs'));
     }
@@ -37,6 +37,7 @@ class AdminFaqController extends Controller
         $obj = new Faq();
         $obj->question = $request->question;
         $obj->answer = $request->answer;
+        $obj->remark = 'active';
         // Save the new FAQ to the database
         $obj->save();
 
@@ -74,8 +75,9 @@ class AdminFaqController extends Controller
     {
         // Retrieve the FAQ data based on the provided ID
         $single_data = Faq::where('id', $id)->first();
+        $single_data->remark = 'deleted';
         // Delete the FAQ record from the database
-        $single_data->delete();
+        $single_data->update();
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'FAQ is deleted successfully!');
