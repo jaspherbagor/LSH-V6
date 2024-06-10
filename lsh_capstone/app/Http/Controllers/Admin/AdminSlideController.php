@@ -15,7 +15,7 @@ class AdminSlideController extends Controller
     public function index()
     {
         // Retrieve all slides from the database
-        $slides = Slide::get();
+        $slides = Slide::where('remark', 'active')->get();
         // Return the view with the slides data
         return view('admin.slide_view', compact('slides'));
     }
@@ -51,6 +51,7 @@ class AdminSlideController extends Controller
         $obj->text = $request->text;
         $obj->button_text = $request->button_text;
         $obj->button_url = $request->button_url;
+        $obj->remark = 'active';
         // Save the new Slide object to the database
         $obj->save();
 
@@ -113,9 +114,10 @@ class AdminSlideController extends Controller
         // Retrieve the slide data for the given ID
         $single_data = Slide::where('id', $id)->first();
         // Remove the photo file associated with the slide
-        unlink(public_path('uploads/' . $single_data->photo));
+        //unlink(public_path('uploads/' . $single_data->photo));
         // Delete the slide from the database
-        $single_data->delete();
+        $single_data->remark = 'deleted';
+        $single_data->update();
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Slide is deleted successfully!');
