@@ -17,7 +17,7 @@ class AdminSubscriberController extends Controller
     public function index()
     {
         // Retrieve all active subscribers (status = 1) from the database
-        $subscriber = Subscriber::where('status', 1)->get();
+        $subscriber = Subscriber::where('status', 1)->where('remark', 'active')->get();
         // Return the view with the list of active subscribers
         return view('admin.subscriber_show', compact('subscriber'));
     }
@@ -43,7 +43,7 @@ class AdminSubscriberController extends Controller
         $message = $request->message;
 
         // Retrieve all active subscribers from the database
-        $all_subscribers = Subscriber::where('status', 1)->get();
+        $all_subscribers = Subscriber::where('status', 1)->where('remark', 'active')->get();
 
         // Send an email to each subscriber
         foreach ($all_subscribers as $item) {
