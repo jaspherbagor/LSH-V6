@@ -14,7 +14,7 @@ class VideoController extends Controller
     public function index()
     {
         // Retrieve videos from the database and paginate them (12 videos per page)
-        $video_all = Video::paginate(12);
+        $video_all = Video::where('remark', 'active')->paginate(12);
         
         // Render the 'front.video_gallery' view and pass the paginated videos to it
         return view('front.video_gallery', compact('video_all'));
