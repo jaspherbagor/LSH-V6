@@ -12,7 +12,7 @@ class AdminAmenityController extends Controller
     public function index()
     {
         // Retrieve all amenities from the database
-        $amenities = Amenity::get();
+        $amenities = Amenity::where('remark', 'active')->get();
         // Return a view with the list of amenities
         return view('admin.amenity_view', compact('amenities'));
     }
@@ -35,6 +35,7 @@ class AdminAmenityController extends Controller
         // Create a new Amenity instance and set its name based on the request data
         $obj = new Amenity();
         $obj->name = $request->name;
+        $obj->remark = 'active';
         // Save the new amenity to the database
         $obj->save();
 
@@ -71,8 +72,10 @@ class AdminAmenityController extends Controller
     {
         // Retrieve the amenity data based on the provided ID
         $single_data = Amenity::where('id', $id)->first();
-        // Delete the amenity record from the database
-        $single_data->delete();
+        // Remarked deleted the amenity record from the database
+        $single_data->remark = 'deleted';
+
+        $single_data->update();
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Amenity is deleted successfully!');
