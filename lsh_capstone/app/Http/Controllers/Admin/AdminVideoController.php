@@ -14,7 +14,7 @@ class AdminVideoController extends Controller
     public function index()
     {
         // Retrieve all videos from the database
-        $videos = Video::get();
+        $videos = Video::where('remark', 'active')->get();
 
         // Render the 'admin.video_view' view and pass the list of videos to it
         return view('admin.video_view', compact('videos'));
@@ -39,6 +39,7 @@ class AdminVideoController extends Controller
         $obj = new Video();
         $obj->video_id = $request->video_id; // Set the video ID
         $obj->caption = $request->caption; // Set the caption (optional)
+        $obj->remark = 'active';
         $obj->save(); // Save the new video data to the database
 
         // Redirect back with a success message indicating that the video was added successfully
@@ -76,8 +77,9 @@ class AdminVideoController extends Controller
         // Retrieve the specific video data based on the provided ID
         $single_data = Video::where('id', $id)->first();
 
+        $single_data->remark = 'deleted';
         // Delete the video from the database
-        $single_data->delete();
+        $single_data->update();
 
         // Redirect back with a success message indicating that the video was deleted successfully
         return redirect()->back()->with('success', 'Video is deleted successfully!');
