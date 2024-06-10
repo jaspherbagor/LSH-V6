@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('text')->nullable();
             $table->text('button_text')->nullable();
             $table->text('button_url')->nullable();
+            $table->text('remark')->nullable();
             $table->timestamps();
         });
     }

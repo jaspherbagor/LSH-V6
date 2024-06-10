@@ -17,11 +17,14 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('accommodation_type_id');
             $table->string('name'); // Name of the accommodation (e.g., Bayangan Hotel, Casie Hotel)
-            $table->text('photo');
-            $table->text('address');
+            $table->text('password');
+            $table->text('photo')->nullable();
+            $table->text('address')->nullable();
             $table->text('contact_number')->nullable();
             $table->text('contact_email')->nullable();
             $table->text('map')->nullable();
+            $table->text('remark')->nullable();
+            $table->text('status');
             $table->timestamps(); 
             // Define foreign key constraint
             $table->foreign('accommodation_type_id')->references('id')->on('accommodation_types')->onDelete('cascade');

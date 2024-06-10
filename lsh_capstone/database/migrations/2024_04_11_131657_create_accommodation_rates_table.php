@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('rate');
             $table->text('review_heading');
             $table->text('review_description');
+            $table->text('remark')->nullable();
             $table->timestamps();
 
             // Define foreign key constraints

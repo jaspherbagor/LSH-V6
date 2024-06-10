@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('paid_amount');
             $table->text('booking_date');
             $table->text('status');
+            $table->text('remark')->nullable();
             $table->timestamps();
         });
     }

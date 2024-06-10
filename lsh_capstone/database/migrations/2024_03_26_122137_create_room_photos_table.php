@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('room_id');
             $table->text('photo');
+            $table->text('remark')->nullable();
             $table->timestamps();
         });
     }

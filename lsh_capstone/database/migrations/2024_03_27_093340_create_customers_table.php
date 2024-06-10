@@ -27,6 +27,7 @@ return new class extends Migration
             $table->text('photo')->nullable();
             $table->text('token')->nullable();
             $table->integer('status');
+            $table->text('remark')->nullable();
             $table->timestamps();
         });
     }

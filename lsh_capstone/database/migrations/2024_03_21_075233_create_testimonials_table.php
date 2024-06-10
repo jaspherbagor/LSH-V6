@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('name');
             $table->text('designation');
             $table->text('comment');
+            $table->text('remark')->nullable();
             $table->timestamps();
         });
     }

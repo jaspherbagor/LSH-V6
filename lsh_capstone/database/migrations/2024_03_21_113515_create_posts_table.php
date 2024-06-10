@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('short_content');
             $table->text('content');
             $table->integer('total_view');
+            $table->text('remarks')->nullable();
             $table->timestamps();
         });
     }

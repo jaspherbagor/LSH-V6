@@ -29,6 +29,7 @@ return new class extends Migration
             $table->text('total_guests')->nullable();
             $table->text('featured_photo');
             $table->text('video_id')->nullable();
+            $table->text('remark')->nullable();
             $table->timestamps();
             
             // Define foreign key constraint

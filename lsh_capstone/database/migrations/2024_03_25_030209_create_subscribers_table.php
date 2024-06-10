@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('email');
             $table->text('token');
             $table->integer('status');
+            $table->text('remark')->nullable();
             $table->timestamps();
         });
     }
