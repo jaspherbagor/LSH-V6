@@ -15,7 +15,7 @@ class AdminFeatureController extends Controller
     public function index()
     {
         // Retrieve all features from the database
-        $features = Feature::all();
+        $features = Feature::where('remark', 'active')->get();
         
         // Return the 'admin.feature_view' view with the features data
         return view('admin.feature_view', compact('features'));
@@ -44,6 +44,7 @@ class AdminFeatureController extends Controller
         $obj->icon = $request->icon;
         $obj->heading = $request->heading;
         $obj->text = $request->text;
+        $obj->remark = 'active';
 
         // Save the new Feature object to the database
         $obj->save();
@@ -92,8 +93,9 @@ class AdminFeatureController extends Controller
         // Retrieve the feature data based on the provided feature ID
         $single_data = Feature::where('id', $id)->first();
         
+        $single_data->remark = 'deleted';
         // Delete the feature from the database
-        $single_data->delete();
+        $single_data->update();
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Feature is deleted successfully!');
