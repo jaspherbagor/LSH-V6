@@ -48,6 +48,10 @@ return [
             'driver' => 'session',
             'provider' => 'customers',
         ],
+        'accommodation' => [
+            'driver' => 'session',
+            'provider' => 'accommodations',
+        ],
     ],
 
     /*
@@ -79,6 +83,10 @@ return [
         'customers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Customer::class,
+        ],
+        'accommodations' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Accommodation::class,
         ],
 
         // 'users' => [
@@ -117,6 +125,12 @@ return [
         ],
         'customers' => [
             'provider' => 'customers',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'accommodations' => [
+            'provider' => 'accommodations',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
