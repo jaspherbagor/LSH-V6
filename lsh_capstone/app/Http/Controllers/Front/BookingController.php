@@ -301,6 +301,7 @@ class BookingController extends Controller
         $obj->paid_amount = $final_price;
         $obj->booking_date = date('d/m/Y');
         $obj->status = 'Completed';
+        $obj->remark = 'active';
         $obj->save();
 
         // Initialize arrays to hold cart session data
@@ -377,6 +378,7 @@ class BookingController extends Controller
             $obj->adult = $arr_cart_adult[$i];
             $obj->children = $arr_cart_children[$i];
             $obj->subtotal = $subtotal;
+            $obj->remark = 'active';
             $obj->save();
 
             // Loop through the booking date range and save each date as a booked room entry
@@ -500,6 +502,7 @@ class BookingController extends Controller
         $obj->paid_amount = $price;
         $obj->booking_date = date('d/m/Y');
         $obj->status = 'Pending';
+        $obj->remark = 'active';
         $obj->save();
 
         // Initialize arrays to hold cart session data
@@ -576,6 +579,7 @@ class BookingController extends Controller
             $obj->adult = $arr_cart_adult[$i];
             $obj->children = $arr_cart_children[$i];
             $obj->subtotal = $subtotal;
+            $obj->remark = 'active';
             $obj->save();
 
             // Loop through the booking date range and save each date as a booked room entry
@@ -695,6 +699,7 @@ class BookingController extends Controller
         $obj->paid_amount = $price;
         $obj->booking_date = date('d/m/Y');
         $obj->status = 'Pending';
+        $obj->remark = 'active';
         $obj->save();
 
         // Initialize arrays to hold cart session data
@@ -771,6 +776,7 @@ class BookingController extends Controller
             $obj->adult = $arr_cart_adult[$i];
             $obj->children = $arr_cart_children[$i];
             $obj->subtotal = $subtotal;
+            $obj->remark = 'active';
             $obj->save();
 
             // Loop through the booking date range and save each date as a booked room entry
