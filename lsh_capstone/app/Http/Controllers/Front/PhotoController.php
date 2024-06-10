@@ -14,7 +14,7 @@ class PhotoController extends Controller
     public function index()
     {
         // Retrieve photos from the database and paginate them (12 photos per page)
-        $photo_all = Photo::paginate(12);
+        $photo_all = Photo::where('remark', 'active')->paginate(12);
         
         // Render the 'front.photo_gallery' view and pass the paginated photos to it
         return view('front.photo_gallery', compact('photo_all'));
