@@ -15,7 +15,7 @@ class AccommodationController extends Controller
     public function index()
     {
         // Retrieve all accommodation types from the database
-        $accommodation_types = AccommodationType::get();
+        $accommodation_types = AccommodationType::where('remark', 'active')->get();
         
         // Render the 'front.accommodation' view and pass the retrieved accommodation types to it
         return view('front.accommodation', compact('accommodation_types'));
@@ -28,7 +28,7 @@ class AccommodationController extends Controller
         $accommodation_type = AccommodationType::where('id', $accommtype_id)->first();
         
         // Retrieve all accommodations associated with the specific accommodation type
-        $accommodation_all = Accommodation::where('accommodation_type_id', $accommtype_id)->get();
+        $accommodation_all = Accommodation::where('accommodation_type_id', $accommtype_id)->where('remark', 'active')->get();
         
         // Render the 'front.accommodation_detail' view and pass the retrieved accommodations and accommodation type to it
         return view('front.accommodation_detail', compact('accommodation_all', 'accommodation_type'));
