@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
 
-    @if(Auth::guard('customer')->user()->photo == '')
+    @if(Auth::guard('accommodation')->user()->photo == '')
     <link rel="icon" type="image/png" href="{{ asset('uploads/default.png') }}">
     @else
-    <link rel="icon" type="image/png" href="{{ asset('uploads/'.Auth::guard('customer')->user()->photo) }}">
+    <link rel="icon" type="image/png" href="{{ asset('uploads/'.Auth::guard('accommodation')->user()->photo) }}">
     @endif
-    <title>{{ Auth::guard('customer')->user()->name }} - Dashboard</title>
+    <title>{{ Auth::guard('accommodation')->user()->name }} - Dashboard</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 
