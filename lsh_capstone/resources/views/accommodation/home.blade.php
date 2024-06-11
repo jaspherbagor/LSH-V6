@@ -1,4 +1,6 @@
-@extends('customer.layout.app')
+<h2 class="fw-bolder text-center">Hello Accommodation. This is your dashboard!</h2>
+
+{{-- @extends('customer.layout.app')
 
 @section('heading', 'Dashboard')
 
@@ -119,4 +121,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
