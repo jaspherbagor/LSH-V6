@@ -21,12 +21,12 @@ class AccommodationProfileController extends Controller
     public function profile_submit(Request $request)
     {
         // Retrieve the authenticated accommodation's data based on their email
-        $accommodation_data = Accommodation::where('email', Auth::guard('accommodation')->user()->contact_email)->first();
+        $accommodation_data = Accommodation::where('contact_email', Auth::guard('accommodation')->user()->contact_email)->first();
 
         // Validate the request data for name and email
         $request->validate([
             'name' => 'required', // Name is required
-            'email' => 'required|email' // Email is required and must be valid
+            'contact_email' => 'required|email' // Email is required and must be valid
         ]);
 
         // Check if a new password is provided in the request

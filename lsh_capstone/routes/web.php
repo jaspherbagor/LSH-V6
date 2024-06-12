@@ -179,7 +179,7 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
 
     Route::get('/accommodation/edit-profile', [AccommodationProfileController::class, 'index'])->name('accommodation_profile');
 
-    Route::post('/accommodation/edit-profile-submit', [AccommodationProfileController::class, 'profileSubmit'])->name('accommodation_profile_submit');
+    Route::post('/accommodation/edit-profile-submit', [AccommodationProfileController::class, 'profile_submit'])->name('accommodation_profile_submit');
 
 
 });

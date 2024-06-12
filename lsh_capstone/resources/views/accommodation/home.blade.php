@@ -1,4 +1,4 @@
-@extends('customer.layout.app')
+@extends('accommodation.layout.app')
 
 @section('heading', 'Dashboard')
 
@@ -15,7 +15,7 @@
                         <h4>Completed Bookings</h4>
                     </div>
                     <div class="card-body">
-                        {{ $total_completed_orders }}
+                        {{-- {{ $total_completed_orders }} --}} 11
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         <h4>Pending Bookings</h4>
                     </div>
                     <div class="card-body">
-                        {{ $total_pending_orders }}
+                        {{-- {{ $total_pending_orders }} --}} 274
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                         <h4>Total Reviews
                     </div>
                     <div class="card-body">
-                        {{ $total_reviews }}
+                        {{-- {{ $total_reviews }} --}} -12
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    {{-- <tbody>
                                         @foreach($recent_orders as $row)
                                         @php
                                         $check_date = \App\Models\OrderDetail::where('order_no', $row->order_no)->first();
@@ -109,7 +109,7 @@
                                             </td>
                                         </tr>
                                         @endforeach
-                                    </tbody>
+                                    </tbody> --}}
                                 </table>
                             </div>
                         </div>

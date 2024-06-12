@@ -1,4 +1,4 @@
-@extends('customer.layout.app')
+@extends('accommodation.layout.app')
 
 @section('heading', 'Edit Profile')
 
@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 @php
-                                if(Auth::guard('customer')->user()->photo != '') {
+                                if(Auth::guard('accommodation')->user()->photo != '') {
                                     $accommodation_photo = Auth::guard('accommodation')->user()->photo;
                                 } else {
                                     $accommodation_photo = 'default.png';
@@ -54,7 +54,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="mb-4">
                                             <label class="form-label">Map Iframe Code</label>
                                             <textarea name="map" class="form-control h_100" id="" cols="30" rows="10">{{ Auth::guard('accommodation')->user()->map }}</textarea>

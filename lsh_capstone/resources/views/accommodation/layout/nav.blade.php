@@ -15,9 +15,9 @@
                     <img alt="image" src="{{ asset('uploads/'.Auth::guard('accommodation')->user()->photo) }}" class="rounded-circle mr-1">
                     @endif
                     
-                    <div class="d-sm-none d-lg-inline-block">{{ Auth::guard('customer')->user()->name }}</div></a>
+                    <div class="d-sm-none d-lg-inline-block">{{ Auth::guard('accommodation')->user()->name }}</div></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="{{ route('accommodation_logout') }}" class="dropdown-item has-icon text-danger">
+                        <a href="" class="dropdown-item has-icon text-danger">
                             <i class="fa fa-sign-out"></i> Logout
                         </a>
                     </div>

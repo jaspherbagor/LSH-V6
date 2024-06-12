@@ -13,9 +13,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
 
-    @include('customer.layout.styles')
+    @include('accommodation.layout.styles')
 
-    @include('customer.layout.scripts')
+    @include('accommodation.layout.scripts')
     
 </head>
 
@@ -23,9 +23,9 @@
 <div id="app">
     <div class="main-wrapper">
         
-        @include('customer.layout.nav')
+        @include('accommodation.layout.nav')
 
-        @include('customer.layout.sidebar')        
+        @include('accommodation.layout.sidebar')        
 
         <div class="main-content">
             <section class="section">
@@ -45,7 +45,7 @@
     </div>
 </div>
 
-@include('customer.layout.scripts_footer')
+@include('accommodation.layout.scripts_footer')
 
 @if($errors->any())
     @foreach($errors->all() as $error)

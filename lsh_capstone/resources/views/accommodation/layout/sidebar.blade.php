@@ -1,7 +1,7 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand py-1">
-            <a href="{{ route('accommodsation_home') }}">
+            <a href="{{ route('accommodation_home') }}">
                 <img src="{{ asset('uploads/logo.png') }}" alt="" class="logo py-1">
             </a>
         </div>

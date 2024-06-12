@@ -10,6 +10,6 @@ class AccommodationHomeController extends Controller
     public function index()
     {
         
-        return view('accommodation.home');
+        return view('accommodation.home', compact('total_completed_orders', 'total_pending_orders', 'recent_orders', 'total_reviews'));
     }
 }
