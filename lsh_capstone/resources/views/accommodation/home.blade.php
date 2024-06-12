@@ -15,7 +15,7 @@
                         <h4>Completed Bookings</h4>
                     </div>
                     <div class="card-body">
-                        {{-- {{ $total_completed_orders }} --}} 11
+                        {{ $total_completed_orders }}
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         <h4>Pending Bookings</h4>
                     </div>
                     <div class="card-body">
-                        {{-- {{ $total_pending_orders }} --}} 274
+                        {{ $total_pending_orders }}
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                         <h4>Total Reviews
                     </div>
                     <div class="card-body">
-                        {{-- {{ $total_reviews }} --}} -12
+                        {{ $total_reviews }}
                     </div>
                 </div>
             </div>
