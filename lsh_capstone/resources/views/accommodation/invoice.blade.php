@@ -1,9 +1,9 @@
-@extends('customer.layout.app')
+@extends('accommodation.layout.app')
 
 @section('heading', 'Order Invoice')
 
 @section('right_top_button')
-<a href="{{ route('customer_order_view') }}" class="btn btn-primary"><i class="fa fa-eye"></i> View All</a>
+<a href="" class="btn btn-primary"><i class="fa fa-eye"></i> View All</a>
 @endsection
 
 @section('main_content')
@@ -36,11 +36,18 @@
                         <div class="col-md-4">
                             <address>
                                 <strong>Invoice To</strong><br>
-                                <img src="{{ asset('uploads/'.Auth::guard('customer')->user()->photo) }}" alt="profile photo" class="w_50" ><br>
-                                {{ Auth::guard('customer')->user()->name }}<br>
-                                {{ Auth::guard('customer')->user()->address }},<br>
-                                {{ Auth::guard('customer')->user()->city }}, <br>
-                                {{ Auth::guard('customer')->user()->province }}
+                                @if($customer_data->photo!= '')
+                                <img src="{{ asset('uploads/'.$customer_data->photo) }}" alt="profile photo" class="w_50" ><br>
+                                @else
+                                <img src="{{ asset('uploads/default.png') }}" alt="profile photo" class="w_50" ><br>
+                                @endif
+                                {{ $customer_data->name }}<br>
+
+                                {{ $customer_data->address }},<br>
+
+                                {{ $customer_data->city }}, <br>
+
+                                {{ $customer_data->province }}
                             </address>
                         </div>
                         <div class="col-md-4">

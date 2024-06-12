@@ -105,7 +105,7 @@
                                                 @endif
                                             </td>
                                             <td class="pt_10 pb_10">
-                                                <a href="{{ route('admin_invoice',$row->id) }}" class="btn btn-primary">Detail</a>
+                                                <a href="{{ route('accommodation_customer_invoice',$row->id) }}" class="btn btn-primary">Detail</a>
                                             </td>
                                         </tr>
                                         @endforeach
