@@ -176,7 +176,9 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
 
     Route::get('/accommodation/home', [AccommodationHomeController::class, 'index'])->name('accommodation_home');
 
+    Route::get('/accommodation/edit-profile', [AdminProfileController::class, 'index'])->name('accommodation_profile');
 
+    Route::post('/accommodation/edit-profile-submit', [AdminProfileController::class, 'profileSubmit'])->name('accommodation_profile_submit');
 
 
 });

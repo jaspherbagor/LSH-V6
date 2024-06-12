@@ -9,15 +9,15 @@
             <ul class="navbar-nav navbar-right">
                 <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
 
-                    @if(Auth::guard('customer')->user()->photo == '')
+                    @if(Auth::guard('accommodation')->user()->photo == '')
                     <img alt="image" src="{{ asset('uploads/default.png') }}" class="rounded-circle mr-1">
                     @else
-                    <img alt="image" src="{{ asset('uploads/'.Auth::guard('customer')->user()->photo) }}" class="rounded-circle mr-1">
+                    <img alt="image" src="{{ asset('uploads/'.Auth::guard('accommodation')->user()->photo) }}" class="rounded-circle mr-1">
                     @endif
                     
                     <div class="d-sm-none d-lg-inline-block">{{ Auth::guard('customer')->user()->name }}</div></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="{{ route('customer_logout') }}" class="dropdown-item has-icon text-danger">
+                        <a href="{{ route('accommodation_logout') }}" class="dropdown-item has-icon text-danger">
                             <i class="fa fa-sign-out"></i> Logout
                         </a>
                     </div>

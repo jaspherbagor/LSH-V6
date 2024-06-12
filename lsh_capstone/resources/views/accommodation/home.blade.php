@@ -1,13 +1,11 @@
-<h2 class="fw-bolder text-center">Hello Accommodation. This is your dashboard! You must be  {{ Auth::guard('accommodation')->user()->name }}! Your status is {{ Auth::guard('accommodation')->user()->remark }}</h2>
-
-{{-- @extends('customer.layout.app')
+@extends('customer.layout.app')
 
 @section('heading', 'Dashboard')
 
 @section('main_content')
 <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="{{ route('customer_order_view') }}">
+        <a href="">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-website">
                     <i class="fa fa-check-circle"></i>
@@ -24,7 +22,7 @@
         </a>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="{{ route('customer_pending_order_view') }}">
+        <a href="">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-website">
                     <i class="fa fa-clock-o"></i>
@@ -42,7 +40,7 @@
         
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="{{ route('customer_review_view') }}">
+        <a href="">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-website">
                     <i class="fa fa-star"></i>
@@ -121,4 +119,4 @@
         </div>
     </div>
 </div>
-@endsection --}}
+@endsection
