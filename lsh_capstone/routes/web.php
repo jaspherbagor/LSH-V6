@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Accommodation\AccommodationHomeController;
+use App\Http\Controllers\Accommodation\AccommodationProfileController;
 use App\Http\Controllers\Admin\AdminAccommodationController;
 use App\Http\Controllers\Admin\AdminAccommodationTypeController;
 use App\Http\Controllers\Admin\AdminAmenityController;
@@ -176,9 +177,9 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
 
     Route::get('/accommodation/home', [AccommodationHomeController::class, 'index'])->name('accommodation_home');
 
-    Route::get('/accommodation/edit-profile', [AdminProfileController::class, 'index'])->name('accommodation_profile');
+    Route::get('/accommodation/edit-profile', [AccommodationProfileController::class, 'index'])->name('accommodation_profile');
 
-    Route::post('/accommodation/edit-profile-submit', [AdminProfileController::class, 'profileSubmit'])->name('accommodation_profile_submit');
+    Route::post('/accommodation/edit-profile-submit', [AccommodationProfileController::class, 'profileSubmit'])->name('accommodation_profile_submit');
 
 
 });

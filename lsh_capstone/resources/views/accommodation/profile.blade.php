@@ -8,32 +8,32 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('customer_profile_submit') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('accommodation_profile_submit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-3">
                                 @php
                                 if(Auth::guard('customer')->user()->photo != '') {
-                                    $customer_photo = Auth::guard('customer')->user()->photo;
+                                    $accommodation_photo = Auth::guard('accommodation')->user()->photo;
                                 } else {
-                                    $customer_photo = 'default.png';
+                                    $accommodation_photo = 'default.png';
                                 }
                                 @endphp
-                                <img src="{{ asset('uploads/'.$customer_photo) }}" alt="" class="profile-photo w_100_p">
+                                <img src="{{ asset('uploads/'.$accommodation_photo) }}" alt="" class="profile-photo w_100_p">
                                 <input type="file" class="form-control mt_10" name="photo">
                             </div>
                             <div class="col-md-9">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-4">
-                                            <label class="form-label">Name *</label>
-                                            <input type="text" class="form-control" name="name" value="{{ Auth::guard('customer')->user()->name }}">
+                                            <label class="form-label">Accommodation Name *</label>
+                                            <input type="text" class="form-control" name="name" value="{{ Auth::guard('accommodation')->user()->name }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-4">
-                                            <label class="form-label">Email *</label>
-                                            <input type="text" class="form-control" name="email" value="{{ Auth::guard('customer')->user()->email }}">
+                                            <label class="form-label">Contact Email *</label>
+                                            <input type="text" class="form-control" name="contact_email" value="{{ Auth::guard('accommodation')->user()->contact_email }}">
                                         </div>
                                     </div>
                                 </div>
@@ -41,29 +41,14 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-4">
-                                            <label class="form-label">Phone</label>
-                                            <input type="text" class="form-control" name="phone" value="{{ Auth::guard('customer')->user()->phone }}">
+                                            <label class="form-label">Contact Number</label>
+                                            <input type="text" class="form-control" name="contact_number" value="{{ Auth::guard('accommodation')->user()->contact_number }}">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-4">
-                                            <label class="form-label">Country</label>
-                                            <input type="text" class="form-control" name="country" value="{{ Auth::guard('customer')->user()->country }}">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-4">
                                             <label class="form-label">Address</label>
-                                            <input type="text" class="form-control" name="address" value="{{ Auth::guard('customer')->user()->address }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-4">
-                                            <label class="form-label">Province</label>
-                                            <input type="text" class="form-control" name="province" value="{{ Auth::guard('customer')->user()->province }}">
+                                            <input type="text" class="form-control" name="address" value="{{ Auth::guard('accommodation')->user()->address }}">
                                         </div>
                                     </div>
                                 </div>
@@ -71,17 +56,11 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-4">
-                                            <label class="form-label">City</label>
-                                            <input type="text" class="form-control" name="city" value="{{ Auth::guard('customer')->user()->city }}">
+                                            <label class="form-label">Map Iframe Code</label>
+                                            <textarea name="map" class="form-control h_100" id="" cols="30" rows="10">{{ Auth::guard('accommodation')->user()->map }}</textarea>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="mb-4">
-                                            <label class="form-label">Zip</label>
-                                            <input type="text" class="form-control" name="zip" value="{{ Auth::guard('customer')->user()->zip }}">
-                                        </div>
-                                    </div>
-                                </div>
+                                </div>                             
 
                                 <div class="row">
                                     <div class="col-md-6">
@@ -96,10 +75,7 @@
                                             <input type="password" class="form-control" name="retype_password">
                                         </div>
                                     </div>
-                                </div>
-                                
-                                
-                                
+                                </div>                            
                                 
                                 <div class="mb-4">
                                     <label class="form-label"></label>
