@@ -1,4 +1,4 @@
-<h2 class="fw-bolder text-center">Hello Accommodation. This is your dashboard!</h2>
+<h2 class="fw-bolder text-center">Hello Accommodation. This is your dashboard! You must be  {{ Auth::guard('accommodation')->user()->name }}! Your status is {{ Auth::guard('accommodation')->user()->remark }}</h2>
 
 {{-- @extends('customer.layout.app')
 

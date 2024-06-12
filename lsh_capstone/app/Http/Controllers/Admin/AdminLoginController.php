@@ -119,7 +119,8 @@ class AdminLoginController extends Controller
 
         $accommodation_credentials = [
             'contact_email' => $request->email,
-            'password' => $request->password
+            'password' => $request->password,
+            'remark' => 'active'
         ];
 
         // Attempt to authenticate the admin
