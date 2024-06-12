@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Accommodation\AccommodationHomeController;
 use App\Http\Controllers\Admin\AdminAccommodationController;
 use App\Http\Controllers\Admin\AdminAccommodationTypeController;
 use App\Http\Controllers\Admin\AdminAmenityController;
@@ -166,6 +167,17 @@ Route::group(['middleware' => ['customer:customer']], function() {
     Route::post('/customer/review/update/{id}', [CustomerReviewController::class, 'review_update'])->name('customer_review_update');
 
     Route::get('/customer/review/delete/{id}', [CustomerReviewController::class, 'review_delete'])->name('customer_review_delete');
+
+});
+
+
+/* Accommodation Routes with Accommodation Middleware */
+Route::group(['middleware' => ['accommodation:accommodation']], function() {
+
+    Route::get('/accommodation/home', [AccommodationHomeController::class, 'index'])->name('accomodation_home');
+
+
+
 
 });
 
