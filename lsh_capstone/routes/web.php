@@ -174,7 +174,7 @@ Route::group(['middleware' => ['customer:customer']], function() {
 /* Accommodation Routes with Accommodation Middleware */
 Route::group(['middleware' => ['accommodation:accommodation']], function() {
 
-    Route::get('/accommodation/home', [AccommodationHomeController::class, 'index'])->name('accomodation_home');
+    Route::get('/accommodation/home', [AccommodationHomeController::class, 'index'])->name('accommodation_home');
 
 
 

@@ -128,7 +128,7 @@ class AdminLoginController extends Controller
             // Redirect to the admin home page if authentication is successful
             return redirect()->route('admin_home');
         } else if (Auth::guard('accommodation')->attempt($accommodation_credentials)){
-            return view('accommodation.home');
+            return redirect()->route('accommodation_home');
         }
         
         else {
