@@ -83,7 +83,7 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    {{-- <tbody>
+                                    <tbody>
                                         @foreach($recent_orders as $row)
                                         @php
                                         $check_date = \App\Models\OrderDetail::where('order_no', $row->order_no)->first();
@@ -105,11 +105,11 @@
                                                 @endif
                                             </td>
                                             <td class="pt_10 pb_10">
-                                                <a href="{{ route('customer_invoice',$row->id) }}" class="btn btn-primary">Detail</a>
+                                                <a href="{{ route('admin_invoice',$row->id) }}" class="btn btn-primary">Detail</a>
                                             </td>
                                         </tr>
                                         @endforeach
-                                    </tbody> --}}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>

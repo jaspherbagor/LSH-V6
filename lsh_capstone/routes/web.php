@@ -182,6 +182,9 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
     Route::post('/accommodation/edit-profile-submit', [AccommodationProfileController::class, 'profile_submit'])->name('accommodation_profile_submit');
 
 
+    Route::get('/customer/order/invoice/{id}', [AdminOrderController::class, 'invoice'])->name('customer_invoice');
+
+
 });
 
 
