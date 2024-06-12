@@ -1,6 +1,6 @@
 @extends('accommodation.layout.app')
 
-@section('heading', 'Dashboard')
+@section('heading', 'Accommodation Dashboard')
 
 @section('main_content')
 <div class="row">
