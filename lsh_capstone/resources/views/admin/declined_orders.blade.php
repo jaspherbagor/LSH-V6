@@ -14,6 +14,7 @@
                                     <tr>
                                         <th>SL</th>
                                         <th>Reference No.</th>
+                                        <th>Customer's Name</th>
                                         <th>Payment Method</th>
                                         <th>Booking Date</th>
                                         <th>Paid Amount</th>
@@ -23,9 +24,13 @@
                                 </thead>
                                 <tbody>
                                     @foreach($declined_orders as $row)
+                                    @php
+                                    $customer_info = \App\Models\Customer::where('id', $row->customer_id)->first();
+                                    @endphp
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $row->transaction_id }}</td>
+                                        <td>{{ $customer_info->name }}</td>
                                         <td>{{ $row->payment_method }}</td>
                                         <td>{{ $row->booking_date }}</td>
                                         <td>₱{{ number_format($row->paid_amount, 2) }}</td>
