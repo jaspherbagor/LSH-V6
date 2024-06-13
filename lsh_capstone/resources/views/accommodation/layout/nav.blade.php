@@ -17,7 +17,7 @@
                     
                     <div class="d-sm-none d-lg-inline-block">{{ Auth::guard('accommodation')->user()->name }}</div></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="" class="dropdown-item has-icon text-danger">
+                        <a href="{{ route('accommodation_logout') }}" class="dropdown-item has-icon text-danger">
                             <i class="fa fa-sign-out"></i> Logout
                         </a>
                     </div>

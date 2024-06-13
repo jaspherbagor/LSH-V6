@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Accommodation\AccommodationAuthController;
 use App\Http\Controllers\Accommodation\AccommodationHomeController;
 use App\Http\Controllers\Accommodation\AccommodationOrderController;
 use App\Http\Controllers\Accommodation\AccommodationProfileController;
@@ -182,9 +183,9 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
 
     Route::post('/accommodation/edit-profile-submit', [AccommodationProfileController::class, 'profile_submit'])->name('accommodation_profile_submit');
 
-
     Route::get('/accommodation/customer/order/invoice/{id}', [AccommodationOrderController::class, 'invoice'])->name('accommodation_customer_invoice');
 
+    Route::get('/accommodation/logout', [AccommodationAuthController::class, 'logout'])->name('accommodation_logout');
 
 });
 
