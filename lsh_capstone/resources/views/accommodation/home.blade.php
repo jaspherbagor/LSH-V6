@@ -5,7 +5,24 @@
 @section('main_content')
 <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="">
+        <a href="{{ route('accommodation_order_view') }}">
+            <div class="card card-statistic-1">
+                <div class="card-icon bg-website">
+                    <i class="fa fa-list-alt"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>All Bookings</h4>
+                    </div>
+                    <div class="card-body">
+                        {{ $total_orders }}
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <a href="{{ route('accommodation_completed_order_view') }}">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-website">
                     <i class="fa fa-check-circle"></i>
@@ -22,7 +39,7 @@
         </a>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="">
+        <a href="{{ route('accommodation_pending_order_view') }}">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-website">
                     <i class="fa fa-clock-o"></i>
@@ -39,8 +56,48 @@
         </a>
         
     </div>
+    
+</div>
+<div class="row">
+    
+    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <a href="{{ route('accommodation_declined_order_view') }}">
+            <div class="card card-statistic-1">
+                <div class="card-icon bg-website">
+                    <i class="fa fa-clock-o"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Declined Bookings</h4>
+                    </div>
+                    <div class="card-body">
+                        {{ $total_declined_orders }}
+                    </div>
+                </div>
+            </div>
+        </a>
+        
+    </div>
     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
         <a href="">
+            <div class="card card-statistic-1">
+                <div class="card-icon bg-website">
+                    <i class="fa fa-bed"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Total Rooms</h4>
+                    </div>
+                    <div class="card-body">
+                        {{ $total_rooms }}
+                    </div>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+        <a href="{{ route('accommodation_review') }}">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-website">
                     <i class="fa fa-star"></i>
