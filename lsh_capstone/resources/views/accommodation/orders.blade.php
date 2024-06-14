@@ -42,7 +42,7 @@
                                             @elseif($row->status === 'pending')
                                             <button class="btn btn-danger">{{ $row->status }}</button>
                                             @else
-                                            <button class="btn btn-dark">{{ $order_info->status }}</button>
+                                            <button class="btn btn-dark">{{ $row->status }}</button>
                                             @endif
                                         </td>
                                         <td class="pt_10 pb_10">
