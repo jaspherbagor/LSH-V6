@@ -17,17 +17,21 @@
 
             <li class="{{ Request::is('accommodation/order-view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('accommodation_order_view') }}"><i class="fa fa-list-alt"></i> <span>All Bookings</span></a></li>
 
+            <li class="{{ Request::is('accommodation/completed-order-view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('accommodation_completed_order_view') }}"><i class="fa fa-check"></i> <span>Completed Bookings</span></a></li>
+
             <li class="{{ Request::is('accommodation/pending-order-view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('accommodation_pending_order_view') }}"><i class="fa fa-clock-o"></i> <span>Pending Bookings</span></a></li>
 
             <li class=""><a class="nav-link" href=""><i class="fa fa-times"></i> <span>Declined Bookings</span></a></li>
 
-            {{-- <li class="{{ Request::is('customer/accommodations/view') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('customer_accommodation_view') }}"><i class="fa fa-building"></i> <span>Add Accommodation Review</span></a>
+            <li class="">
+                <a class="nav-link" href=""><i class="fa fa-star"></i> <span>Reviews</span></a>
             </li>
 
-            <li class="{{ Request::is('customer/review/view') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('customer_review_view') }}"><i class="fa fa-star"></i> <span>My Reviews</span></a>
-            </li> --}}
+            <li class="">
+                <a class="nav-link" href=""><i class="fa fa-money"></i> <span>Payment Information</span></a>
+            </li>
+
+            <li class=""><a class="nav-link" href=""><i class="fa fa-bed"></i> <span>Rooms</span></a></li>
 
             <li class="{{ Request::is('accommodation/edit-profile') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('accommodation_profile') }}"><i class="fa fa-user"></i> <span>Edit Profile</span></a>
