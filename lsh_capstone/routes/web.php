@@ -187,6 +187,8 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
 
     Route::get('/accommodation/logout', [AccommodationAuthController::class, 'logout'])->name('accommodation_logout');
 
+    Route::get('/accommodation/customer/order-view', [AccommodationOrderController::class, 'orders'])->name('accommodation_customer_order_view');
+
 });
 
 

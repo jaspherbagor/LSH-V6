@@ -15,7 +15,7 @@
                 <a class="nav-link" href="{{ route('accommodation_home') }}"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a>
             </li>
 
-            <li class=""><a class="nav-link" href=""><i class="fa fa-list-alt"></i> <span>Completed Bookings</span></a></li>
+            <li class="{{ Request::is('accommodation/customer/order-view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('accommodation_customer_order_view') }}"><i class="fa fa-list-alt"></i> <span>All Bookings</span></a></li>
 
             <li class=""><a class="nav-link" href=""><i class="fa fa-clock-o"></i> <span>Pending Bookings</span></a></li>
 
