@@ -110,6 +110,8 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/signup', [CustomerAuthController::class, 'signup'])->name('customer_signup');
 
+    Route::get('/accommodation/register', [AccommodationAuthController::class, 'register'])->name('accommodation_register');
+
     Route::post('/signup-submit', [CustomerAuthController::class, 'signup_submit'])->name('customer_signup_submit');
 
     Route::get('/signup-verify/{email}/{token}', [CustomerAuthController::class, 'signup_verify'])->name('customer_signup_verify');

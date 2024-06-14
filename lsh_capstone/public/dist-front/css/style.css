@@ -1339,6 +1339,14 @@ select {
 	backdrop-filter: blur(30px);
 }
 
+.accommodation-register-container {
+	background: rgb(243,225,202);
+	background: linear-gradient(106deg, rgba(243,225,202,1) 0%, rgba(241,238,235,0.99781162464986) 50%, rgba(10,193,182,1) 100%);
+	width: 500px;
+	border-radius: 15px;
+	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
 .login-container {
 	width: 350px!important
 }

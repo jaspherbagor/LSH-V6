@@ -22,18 +22,18 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     </head>
-    <body class="register-body-container px-2 d-flex align-items-center justify-content-center">
+    <body class="accommodation-register-body-container px-2 d-flex align-items-center justify-content-center">
         <div class="page-content container-fluid">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-4 py-4 px-4 register-container">
+                    <div class="col-md-4 py-4 px-4 accommodation-register-container">
                         <div class="text-center">
                             <a href="{{ route('home') }}">
                                 <img src="{{ asset('uploads/logo.png') }}" alt="" class="logo">
                             </a>
-                            <h2 class="text-center mb-4 mt-3">Register Account</h2>  
+                            <h2 class="text-center mb-4 mt-3">Register An Accommodation</h2>  
                         </div>
-                        <form action="" method="post">
+                        <form action="" >
                             @csrf
                             <div class="login-form">
                                 <div class="row">
@@ -46,9 +46,34 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="" class="form-label">Email Address</label>
-                                        <input type="text" class="form-control form-input @if($errors->has('email')) is-invalid @endif" name="email" value="{{ old('email') }}">
-                                        @if($errors->has('email'))
-                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        <input type="text" class="form-control form-input @if($errors->has('contact_email')) is-invalid @endif" name="contact_email" value="{{ old('contact_email') }}">
+                                        @if($errors->has('contact_email'))
+                                            <span class="text-danger">{{ $errors->first('contact_email') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="" class="form-label">Contact Number</label>
+                                        <input type="text" class="form-control form-input @if($errors->has('contact_number')) is-invalid @endif" name="contact_number" value="{{ old('contact_number') }}">
+                                        @if($errors->has('contact_number'))
+                                            <span class="text-danger">{{ $errors->first('contact_number') }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="" class="form-label">Address</label>
+                                        <input type="text" class="form-control form-input @if($errors->has('address')) is-invalid @endif" name="address" value="{{ old('address') }}">
+                                        @if($errors->has('address'))
+                                            <span class="text-danger">{{ $errors->first('address') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="" class="form-label">Map Iframe Code</label>
+                                        <input type="text" class="form-control form-input @if($errors->has('map')) is-invalid @endif" name="map" value="{{ old('map') }}">
+                                        @if($errors->has('map'))
+                                            <span class="text-danger">{{ $errors->first('map') }}</span>
                                         @endif
                                     </div>
                                 </div>
