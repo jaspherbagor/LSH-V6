@@ -1,6 +1,6 @@
 @extends('accommodation.layout.app')
 
-@section('heading', 'All Bookings')
+@section('heading', 'Completed Bookings')
 
 @section('main_content')
     <div class="section-body">
