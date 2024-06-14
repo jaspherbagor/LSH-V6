@@ -183,11 +183,13 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
 
     Route::post('/accommodation/edit-profile-submit', [AccommodationProfileController::class, 'profile_submit'])->name('accommodation_profile_submit');
 
-    Route::get('/accommodation/customer/order/invoice/{id}', [AccommodationOrderController::class, 'invoice'])->name('accommodation_customer_invoice');
+    Route::get('/accommodation/order/invoice/{id}', [AccommodationOrderController::class, 'invoice'])->name('accommodation_invoice');
 
     Route::get('/accommodation/logout', [AccommodationAuthController::class, 'logout'])->name('accommodation_logout');
 
-    Route::get('/accommodation/customer/order-view', [AccommodationOrderController::class, 'orders'])->name('accommodation_customer_order_view');
+    Route::get('/accommodation/order-view', [AccommodationOrderController::class, 'orders'])->name('accommodation_order_view');
+
+    Route::get('/accommodation/pending-order-view', [AccommodationOrderController::class, 'pending_orders'])->name('accommodation_pending_order_view');
 
 });
 

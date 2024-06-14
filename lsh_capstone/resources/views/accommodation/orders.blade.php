@@ -1,6 +1,6 @@
 @extends('accommodation.layout.app')
 
-@section('heading', 'Completed Bookings')
+@section('heading', 'All Bookings')
 
 @section('main_content')
     <div class="section-body">
@@ -37,10 +37,16 @@
                                         <td>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $order_info->booking_date)->format('F d, Y') }}</td>
                                         <td>₱{{ number_format($row->subtotal, 2) }}</td>
                                         <td class="pt_10 pb_10">
-                                            <button type="button" class="btn btn-success">{{ $order_info->status }}</button>
+                                            @if($row->status === 'completed')
+                                            <button class="btn btn-success">{{ $row->status }}</button>
+                                            @elseif($row->status === 'pending')
+                                            <button class="btn btn-danger">{{ $row->status }}</button>
+                                            @else
+                                            <button class="btn btn-dark">{{ $order_info->status }}</button>
+                                            @endif
                                         </td>
                                         <td class="pt_10 pb_10">
-                                            <a href="{{ route('accommodation_customer_invoice',$row->id) }}" class="btn btn-info mb-md-0 mb-1" data-toggle="tooltip" data-placement="top" title="Invoice"><i class="fa fa-sticky-note-o" aria-hidden="true"></i></a>
+                                            <a href="{{ route('accommodation_invoice',$row->id) }}" class="btn btn-info mb-md-0 mb-1" data-toggle="tooltip" data-placement="top" title="Invoice"><i class="fa fa-sticky-note-o" aria-hidden="true"></i></a>
                                         </td>
                                         
                                     </tr>
