@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('accommodation_id');
             $table->string('gcash_qr');
             $table->string('gcash_name');
             $table->string('gcash_number');
@@ -22,6 +23,8 @@ return new class extends Migration
             $table->string('maya_name');
             $table->string('maya_number');
             $table->timestamps();
+
+            $table->foreign('accommodation_id')->references('id')->on('accommodations')->onDelete('cascade');
         });
     }
 
