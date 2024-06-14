@@ -80,6 +80,7 @@
                                             <button class="btn btn-info mb-1" data-toggle="modal" data-target="#exampleModal{{ $i }}" data-toggle="tooltip" data-placement="top" title="Detail">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </button>
+                                            <a href="{{ route('customer_review_delete', $row->id) }}" class="btn btn-danger mb-1" onClick="return confirm('Are you sure you want to delete this review?');" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                         </td>
                                         
                                         <div class="modal fade" id="exampleModal{{ $i }}" tabindex="-1" aria-hidden="true">
@@ -95,9 +96,9 @@
                                                 <div class="modal-body">
                                                     <div class="form-group row bdb1 pt_10 mb_0">
                                                         <div class="col-md-4">
-                                                            <label class="form-label">Accommodation</label>
+                                                            <label class="form-label">Customer's Name</label>
                                                         </div>
-                                                        <div class="col-md-8">{{ $accommodation->name }}</div>
+                                                        <div class="col-md-8">{{ $customer->name }}</div>
                                                     </div>
                                                     <div class="form-group row bdb1 pt_10 mb_0">
                                                         <div class="col-md-4">
