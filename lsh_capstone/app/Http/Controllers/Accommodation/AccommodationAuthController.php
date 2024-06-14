@@ -14,5 +14,10 @@ class AccommodationAuthController extends Controller
         return redirect()->route('admin_login');
     }
 
+    public function register()
+    {
+        return view('accommodation.register');
+    }
+
     
 }
