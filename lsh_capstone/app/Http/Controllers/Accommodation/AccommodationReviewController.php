@@ -15,4 +15,13 @@ class AccommodationReviewController extends Controller
 
         return view('accommodation.review', compact('reviews'));
     }
+
+    public function delete($id)
+    {
+        $review_data = AccommodationRate::where('id', $id)->first();
+        $review_data->remark = 'deleted';
+        $review_data->update();
+
+        return redirect()->back()->with('success', 'Review has been successfully deleted!');
+    }
 }

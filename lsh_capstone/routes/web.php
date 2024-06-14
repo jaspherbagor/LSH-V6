@@ -200,6 +200,8 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
 
     Route::get('accommodation/review', [AccommodationReviewController::class, 'index'])->name('accommodation_review');
 
+    Route::get('accommodation/review/delete/{id}', [AccommodationReviewController::class, 'delete'])->name('accommodation_review_delete');
+
 });
 
 
