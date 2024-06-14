@@ -1,6 +1,6 @@
-@extends('customer.layout.app')
+@extends('accommodation.layout.app')
 
-@section('heading', 'My Reviews')
+@section('heading', 'Reviews')
 
 @section('main_content')
     <div class="section-body">
@@ -13,7 +13,7 @@
                                 <thead>
                                     <tr>
                                         <th>SL</th>
-                                        <th>Accommodation</th>
+                                        <th>Customer's Name</th>
                                         <th>Rate</th>
                                         <th>Heading</th>
                                         <th>Action</th>
@@ -21,14 +21,14 @@
                                 </thead>
                                 <tbody>
                                     @php $i = 0; @endphp
-                                    @foreach($rates as $row)
+                                    @foreach($reviews as $row)
                                     @php 
-                                    $accommodation = \App\Models\Accommodation::where('id', $row->accommodation_id)->first();
+                                    $customer = \App\Models\Customer::where('id', $row->customer_id)->first();
                                     $i++;
                                     @endphp
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $accommodation->name }}</td>
+                                        <td>{{ $customer->name }}</td>
                                         <td>
                                             @switch($row->rate)
                                                 @case(1)
@@ -80,8 +80,6 @@
                                             <button class="btn btn-info mb-1" data-toggle="modal" data-target="#exampleModal{{ $i }}" data-toggle="tooltip" data-placement="top" title="Detail">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </button>
-                                            <a href="{{ route('customer_review_edit', $accommodation->id) }}" class="btn btn-warning mb-1" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            <a href="{{ route('customer_review_delete', $row->id) }}" class="btn btn-danger mb-1" onClick="return confirm('Are you sure you want to delete this review?');" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                         </td>
                                         
                                         <div class="modal fade" id="exampleModal{{ $i }}" tabindex="-1" aria-hidden="true">
