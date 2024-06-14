@@ -195,6 +195,8 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
 
     Route::get('/accommodation/completed-order-view', [AccommodationOrderController::class, 'completed_orders'])->name('accommodation_completed_order_view');
 
+    Route::get('/accommodation/declined-order-view', [AccommodationOrderController::class, 'declined_orders'])->name('accommodation_declined_order_view');
+
 });
 
 

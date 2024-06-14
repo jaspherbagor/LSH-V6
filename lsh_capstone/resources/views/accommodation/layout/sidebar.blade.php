@@ -21,7 +21,7 @@
 
             <li class="{{ Request::is('accommodation/pending-order-view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('accommodation_pending_order_view') }}"><i class="fa fa-clock-o"></i> <span>Pending Bookings</span></a></li>
 
-            <li class=""><a class="nav-link" href=""><i class="fa fa-times"></i> <span>Declined Bookings</span></a></li>
+            <li class="{{ Request::is('accommodation/declined-order-view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('accommodation_declined_order_view') }}"><i class="fa fa-times"></i> <span>Declined Bookings</span></a></li>
 
             <li class="">
                 <a class="nav-link" href=""><i class="fa fa-star"></i> <span>Reviews</span></a>
