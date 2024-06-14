@@ -27,6 +27,21 @@ class AccommodationOrderController extends Controller
     } 
 
 
+    public function pending_orders()
+    {
+       // Get the logged-in accommodation ID
+        $accommodation_id = Auth::guard('accommodation')->user()->id;
+
+        // Retrieve the room IDs belonging to this accommodation
+        $room_ids = Room::where('remark', 'active')->where('accommodation_id', $accommodation_id)->pluck('id');
+
+        // Retrieve the order details for these rooms
+        $pending_orders = OrderDetail::whereIn('room_id', $room_ids)->where('status', 'pending')->where('remark', 'active')->get();
+
+        return view('accommodation.pending_orders', compact('pending_orders'));
+    } 
+
+
 
 
 
