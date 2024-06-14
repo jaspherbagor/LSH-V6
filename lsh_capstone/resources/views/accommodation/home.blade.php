@@ -94,11 +94,11 @@
                                             <td>{{ $row->order_no }}</td>
                                             <td>{{ $row->payment_method }}</td>
                                             <td>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $check_date->checkin_date)->format('F d, Y') }} - {{ \Carbon\Carbon::createFromFormat('d/m/Y', $check_date->checkout_date)->format('F d, Y') }}</td>
-                                            <td>₱{{ number_format($row->paid_amount, 2) }}</td>
+                                            <td>₱{{ number_format($row->subtotal, 2) }}</td>
                                             <td class="pt_10 pb_10">
-                                                @if($row->status === 'Completed')
+                                                @if($row->status === 'completed')
                                                 <button class="btn btn-success">{{ $row->status }}</button>
-                                                @elseif($row->status === 'Pending')
+                                                @elseif($row->status === 'pending')
                                                 <button class="btn btn-danger">{{ $row->status }}</button>
                                                 @else
                                                 <button class="btn btn-dark">{{ $row->status }}</button>

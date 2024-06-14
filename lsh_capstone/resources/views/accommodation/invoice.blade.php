@@ -92,9 +92,11 @@
                             @php   $total = 0;   @endphp
                             @foreach($order_detail as $item)
                             @php
-                            $room_data = \App\Models\Room::where('id',$item->room_id)->first();
-                            $accommodation_data = \App\Models\Accommodation::where('id', $room_data->accommodation_id)->first();
-                            $accommodation_type_data = \App\Models\AccommodationType::where('id', $accommodation_data->accommodation_type_id)->first();
+                            // $room_data = \App\Models\Room::where('id',$item->room_id)->first();
+                            // $accommodation_data = \App\Models\Accommodation::where('id', $room_data->accommodation_id)->first();
+                            // $accommodation_type_data = \App\Models\AccommodationType::where('id', $accommodation_data->accommodation_type_id)->first();
+                            $room_data = \App\Models\Room::find($item->room_id);
+                            $accommodation_data = $room_data ? \App\Models\Accommodation::find($room_data->accommodation_id) : null;
                             @endphp
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
