@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2024 at 03:23 PM
+-- Generation Time: Jun 15, 2024 at 01:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `v5_lsh`
+-- Database: `v6_lsh`
 --
 
 -- --------------------------------------------------------
@@ -31,11 +31,14 @@ CREATE TABLE `accommodations` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `accommodation_type_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
-  `photo` text NOT NULL,
-  `address` text NOT NULL,
+  `password` text DEFAULT NULL,
+  `photo` text DEFAULT NULL,
+  `address` text DEFAULT NULL,
   `contact_number` text DEFAULT NULL,
   `contact_email` text DEFAULT NULL,
   `map` text DEFAULT NULL,
+  `status` text DEFAULT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -44,11 +47,12 @@ CREATE TABLE `accommodations` (
 -- Dumping data for table `accommodations`
 --
 
-INSERT INTO `accommodations` (`id`, `accommodation_type_id`, `name`, `photo`, `address`, `contact_number`, `contact_email`, `map`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Bayangan Hotel', '1712231749.jpg', 'Osukan, Zamboanga Del Norte, Philippines', '0977 829 8391', 'ilovebayangan2019@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11336.716057512067!2d122.5053524!3d8.0645048!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253c98221b67083%3A0xb2ef693fa07a146e!2sBAYANGAN%20HOTEL%20AND%20BEACH%20RESORT!5e1!3m2!1sen!2sph!4v1712231798704!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', '2024-04-03 01:14:59', '2024-04-20 21:18:46'),
-(3, 3, 'Abetom Apartment', '1712185727.jpg', 'Antonino, Labason, Zamboanga del Norte', '0945-347-9526', 'abetom_apartment09@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1450.5164855744738!2d122.51732479780912!3d8.066477018422786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253c908fffca009%3A0x8059d01c64128706!2sTmpla%20Cafe!5e1!3m2!1sen!2sph!4v1713174487084!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', '2024-04-03 15:08:47', '2024-04-15 01:48:34'),
-(4, 1, 'Casi Hotel', '1713096503.jpg', 'Padre Zamora St., Gil Sanchez, Labason, Zamboanga Del Norte, Labason, Philippines', '0939 254 2305', 'casihotel.official@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11336.51477239691!2d122.5257506!3d8.0716814!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253b74fbded0d71%3A0x4ccb873bb0b80a34!2sCASI%20Hotel!5e1!3m2!1sen!2sph!4v1712232319265!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', '2024-04-04 04:05:30', '2024-04-14 04:08:23'),
-(5, 2, 'Maravillas Boarding House', '1717654585.jpg', 'Gil Sanchez, Labason, Zamboanga del Norte', '097588345678', 'maravillasbh@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11603.954149660089!2d122.52188072092449!3d8.072666771283341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253b7fea373cb35%3A0x505c8b5cfad8c559!2sGil%20Sanchez%2C%20Zamboanga%20del%20Norte!5e1!3m2!1sen!2sph!4v1717654570813!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', '2024-06-05 22:16:25', '2024-06-05 22:16:25');
+INSERT INTO `accommodations` (`id`, `accommodation_type_id`, `name`, `password`, `photo`, `address`, `contact_number`, `contact_email`, `map`, `status`, `remark`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Bayangan Hotel', '$2y$10$5QC51cUEzI2bYB02Vl.qPuYj7gJC3PFIwoGh/231wNsu9Pp79yBha', '1718166286.jpg', 'Osukan, Zamboanga Del Norte, Philippines', '0977 829 8391', 'ilovebayangan2019@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11336.716057512067!2d122.5053524!3d8.0645048!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253c98221b67083%3A0xb2ef693fa07a146e!2sBAYANGAN%20HOTEL%20AND%20BEACH%20RESORT!5e1!3m2!1sen!2sph!4v1712231798704!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'approved', 'active', '2024-04-03 01:14:59', '2024-06-12 04:24:46'),
+(3, 3, 'Abetom Apartment', '$2y$10$5QC51cUEzI2bYB02Vl.qPuYj7gJC3PFIwoGh/231wNsu9Pp79yBha', '1712185727.jpg', 'Antonino, Labason, Zamboanga del Norte', '0945-347-9526', 'abetom_apartment09@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1450.5164855744738!2d122.51732479780912!3d8.066477018422786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253c908fffca009%3A0x8059d01c64128706!2sTmpla%20Cafe!5e1!3m2!1sen!2sph!4v1713174487084!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'approved', 'active', '2024-04-03 15:08:47', '2024-04-15 01:48:34'),
+(4, 1, 'Casi Hotel', '$2y$10$5QC51cUEzI2bYB02Vl.qPuYj7gJC3PFIwoGh/231wNsu9Pp79yBha', '1713096503.jpg', 'Padre Zamora St., Gil Sanchez, Labason, Zamboanga Del Norte, Labason, Philippines', '0939 254 2305', 'casihotel.official@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11336.51477239691!2d122.5257506!3d8.0716814!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253b74fbded0d71%3A0x4ccb873bb0b80a34!2sCASI%20Hotel!5e1!3m2!1sen!2sph!4v1712232319265!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'approved', 'active', '2024-04-04 04:05:30', '2024-04-14 04:08:23'),
+(5, 2, 'Maravillas Boarding House', '$2y$10$5QC51cUEzI2bYB02Vl.qPuYj7gJC3PFIwoGh/231wNsu9Pp79yBha', '1717654585.jpg', 'Gil Sanchez, Labason, Zamboanga del Norte', '097588345678', 'maravillasbh@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11603.954149660089!2d122.52188072092449!3d8.072666771283341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253b7fea373cb35%3A0x505c8b5cfad8c559!2sGil%20Sanchez%2C%20Zamboanga%20del%20Norte!5e1!3m2!1sen!2sph!4v1717654570813!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'approved', 'active', '2024-06-05 22:16:25', '2024-06-05 22:16:25'),
+(6, 2, 'Sample BH', NULL, '1717997366.jpg', 'Sample address', '46579456461', 'samplebh@gmail.com', 'iugiuooyfvkjnjfgtuiujfd', 'pending', 'active', '2024-06-10 05:29:26', '2024-06-10 05:46:52');
 
 -- --------------------------------------------------------
 
@@ -63,6 +67,7 @@ CREATE TABLE `accommodation_rates` (
   `rate` int(11) NOT NULL,
   `review_heading` text NOT NULL,
   `review_description` text NOT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -71,11 +76,11 @@ CREATE TABLE `accommodation_rates` (
 -- Dumping data for table `accommodation_rates`
 --
 
-INSERT INTO `accommodation_rates` (`id`, `customer_id`, `accommodation_id`, `rate`, `review_heading`, `review_description`, `created_at`, `updated_at`) VALUES
-(1, 2, 1, 5, 'Excellent! Amazing! Awesome!', 'I absolutely love my stay at Bayangan Hotel. The staffs are friendly and amazing. The room is clean, cool and I am very comfortable. Highly recommended!', '2024-04-16 21:57:30', '2024-04-23 20:07:02'),
-(5, 2, 4, 5, 'Exellent Accommodation!', 'I love my stay at Casi Hotel. The rooms were neat and clean. The staff were friendly and approachable. I feel relaxed and comfy.', '2024-04-19 01:46:28', '2024-04-19 01:46:28'),
-(6, 2, 3, 5, 'Very affordable place to stay!', 'It has been a premium experience staying at Abetom Apartment. I have no regret in booking this accommodation. It\'s very comfy and the room is neat and clean. I have a peace of mind. Highly recommended to everyone!', '2024-05-13 23:55:44', '2024-05-13 23:55:44'),
-(7, 3, 4, 5, 'I love Casi Hotel!', 'I love my stay at Casi Hotel. The room is neat and clean. Staffs are so friendly and approachable. I highly recommend this to anyone!', '2024-05-14 15:20:00', '2024-05-14 15:20:00');
+INSERT INTO `accommodation_rates` (`id`, `customer_id`, `accommodation_id`, `rate`, `review_heading`, `review_description`, `remark`, `created_at`, `updated_at`) VALUES
+(1, 2, 1, 5, 'Excellent! Amazing! Awesome!', 'I absolutely love my stay at Bayangan Hotel. The staffs are friendly and amazing. The room is clean, cool and I am very comfortable. Highly recommended!', 'active', '2024-04-16 21:57:30', '2024-06-14 13:33:43'),
+(5, 2, 4, 5, 'Exellent Accommodation!', 'I love my stay at Casi Hotel. The rooms were neat and clean. The staff were friendly and approachable. I feel relaxed and comfy.', 'active', '2024-04-19 01:46:28', '2024-04-19 01:46:28'),
+(6, 2, 3, 5, 'Very affordable place to stay!', 'It has been a premium experience staying at Abetom Apartment. I have no regret in booking this accommodation. It\'s very comfy and the room is neat and clean. I have a peace of mind. Highly recommended to everyone!', 'active', '2024-05-13 23:55:44', '2024-05-13 23:55:44'),
+(7, 3, 4, 5, 'I love Casi Hotel!', 'I love my stay at Casi Hotel. The room is neat and clean. Staffs are so friendly and approachable. I highly recommend this to anyone!', 'active', '2024-05-14 15:20:00', '2024-06-10 06:26:46');
 
 -- --------------------------------------------------------
 
@@ -87,6 +92,7 @@ CREATE TABLE `accommodation_types` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` text NOT NULL,
   `photo` text NOT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -95,10 +101,10 @@ CREATE TABLE `accommodation_types` (
 -- Dumping data for table `accommodation_types`
 --
 
-INSERT INTO `accommodation_types` (`id`, `name`, `photo`, `created_at`, `updated_at`) VALUES
-(1, 'Hotel', '1712214129.jpg', '2024-04-02 20:41:39', '2024-04-26 01:41:22'),
-(2, 'Boarding House', '1712214310.webp', '2024-04-02 20:42:12', '2024-04-03 23:05:10'),
-(3, 'Apartment', '1712214218.jpg', '2024-04-02 20:42:45', '2024-04-03 23:03:38');
+INSERT INTO `accommodation_types` (`id`, `name`, `photo`, `remark`, `created_at`, `updated_at`) VALUES
+(1, 'Hotel', '1712214129.jpg', 'active', '2024-04-02 20:41:39', '2024-04-26 01:41:22'),
+(2, 'Boarding House', '1712214310.webp', 'active', '2024-04-02 20:42:12', '2024-04-03 23:05:10'),
+(3, 'Apartment', '1717997244.jpg', 'active', '2024-04-02 20:42:45', '2024-06-10 05:27:24');
 
 -- --------------------------------------------------------
 
@@ -133,6 +139,7 @@ INSERT INTO `admins` (`id`, `name`, `email`, `password`, `photo`, `token`, `crea
 CREATE TABLE `amenities` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` text NOT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -141,30 +148,31 @@ CREATE TABLE `amenities` (
 -- Dumping data for table `amenities`
 --
 
-INSERT INTO `amenities` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'Toiletries (e.g. Shampoo, lotion, etc.)', '2024-04-03 15:33:53', '2024-04-03 15:33:53'),
-(2, 'Personal care (combs, shaving cream, razor, shower cap, hair dryer)', '2024-04-03 15:34:08', '2024-04-03 15:34:08'),
-(3, 'Coffee Kit (maker, coffee and creamer)', '2024-04-03 15:34:17', '2024-04-03 15:34:17'),
-(4, 'Tissue box', '2024-04-03 15:34:25', '2024-04-03 15:34:25'),
-(5, 'Bathrobes and slippers', '2024-04-03 15:34:34', '2024-04-03 15:34:34'),
-(6, 'Free breakfast', '2024-04-03 15:34:49', '2024-04-03 15:34:49'),
-(7, 'Options for pillows', '2024-04-03 15:35:02', '2024-04-03 15:35:02'),
-(8, 'Free WiFi internet access', '2024-04-03 15:35:14', '2024-04-03 15:35:14'),
-(9, 'Free parking', '2024-04-03 15:35:25', '2024-04-03 15:35:25'),
-(10, 'Premium coffee', '2024-04-03 15:35:36', '2024-04-03 15:35:36'),
-(11, 'Gym or fitness center', '2024-04-03 15:35:47', '2024-04-03 15:35:47'),
-(12, 'Kid Equipment', '2024-04-03 15:36:34', '2024-04-03 15:36:34'),
-(13, 'House Car Service', '2024-04-03 15:36:58', '2024-04-03 15:36:58'),
-(14, 'In-Room Cocktail Station', '2024-04-03 15:37:18', '2024-04-03 15:37:18'),
-(15, 'Musical Instruments', '2024-04-03 15:37:39', '2024-04-03 15:37:39'),
-(16, 'Secured parking garages/assigned parking', '2024-04-03 15:38:43', '2024-04-03 15:38:43'),
-(17, 'Package rooms and package lockers', '2024-04-03 15:38:57', '2024-04-03 15:38:57'),
-(18, 'Online rent payment and maintenance requests', '2024-04-03 15:39:06', '2024-04-03 15:39:06'),
-(19, 'Dishwashers', '2024-04-03 15:40:15', '2024-04-03 15:40:15'),
-(20, 'Communal kitchen', '2024-04-03 15:41:53', '2024-04-15 01:36:56'),
-(21, 'Laundry Area', '2024-04-03 15:42:03', '2024-04-03 15:44:09'),
-(22, 'Parking space', '2024-04-03 15:42:15', '2024-04-15 01:37:10'),
-(24, 'Housekeeping', '2024-04-03 15:43:44', '2024-04-03 15:43:44');
+INSERT INTO `amenities` (`id`, `name`, `remark`, `created_at`, `updated_at`) VALUES
+(1, 'Toiletries (e.g. Shampoo, lotion, etc.)', 'active', '2024-04-03 15:33:53', '2024-04-03 15:33:53'),
+(2, 'Personal care (combs, shaving cream, razor, shower cap, hair dryer)', 'active', '2024-04-03 15:34:08', '2024-04-03 15:34:08'),
+(3, 'Coffee Kit (maker, coffee and creamer)', 'active', '2024-04-03 15:34:17', '2024-04-03 15:34:17'),
+(4, 'Tissue box', 'active', '2024-04-03 15:34:25', '2024-04-03 15:34:25'),
+(5, 'Bathrobes and slippers', 'active', '2024-04-03 15:34:34', '2024-04-03 15:34:34'),
+(6, 'Free breakfast', 'active', '2024-04-03 15:34:49', '2024-04-03 15:34:49'),
+(7, 'Options for pillows', 'active', '2024-04-03 15:35:02', '2024-04-03 15:35:02'),
+(8, 'Free WiFi internet access', 'active', '2024-04-03 15:35:14', '2024-04-03 15:35:14'),
+(9, 'Free parking', 'active', '2024-04-03 15:35:25', '2024-04-03 15:35:25'),
+(10, 'Premium coffee', 'active', '2024-04-03 15:35:36', '2024-04-03 15:35:36'),
+(11, 'Gym or fitness center', 'active', '2024-04-03 15:35:47', '2024-04-03 15:35:47'),
+(12, 'Kid Equipment', 'active', '2024-04-03 15:36:34', '2024-04-03 15:36:34'),
+(13, 'House Car Service', 'active', '2024-04-03 15:36:58', '2024-04-03 15:36:58'),
+(14, 'In-Room Cocktail Station', 'active', '2024-04-03 15:37:18', '2024-04-03 15:37:18'),
+(15, 'Musical Instruments', 'active', '2024-04-03 15:37:39', '2024-04-03 15:37:39'),
+(16, 'Secured parking garages/assigned parking', 'active', '2024-04-03 15:38:43', '2024-04-03 15:38:43'),
+(17, 'Package rooms and package lockers', 'active', '2024-04-03 15:38:57', '2024-04-03 15:38:57'),
+(18, 'Online rent payment and maintenance requests', 'active', '2024-04-03 15:39:06', '2024-06-10 05:14:51'),
+(19, 'Dishwashers', 'active', '2024-04-03 15:40:15', '2024-04-03 15:40:15'),
+(20, 'Communal kitchen', 'active', '2024-04-03 15:41:53', '2024-04-15 01:36:56'),
+(21, 'Laundry Area', 'active', '2024-04-03 15:42:03', '2024-04-03 15:44:09'),
+(22, 'Parking space', 'active', '2024-04-03 15:42:15', '2024-04-15 01:37:10'),
+(24, 'Housekeeping', 'active', '2024-04-03 15:43:44', '2024-04-03 15:43:44'),
+(25, 'Sample Amenity', 'deleted', '2024-06-10 05:16:24', '2024-06-10 05:16:34');
 
 -- --------------------------------------------------------
 
@@ -324,6 +332,7 @@ CREATE TABLE `customers` (
   `photo` text DEFAULT NULL,
   `token` text DEFAULT NULL,
   `status` int(11) NOT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -332,9 +341,9 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `name`, `email`, `password`, `phone`, `country`, `address`, `province`, `city`, `zip`, `photo`, `token`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'Momar Kiram', 'momar@gmail.com', '$2y$10$6PFkgZI0ZKyW9R51hhQXh.yJ9z8mBqFWDlt5V5XY7qKlzIzOHUWea', '09123456789', 'Philippines', 'Antonino', 'Zamboanga del Norte', 'Labason', '7117', '1713523556.jpg', 'edc252625cc64b8faca465ac422aff2bf2ed6982c359ba757597af6d3605f2d5', 1, '2024-04-06 02:11:39', '2024-05-10 17:15:25'),
-(3, 'Jaspher Bagor', 'jaspherbagor0357@gmail.com', '$2y$10$uBgGJ2lBAJ9gCYBtNDqXN.myL/VrwrqVJeXunCZy8gtmpn5j83lgC', '09169675327', 'Philippines', 'Sector 6, Kipit', 'Zamboanga del Norte', 'Labason', '7117', '1715728183.png', '', 1, '2024-05-14 15:07:09', '2024-06-06 19:22:39');
+INSERT INTO `customers` (`id`, `name`, `email`, `password`, `phone`, `country`, `address`, `province`, `city`, `zip`, `photo`, `token`, `status`, `remark`, `created_at`, `updated_at`) VALUES
+(2, 'Momar Kiram', 'momar@gmail.com', '$2y$10$6PFkgZI0ZKyW9R51hhQXh.yJ9z8mBqFWDlt5V5XY7qKlzIzOHUWea', '09123456789', 'Philippines', 'Antonino', 'Zamboanga del Norte', 'Labason', '7117', '1713523556.jpg', 'edc252625cc64b8faca465ac422aff2bf2ed6982c359ba757597af6d3605f2d5', 1, 'active', '2024-04-06 02:11:39', '2024-05-10 17:15:25'),
+(3, 'Jaspher Bagor', 'jaspherbagor0357@gmail.com', '$2y$10$uBgGJ2lBAJ9gCYBtNDqXN.myL/VrwrqVJeXunCZy8gtmpn5j83lgC', '09169675327', 'Philippines', 'Sector 6, Kipit', 'Zamboanga del Norte', 'Labason', '7117', '1715728183.png', '', 1, 'active', '2024-05-14 15:07:09', '2024-06-06 19:22:39');
 
 -- --------------------------------------------------------
 
@@ -362,6 +371,7 @@ CREATE TABLE `faqs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `question` text NOT NULL,
   `answer` text NOT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -370,8 +380,9 @@ CREATE TABLE `faqs` (
 -- Dumping data for table `faqs`
 --
 
-INSERT INTO `faqs` (`id`, `question`, `answer`, `created_at`, `updated_at`) VALUES
-(1, 'What is your website all about?', 'Labason Safe Haven is a website that lets you book hotel rooms, boarding house or apartment in an effortless way.', '2024-04-10 04:10:34', '2024-04-10 04:10:34');
+INSERT INTO `faqs` (`id`, `question`, `answer`, `remark`, `created_at`, `updated_at`) VALUES
+(1, 'What is your website all about?', 'Labason Safe Haven is a website that lets you book hotel rooms, boarding house or apartment in an effortless way.', 'active', '2024-04-10 04:10:34', '2024-06-10 07:02:53'),
+(2, 'sample q', '<p>9uyioyutgh</p>', 'deleted', '2024-06-10 07:03:28', '2024-06-10 07:03:34');
 
 -- --------------------------------------------------------
 
@@ -384,6 +395,7 @@ CREATE TABLE `features` (
   `icon` text NOT NULL,
   `heading` text NOT NULL,
   `text` text DEFAULT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -392,11 +404,11 @@ CREATE TABLE `features` (
 -- Dumping data for table `features`
 --
 
-INSERT INTO `features` (`id`, `icon`, `heading`, `text`, `created_at`, `updated_at`) VALUES
-(1, 'fa fa-bell', 'Personalized Hospitality', 'Elevate your comfort with our personalized service designed for your satisfaction', '2024-04-03 21:01:02', '2024-04-03 21:04:15'),
-(2, 'fa fa-check', 'Instant Confirmation', 'Experience peace of mind with quick confirmations for your bookings', '2024-04-03 21:05:15', '2024-04-03 21:05:15'),
-(3, 'fa fa-lock', 'Secure Payment', 'Ensure safe and stress-free stays with our secure payment system', '2024-04-03 21:06:33', '2024-04-03 21:06:33'),
-(4, 'fa fa-tag', 'Best Price Guarantee', 'Book confidently knowing you\'ll always get the best deal with us', '2024-04-03 21:07:19', '2024-04-03 21:07:19');
+INSERT INTO `features` (`id`, `icon`, `heading`, `text`, `remark`, `created_at`, `updated_at`) VALUES
+(1, 'fa fa-bell', 'Personalized Hospitality', 'Elevate your comfort with our personalized service designed for your satisfaction', 'active', '2024-04-03 21:01:02', '2024-04-03 21:04:15'),
+(2, 'fa fa-check', 'Instant Confirmation', 'Experience peace of mind with quick confirmations for your bookings', 'active', '2024-04-03 21:05:15', '2024-04-03 21:05:15'),
+(3, 'fa fa-lock', 'Secure Payment', 'Ensure safe and stress-free stays with our secure payment system', 'active', '2024-04-03 21:06:33', '2024-04-03 21:06:33'),
+(4, 'fa fa-tag', 'Best Price Guarantee', 'Book confidently knowing you\'ll always get the best deal with us', 'active', '2024-04-03 21:07:19', '2024-04-03 21:07:19');
 
 -- --------------------------------------------------------
 
@@ -458,6 +470,7 @@ CREATE TABLE `orders` (
   `paid_amount` text NOT NULL,
   `booking_date` text NOT NULL,
   `status` text NOT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -466,22 +479,22 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `customer_id`, `order_no`, `transaction_id`, `payment_method`, `card_last_digit`, `paid_amount`, `booking_date`, `status`, `created_at`, `updated_at`) VALUES
-(1, 2, '1713171792', 'txn_3P5lROFsO12X9vvH1I1itpFr', 'Stripe', '4242', '900', '15/04/2024', 'Completed', '2024-04-15 01:03:12', '2024-04-15 01:03:12'),
-(2, 2, '1713416330', 'txn_3P6n3ZFsO12X9vvH1l7F1BRY', 'Stripe', '4242', '4580', '18/04/2024', 'Completed', '2024-04-17 20:58:50', '2024-04-17 20:58:50'),
-(3, 2, '1713417487', 'txn_3P6nMIFsO12X9vvH1jTlAGgc', 'Stripe', '4242', '2400', '18/04/2024', 'Completed', '2024-04-17 21:18:07', '2024-04-17 21:18:07'),
-(4, 2, '1713418266', 'txn_3P6nYrFsO12X9vvH15FyQhp0', 'Stripe', '4242', '1400', '18/04/2024', 'Completed', '2024-04-17 21:31:06', '2024-04-17 21:31:06'),
-(5, 2, '1713955856', 'txn_3P93PXFsO12X9vvH0Cj6r9Qt', 'Stripe', '4242', '1880', '24/04/2024', 'Completed', '2024-04-24 02:50:56', '2024-04-24 02:50:56'),
-(6, 2, '1715409446', 'jgfhfdsdsadsdfghj', 'Gcash', '', '1050', '11/05/2024', 'Completed', '2024-05-10 22:37:26', '2024-05-12 05:35:31'),
-(7, 2, '1715411114', '552345768789853456789', 'Gcash', '', '480', '11/05/2024', 'Pending', '2024-05-10 23:05:14', '2024-05-10 23:05:14'),
-(8, 2, '1715411744', '965434567890-0876', 'Gcash', '', '480', '11/05/2024', 'Pending', '2024-05-10 23:15:44', '2024-05-10 23:15:44'),
-(9, 2, '1715411883', '984342134542115689', 'Maya', '', '720', '11/05/2024', 'Pending', '2024-05-10 23:18:04', '2024-05-10 23:18:04'),
-(10, 2, '1715412096', '5457--07643114567', 'Maya', '', '720', '11/05/2024', 'Completed', '2024-05-10 23:21:36', '2024-05-12 19:30:04'),
-(11, 2, '1715523168', 'txn_3PFd8rFsO12X9vvH0s9xROyZ', 'Stripe', '4242', '350', '12/05/2024', 'Completed', '2024-05-12 06:12:48', '2024-05-12 06:12:48'),
-(12, 2, '1715568202', 'uihyfgyuitedturseuyihyiouuytuut5ru', 'Gcash', '', '1350', '13/05/2024', 'Completed', '2024-05-12 18:43:22', '2024-05-28 21:55:59'),
-(13, 3, '1715728345', '7536595450942323', 'Gcash', '', '2840', '14/05/2024', 'Completed', '2024-05-14 15:12:25', '2024-05-14 15:16:26'),
-(14, 3, '1715728484', '75356724524344', 'Maya', '', '5400', '14/05/2024', 'Completed', '2024-05-14 15:14:44', '2024-05-14 15:17:00'),
-(15, 3, '1717731000', '098798775764564', 'Maya', '', '600', '07/06/2024', 'Completed', '2024-06-06 19:30:00', '2024-06-06 19:32:51');
+INSERT INTO `orders` (`id`, `customer_id`, `order_no`, `transaction_id`, `payment_method`, `card_last_digit`, `paid_amount`, `booking_date`, `status`, `remark`, `created_at`, `updated_at`) VALUES
+(1, 2, '1713171792', 'txn_3P5lROFsO12X9vvH1I1itpFr', 'Stripe', '4242', '900', '15/04/2024', 'Completed', 'active', '2024-04-15 01:03:12', '2024-04-15 01:03:12'),
+(2, 2, '1713416330', 'txn_3P6n3ZFsO12X9vvH1l7F1BRY', 'Stripe', '4242', '4580', '18/04/2024', 'Completed', 'active', '2024-04-17 20:58:50', '2024-04-17 20:58:50'),
+(3, 2, '1713417487', 'txn_3P6nMIFsO12X9vvH1jTlAGgc', 'Stripe', '4242', '2400', '18/04/2024', 'Completed', 'active', '2024-04-17 21:18:07', '2024-04-17 21:18:07'),
+(4, 2, '1713418266', 'txn_3P6nYrFsO12X9vvH15FyQhp0', 'Stripe', '4242', '1400', '18/04/2024', 'Completed', 'active', '2024-04-17 21:31:06', '2024-04-17 21:31:06'),
+(5, 2, '1713955856', 'txn_3P93PXFsO12X9vvH0Cj6r9Qt', 'Stripe', '4242', '1880', '24/04/2024', 'Completed', 'active', '2024-04-24 02:50:56', '2024-04-24 02:50:56'),
+(6, 2, '1715409446', 'jgfhfdsdsadsdfghj', 'Gcash', '', '1050', '11/05/2024', 'Completed', 'active', '2024-05-10 22:37:26', '2024-05-12 05:35:31'),
+(7, 2, '1715411114', '552345768789853456789', 'Gcash', '', '480', '11/05/2024', 'Pending', 'active', '2024-05-10 23:05:14', '2024-05-10 23:05:14'),
+(8, 2, '1715411744', '965434567890-0876', 'Gcash', '', '480', '11/05/2024', 'Pending', 'active', '2024-05-10 23:15:44', '2024-06-10 06:18:36'),
+(9, 2, '1715411883', '984342134542115689', 'Maya', '', '720', '11/05/2024', 'Pending', 'active', '2024-05-10 23:18:04', '2024-06-10 06:16:13'),
+(10, 2, '1715412096', '5457--07643114567', 'Maya', '', '720', '11/05/2024', 'Completed', 'active', '2024-05-10 23:21:36', '2024-05-12 19:30:04'),
+(11, 2, '1715523168', 'txn_3PFd8rFsO12X9vvH0s9xROyZ', 'Stripe', '4242', '350', '12/05/2024', 'Completed', 'active', '2024-05-12 06:12:48', '2024-05-12 06:12:48'),
+(12, 2, '1715568202', 'uihyfgyuitedturseuyihyiouuytuut5ru', 'Gcash', '', '1350', '13/05/2024', 'Declined', 'active', '2024-05-12 18:43:22', '2024-05-28 21:55:59'),
+(13, 3, '1715728345', '7536595450942323', 'Gcash', '', '2840', '14/05/2024', 'Completed', 'active', '2024-05-14 15:12:25', '2024-05-14 15:16:26'),
+(14, 3, '1715728484', '75356724524344', 'Maya', '', '5400', '14/05/2024', 'Completed', 'active', '2024-05-14 15:14:44', '2024-05-14 15:17:00'),
+(15, 3, '1717731000', '098798775764564', 'Maya', '', '600', '07/06/2024', 'Completed', 'active', '2024-06-06 19:30:00', '2024-06-06 19:32:51');
 
 -- --------------------------------------------------------
 
@@ -499,6 +512,8 @@ CREATE TABLE `order_details` (
   `adult` text NOT NULL,
   `children` text NOT NULL,
   `subtotal` text NOT NULL,
+  `status` text NOT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -507,24 +522,24 @@ CREATE TABLE `order_details` (
 -- Dumping data for table `order_details`
 --
 
-INSERT INTO `order_details` (`id`, `order_id`, `room_id`, `order_no`, `checkin_date`, `checkout_date`, `adult`, `children`, `subtotal`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1713171792, '17/04/2024', '19/04/2024', '2', '0', '900', '2024-04-15 01:03:12', '2024-04-15 01:03:12'),
-(2, 2, 3, 1713416330, '18/04/2024', '27/04/2024', '2', '0', '1080', '2024-04-17 20:58:50', '2024-04-17 20:58:50'),
-(3, 2, 2, 1713416330, '20/04/2024', '30/04/2024', '2', '0', '3500', '2024-04-17 20:58:50', '2024-04-17 20:58:50'),
-(4, 3, 3, 1713417487, '27/04/2024', '17/05/2024', '2', '0', '2400', '2024-04-17 21:18:07', '2024-04-17 21:18:07'),
-(5, 4, 2, 1713418266, '26/04/2024', '30/04/2024', '1', '0', '1400', '2024-04-17 21:31:06', '2024-04-17 21:31:06'),
-(6, 5, 2, 1713955856, '27/05/2024', '31/05/2024', '2', '0', '1400', '2024-04-24 02:50:56', '2024-04-24 02:50:56'),
-(7, 5, 3, 1713955856, '27/05/2024', '31/05/2024', '2', '0', '480', '2024-04-24 02:50:56', '2024-04-24 02:50:56'),
-(8, 6, 2, 1715409446, '19/06/2024', '22/06/2024', '2', '0', '1050', '2024-05-10 22:37:26', '2024-05-10 22:37:26'),
-(9, 7, 3, 1715411114, '17/06/2024', '21/06/2024', '3', '0', '480', '2024-05-10 23:05:14', '2024-05-10 23:05:14'),
-(10, 8, 3, 1715411744, '01/07/2024', '05/07/2024', '2', '0', '480', '2024-05-10 23:15:44', '2024-05-10 23:15:44'),
-(11, 10, 3, 1715412096, '07/07/2024', '13/07/2024', '2', '0', '720', '2024-05-10 23:21:36', '2024-05-10 23:21:36'),
-(12, 11, 2, 1715523168, '24/06/2024', '25/06/2024', '2', '0', '350', '2024-05-12 06:12:48', '2024-05-12 06:12:48'),
-(13, 12, 1, 1715568202, '17/06/2024', '20/06/2024', '2', '0', '1350', '2024-05-12 18:43:22', '2024-05-12 18:43:22'),
-(14, 13, 2, 1715728345, '17/06/2024', '21/06/2024', '2', '0', '1400', '2024-05-14 15:12:25', '2024-05-14 15:12:25'),
-(15, 13, 3, 1715728345, '15/07/2024', '27/07/2024', '2', '0', '1440', '2024-05-14 15:12:25', '2024-05-14 15:12:25'),
-(16, 14, 1, 1715728484, '17/06/2024', '29/06/2024', '2', '0', '5400', '2024-05-14 15:14:44', '2024-05-14 15:14:44'),
-(17, 15, 3, 1717731000, '19/08/2024', '24/08/2024', '2', '0', '600', '2024-06-06 19:30:00', '2024-06-06 19:30:00');
+INSERT INTO `order_details` (`id`, `order_id`, `room_id`, `order_no`, `checkin_date`, `checkout_date`, `adult`, `children`, `subtotal`, `status`, `remark`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 1713171792, '17/04/2024', '19/04/2024', '2', '0', '900', 'pending', 'active', '2024-04-15 01:03:12', '2024-04-15 01:03:12'),
+(2, 2, 3, 1713416330, '18/04/2024', '27/04/2024', '2', '0', '1080', 'completed', 'active', '2024-04-17 20:58:50', '2024-04-17 20:58:50'),
+(3, 2, 2, 1713416330, '20/04/2024', '30/04/2024', '2', '0', '3500', 'completed', 'active', '2024-04-17 20:58:50', '2024-04-17 20:58:50'),
+(4, 3, 3, 1713417487, '27/04/2024', '17/05/2024', '2', '0', '2400', 'completed', 'active', '2024-04-17 21:18:07', '2024-04-17 21:18:07'),
+(5, 4, 2, 1713418266, '26/04/2024', '30/04/2024', '1', '0', '1400', 'completed', 'active', '2024-04-17 21:31:06', '2024-04-17 21:31:06'),
+(6, 5, 2, 1713955856, '27/05/2024', '31/05/2024', '2', '0', '1400', 'completed', 'active', '2024-04-24 02:50:56', '2024-04-24 02:50:56'),
+(7, 5, 3, 1713955856, '27/05/2024', '31/05/2024', '2', '0', '480', 'completed', 'active', '2024-04-24 02:50:56', '2024-04-24 02:50:56'),
+(8, 6, 2, 1715409446, '19/06/2024', '22/06/2024', '2', '0', '1050', 'completed', 'active', '2024-05-10 22:37:26', '2024-05-10 22:37:26'),
+(9, 7, 3, 1715411114, '17/06/2024', '21/06/2024', '3', '0', '480', 'completed', 'active', '2024-05-10 23:05:14', '2024-05-10 23:05:14'),
+(10, 8, 3, 1715411744, '01/07/2024', '05/07/2024', '2', '0', '480', 'completed', 'deleted', '2024-05-10 23:15:44', '2024-06-10 06:18:36'),
+(11, 10, 3, 1715412096, '07/07/2024', '13/07/2024', '2', '0', '720', 'completed', 'active', '2024-05-10 23:21:36', '2024-05-10 23:21:36'),
+(12, 11, 2, 1715523168, '24/06/2024', '25/06/2024', '2', '0', '350', 'completed', 'active', '2024-05-12 06:12:48', '2024-05-12 06:12:48'),
+(13, 12, 1, 1715568202, '17/06/2024', '20/06/2024', '2', '0', '1350', 'declined', 'active', '2024-05-12 18:43:22', '2024-05-12 18:43:22'),
+(14, 13, 2, 1715728345, '17/06/2024', '21/06/2024', '2', '0', '1400', 'completed', 'active', '2024-05-14 15:12:25', '2024-05-14 15:12:25'),
+(15, 13, 3, 1715728345, '15/07/2024', '27/07/2024', '2', '0', '1440', 'completed', 'active', '2024-05-14 15:12:25', '2024-05-14 15:12:25'),
+(16, 14, 1, 1715728484, '17/06/2024', '29/06/2024', '2', '0', '5400', 'completed', 'active', '2024-05-14 15:14:44', '2024-05-14 15:14:44'),
+(17, 15, 3, 1717731000, '19/08/2024', '24/08/2024', '2', '0', '600', 'completed', 'active', '2024-06-06 19:30:00', '2024-06-06 19:30:00');
 
 -- --------------------------------------------------------
 
@@ -595,6 +610,7 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `accommodation_id` bigint(11) UNSIGNED NOT NULL,
   `gcash_qr` varchar(255) NOT NULL,
   `gcash_name` varchar(255) NOT NULL,
   `gcash_number` varchar(255) NOT NULL,
@@ -609,8 +625,8 @@ CREATE TABLE `payments` (
 -- Dumping data for table `payments`
 --
 
-INSERT INTO `payments` (`id`, `gcash_qr`, `gcash_name`, `gcash_number`, `maya_qr`, `maya_name`, `maya_number`, `created_at`, `updated_at`) VALUES
-(1, '1715590306.png', 'Anselmo Lerios', '0936-684-0915', 'maya-qr.jpg', 'Momar Kiram', '0970-077-3326', NULL, '2024-05-13 00:51:46');
+INSERT INTO `payments` (`id`, `accommodation_id`, `gcash_qr`, `gcash_name`, `gcash_number`, `maya_qr`, `maya_name`, `maya_number`, `created_at`, `updated_at`) VALUES
+(1, 0, '1715590306.png', 'Anselmo Lerios', '0936-684-0915', 'maya-qr.jpg', 'Momar Kiram', '0970-077-3326', NULL, '2024-05-13 00:51:46');
 
 -- --------------------------------------------------------
 
@@ -640,6 +656,7 @@ CREATE TABLE `photos` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `photo` text NOT NULL,
   `caption` text DEFAULT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -648,12 +665,12 @@ CREATE TABLE `photos` (
 -- Dumping data for table `photos`
 --
 
-INSERT INTO `photos` (`id`, `photo`, `caption`, `created_at`, `updated_at`) VALUES
-(1, '1712314887.webp', 'Boarding House', '2024-04-05 03:01:27', '2024-04-05 03:01:27'),
-(2, '1712314906.jpg', 'Apartment', '2024-04-05 03:01:46', '2024-04-05 03:01:46'),
-(3, '1712314940.jpg', 'Bayangan Hotel', '2024-04-05 03:02:20', '2024-04-05 03:03:05'),
-(4, '1712315028.jpg', 'Luxurious Room', '2024-04-05 03:03:48', '2024-04-05 03:03:48'),
-(5, '1712316313.webp', 'Boarding House', '2024-04-05 03:25:13', '2024-04-05 03:25:13');
+INSERT INTO `photos` (`id`, `photo`, `caption`, `remark`, `created_at`, `updated_at`) VALUES
+(1, '1712314887.webp', 'Boarding House', 'active', '2024-04-05 03:01:27', '2024-04-05 03:01:27'),
+(2, '1712314906.jpg', 'Apartment', 'active', '2024-04-05 03:01:46', '2024-04-05 03:01:46'),
+(3, '1712314940.jpg', 'Bayangan Hotel', 'active', '2024-04-05 03:02:20', '2024-04-05 03:03:05'),
+(4, '1712315028.jpg', 'Luxurious Room', 'active', '2024-04-05 03:03:48', '2024-04-05 03:03:48'),
+(5, '1712316313.webp', 'Boarding House', 'active', '2024-04-05 03:25:13', '2024-04-05 03:25:13');
 
 -- --------------------------------------------------------
 
@@ -668,6 +685,7 @@ CREATE TABLE `posts` (
   `short_content` text NOT NULL,
   `content` text NOT NULL,
   `total_view` int(11) NOT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -676,10 +694,10 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `photo`, `heading`, `short_content`, `content`, `total_view`, `created_at`, `updated_at`) VALUES
-(1, '1712208486.jpg', 'Essential Travel Packing Tips: Pack Smarter, Travel Lighter: Your Guide to Stress-Free Packing', 'Discover top tips and tricks to pack efficiently for your next adventure and travel stress-free.', '<p>Packing efficiently for a trip can be a daunting task, but with the right strategies, you can streamline the process and ensure you have everything you need while traveling light. In this article, we\'ll explore essential travel packing tips to help you pack smarter and travel lighter on your next adventure.</p><p><b>1. Make a Packing List:</b>\r\n<br class=\"Apple-interchange-newline\"></p><p>Before you start packing, make a list of essential items you\'ll need for your trip. This will help you stay organized and avoid forgetting important items. Divide your list into categories such as clothing, toiletries, electronics, and documents to ensure you don\'t overlook anything.</p><p><b>2. Choose Versatile Clothing:</b></p><p>When selecting clothing for your trip, opt for versatile pieces that can be mixed and matched to create multiple outfits. Choose neutral colors and fabrics that are lightweight, breathable, and wrinkle-resistant. Consider the climate and activities you\'ll be participating in to determine the appropriate clothing items to pack.</p><p><b>3. Roll Your Clothes:</b></p><p>Maximize space in your suitcase by rolling your clothes instead of folding them. Rolling your clothes not only saves space but also helps prevent wrinkles and creases. Start with heavier items like jeans and sweaters at the bottom of your suitcase and roll lighter items like t-shirts and underwear on top.</p><p><b>4. Use Packing Cubes:</b></p><p>Invest in packing cubes to keep your clothing and accessories organized and easy to find. Packing cubes come in various sizes and colors and are designed to fit neatly inside your suitcase. Use different cubes for different types of clothing or organize them by outfit to make unpacking a breeze.</p><p><b>5. Pack Light:</b></p><p>When it comes to packing, less is more. Try to pack only the essentials and leave behind items you can live without. Consider your destination and the amenities available, such as laundry facilities, to determine how many clothing items you\'ll need. Remember, you can always buy things you need while traveling.</p><p><b>6. Layer Your Clothing:</b></p><p>Layering is key to staying comfortable and adapting to changing weather conditions while traveling. Pack lightweight layers that can be easily added or removed as needed, such as t-shirts, sweaters, and jackets. Choose fabrics that are moisture-wicking and quick-drying for maximum versatility.</p><p><b>7. Pack Multi-Purpose Items:</b></p><p>Save space in your suitcase by packing multi-purpose items that serve multiple functions. For example, a sarong can double as a beach towel, a picnic blanket, or a scarf, while a lightweight scarf can be used as a wrap, a headscarf, or a makeshift bag.</p><p><b>8. Minimize Toiletries:</b></p><p>Pack travel-sized toiletries to save space in your luggage and comply with TSA regulations. Look for mini versions of your favorite products or invest in reusable travel containers to transfer your toiletries into. Consider purchasing toiletries like shampoo, conditioner, and sunscreen at your destination to save space and weight in your luggage.</p><p><b>9. Leave Room for Souvenirs:</b></p><p>Leave some empty space in your suitcase for souvenirs and gifts you may acquire during your trip. Consider packing a collapsible bag or duffel for extra storage or purchasing a lightweight suitcase with expandable compartments. Remember to check baggage allowances and weight restrictions for both outbound and return flights to avoid excess baggage fees.</p><p><b>10. Pack Essential Documents:</b></p><p>Finally, don\'t forget to pack essential documents such as your passport, visa, travel insurance, and itinerary. Keep these documents organized and easily accessible in a waterproof travel wallet or pouch. Consider making photocopies or digital scans of important documents and storing them securely online or in a separate location in case of loss or theft.</p><p>By following these packing tips, you can pack smarter, travel lighter, and enjoy a stress-free journey to your destination. Bon voyage!</p>', 17, '2024-04-03 21:28:06', '2024-06-05 22:13:22'),
-(2, '1712215345.jpg', 'Top 10 Must-Have Travel Accessories: Essential Gear for Your Journey', 'Explore essential travel accessories that can make your journey more comfortable and enjoyable.', '<p>When preparing for a trip, having the right travel accessories can make all the difference in enhancing your travel experience. In this article, we\'ll explore the top 10 must-have travel accessories that you should consider packing for your next adventure.</p><p><b>1. Travel Pillow:</b></p><p>A comfortable travel pillow can provide much-needed support and help you get some rest during long flights or bus rides.</p><p><b>2. Portable Charger:</b></p><p>Keep your devices powered up on the go with a portable charger. This handy accessory ensures you never run out of battery while traveling.</p><p><b>3. Travel Adapter:</b></p><p>A universal travel adapter allows you to charge your devices in any country, making it essential for international travel.</p><p><b>4. Noise-Canceling Headphones:</b></p><p>Block out unwanted noise and enjoy your favorite music or podcasts with noise-canceling headphones. Perfect for long flights or noisy environments.</p><p><b>5. Travel Wallet:</b></p><p>Keep your passport, boarding passes, and important documents organized and secure with a dedicated travel wallet.</p><p><b>6. Reusable Water Bottle:</b></p><p>Stay hydrated while traveling with a reusable water bottle. Many airports and tourist attractions have water refill stations, allowing you to avoid single-use plastic bottles.</p><p><b>7. Packing Cubes:</b></p><p>Keep your clothing and accessories organized and easy to find with packing cubes. These handy organizers make packing and unpacking a breeze.</p><p><b>8. Lightweight Backpack:</b></p><p>A lightweight backpack is perfect for day trips and excursions, allowing you to carry your essentials comfortably while exploring.</p><p><b>9. Travel-Sized Toiletries:</b></p><p>Pack travel-sized toiletries to save space in your luggage and comply with TSA regulations. Look for mini versions of your favorite products or invest in reusable travel containers.</p><p><b>10. Luggage Locks:</b></p><p>Keep your belongings safe and secure with luggage locks. Choose TSA-approved locks for hassle-free security checks at airports.</p><p>By packing these essential travel accessories, you can ensure you\'re prepared for any adventure and make the most of your travel experience.</p>', 28, '2024-04-03 22:37:04', '2024-05-17 02:05:57'),
-(3, '1712213126.jpg', 'Global Gastronomy: 5 Culinary Adventures for Solo Foodies: Savor the World\'s Flavors', 'Dive into a world of flavors with these 5 culinary adventures, perfect for solo travelers passionate about food.', '<p>For solo travelers who are passionate about exploring different cuisines and culinary traditions, the world is a treasure trove of gastronomic delights waiting to be discovered. In this article, we\'ll explore 5 culinary experiences that promise solo foodies unforgettable tastes and flavors from around the globe.</p><p><br></p><p><b>1. Street Food Safari:</b></p><p>Embarking on a street food safari is like diving headfirst into the heart of a destination\'s culinary culture. Wander through bustling street markets, where the air is thick with the aromas of sizzling meats, aromatic spices, and freshly baked goods. Sample a variety of dishes from local vendors and food stalls, from piping hot dumplings and crispy spring rolls to sweet treats like freshly made crepes and exotic fruit skewers. Street food markets are not only a feast for the senses but also a window into the daily lives of locals, where you can mingle with street vendors and fellow food enthusiasts alike.</p><p><br></p><p><b>2. Cooking Class Adventure:</b></p><p>A cooking class adventure offers solo travelers the opportunity to roll up their sleeves and get hands-on in the kitchen. Whether it\'s mastering the art of making handmade pasta in Italy, whipping up spicy curries in Thailand, or learning the secrets of sushi-making in Japan, cooking classes provide an immersive culinary experience like no other. Led by expert chefs and local cooks, these classes delve deep into the traditional techniques, ingredients, and flavors of a destination\'s cuisine. Not only do cooking classes offer solo travelers the chance to learn new skills and recipes, but they also provide a unique insight into the cultural heritage and culinary traditions of a region.</p><p><br></p><p><b>3. Market Exploration:</b></p><p>Exploring bustling markets is a sensory adventure that solo travelers won\'t want to miss. From sprawling outdoor bazaars to historic indoor markets, these vibrant hubs of activity are a treasure trove of fresh produce, spices, and artisanal products unique to each destination. Wander through stalls piled high with colorful fruits and vegetables, inhale the intoxicating scents of exotic spices and herbs, and browse handcrafted goods and souvenirs made by local artisans. Whether you\'re bargaining for the freshest seafood, sampling street snacks, or simply soaking up the bustling atmosphere, market exploration offers solo travelers an authentic taste of local life and culture.</p><p><br></p><p><b>4. Food Tour Feast:</b></p><p>Joining a food tour is the perfect way for solo travelers to discover the culinary secrets of a destination with the guidance of local experts. Led by knowledgeable guides, food tours take you on a gastronomic journey through the streets and neighborhoods of a city, where you\'ll sample an array of dishes from hidden gems and local eateries. From savory street food to sweet treats, each stop offers a tantalizing taste of the region\'s culinary scene, accompanied by fascinating stories and insights into the history and culture behind the food. Whether you\'re exploring bustling night markets, historic food districts, or off-the-beaten-path neighborhoods, a food tour feast promises solo travelers an unforgettable culinary adventure filled with flavors, aromas, and discoveries.</p><p><br></p><p><b>5. Dining Solo:</b></p><p>Dining solo is a liberating experience that allows solo travelers to indulge their culinary cravings on their own terms. Whether you\'re sampling street food from a bustling market stall, enjoying a leisurely meal at a cozy cafe, or dining at a fine-dining restaurant, solo dining offers the freedom to explore a destination\'s culinary scene at your own pace. Solo travelers can savor each bite, engage with locals and fellow diners, and soak up the ambiance of their surroundings without the pressure of keeping up with group dynamics. Whether you\'re a seasoned solo traveler or embarking on your first solo adventure, dining solo offers a chance to connect with the flavors of a destination and create memorable culinary experiences that will last a lifetime.</p><p><br></p><p>For solo travelers with a love for food and adventure, these 5 culinary experiences offer a tantalizing glimpse into the diverse flavors and cuisines of the world. From street food safaris to cooking class adventures, market explorations, food tour feasts, and dining solo, each experience promises unforgettable tastes and discoveries that will delight the senses and nourish the soul. Embark on a solo culinary journey and taste your way through the rich tapestry of global gastronomy, one delicious bite at a time.</p>', 22, '2024-04-03 22:45:26', '2024-06-06 19:26:05');
+INSERT INTO `posts` (`id`, `photo`, `heading`, `short_content`, `content`, `total_view`, `remark`, `created_at`, `updated_at`) VALUES
+(1, '1712208486.jpg', 'Essential Travel Packing Tips: Pack Smarter, Travel Lighter: Your Guide to Stress-Free Packing', 'Discover top tips and tricks to pack efficiently for your next adventure and travel stress-free.', '<p>Packing efficiently for a trip can be a daunting task, but with the right strategies, you can streamline the process and ensure you have everything you need while traveling light. In this article, we\'ll explore essential travel packing tips to help you pack smarter and travel lighter on your next adventure.</p><p><b>1. Make a Packing List:</b>\r\n<br class=\"Apple-interchange-newline\"></p><p>Before you start packing, make a list of essential items you\'ll need for your trip. This will help you stay organized and avoid forgetting important items. Divide your list into categories such as clothing, toiletries, electronics, and documents to ensure you don\'t overlook anything.</p><p><b>2. Choose Versatile Clothing:</b></p><p>When selecting clothing for your trip, opt for versatile pieces that can be mixed and matched to create multiple outfits. Choose neutral colors and fabrics that are lightweight, breathable, and wrinkle-resistant. Consider the climate and activities you\'ll be participating in to determine the appropriate clothing items to pack.</p><p><b>3. Roll Your Clothes:</b></p><p>Maximize space in your suitcase by rolling your clothes instead of folding them. Rolling your clothes not only saves space but also helps prevent wrinkles and creases. Start with heavier items like jeans and sweaters at the bottom of your suitcase and roll lighter items like t-shirts and underwear on top.</p><p><b>4. Use Packing Cubes:</b></p><p>Invest in packing cubes to keep your clothing and accessories organized and easy to find. Packing cubes come in various sizes and colors and are designed to fit neatly inside your suitcase. Use different cubes for different types of clothing or organize them by outfit to make unpacking a breeze.</p><p><b>5. Pack Light:</b></p><p>When it comes to packing, less is more. Try to pack only the essentials and leave behind items you can live without. Consider your destination and the amenities available, such as laundry facilities, to determine how many clothing items you\'ll need. Remember, you can always buy things you need while traveling.</p><p><b>6. Layer Your Clothing:</b></p><p>Layering is key to staying comfortable and adapting to changing weather conditions while traveling. Pack lightweight layers that can be easily added or removed as needed, such as t-shirts, sweaters, and jackets. Choose fabrics that are moisture-wicking and quick-drying for maximum versatility.</p><p><b>7. Pack Multi-Purpose Items:</b></p><p>Save space in your suitcase by packing multi-purpose items that serve multiple functions. For example, a sarong can double as a beach towel, a picnic blanket, or a scarf, while a lightweight scarf can be used as a wrap, a headscarf, or a makeshift bag.</p><p><b>8. Minimize Toiletries:</b></p><p>Pack travel-sized toiletries to save space in your luggage and comply with TSA regulations. Look for mini versions of your favorite products or invest in reusable travel containers to transfer your toiletries into. Consider purchasing toiletries like shampoo, conditioner, and sunscreen at your destination to save space and weight in your luggage.</p><p><b>9. Leave Room for Souvenirs:</b></p><p>Leave some empty space in your suitcase for souvenirs and gifts you may acquire during your trip. Consider packing a collapsible bag or duffel for extra storage or purchasing a lightweight suitcase with expandable compartments. Remember to check baggage allowances and weight restrictions for both outbound and return flights to avoid excess baggage fees.</p><p><b>10. Pack Essential Documents:</b></p><p>Finally, don\'t forget to pack essential documents such as your passport, visa, travel insurance, and itinerary. Keep these documents organized and easily accessible in a waterproof travel wallet or pouch. Consider making photocopies or digital scans of important documents and storing them securely online or in a separate location in case of loss or theft.</p><p>By following these packing tips, you can pack smarter, travel lighter, and enjoy a stress-free journey to your destination. Bon voyage!</p>', 17, 'active', '2024-04-03 21:28:06', '2024-06-05 22:13:22'),
+(2, '1712215345.jpg', 'Top 10 Must-Have Travel Accessories: Essential Gear for Your Journey', 'Explore essential travel accessories that can make your journey more comfortable and enjoyable.', '<p>When preparing for a trip, having the right travel accessories can make all the difference in enhancing your travel experience. In this article, we\'ll explore the top 10 must-have travel accessories that you should consider packing for your next adventure.</p><p><b>1. Travel Pillow:</b></p><p>A comfortable travel pillow can provide much-needed support and help you get some rest during long flights or bus rides.</p><p><b>2. Portable Charger:</b></p><p>Keep your devices powered up on the go with a portable charger. This handy accessory ensures you never run out of battery while traveling.</p><p><b>3. Travel Adapter:</b></p><p>A universal travel adapter allows you to charge your devices in any country, making it essential for international travel.</p><p><b>4. Noise-Canceling Headphones:</b></p><p>Block out unwanted noise and enjoy your favorite music or podcasts with noise-canceling headphones. Perfect for long flights or noisy environments.</p><p><b>5. Travel Wallet:</b></p><p>Keep your passport, boarding passes, and important documents organized and secure with a dedicated travel wallet.</p><p><b>6. Reusable Water Bottle:</b></p><p>Stay hydrated while traveling with a reusable water bottle. Many airports and tourist attractions have water refill stations, allowing you to avoid single-use plastic bottles.</p><p><b>7. Packing Cubes:</b></p><p>Keep your clothing and accessories organized and easy to find with packing cubes. These handy organizers make packing and unpacking a breeze.</p><p><b>8. Lightweight Backpack:</b></p><p>A lightweight backpack is perfect for day trips and excursions, allowing you to carry your essentials comfortably while exploring.</p><p><b>9. Travel-Sized Toiletries:</b></p><p>Pack travel-sized toiletries to save space in your luggage and comply with TSA regulations. Look for mini versions of your favorite products or invest in reusable travel containers.</p><p><b>10. Luggage Locks:</b></p><p>Keep your belongings safe and secure with luggage locks. Choose TSA-approved locks for hassle-free security checks at airports.</p><p>By packing these essential travel accessories, you can ensure you\'re prepared for any adventure and make the most of your travel experience.</p>', 30, 'active', '2024-04-03 22:37:04', '2024-06-10 04:11:09'),
+(3, '1712213126.jpg', 'Global Gastronomy: 5 Culinary Adventures for Solo Foodies: Savor the World\'s Flavors', 'Dive into a world of flavors with these 5 culinary adventures, perfect for solo travelers passionate about food.', '<p>For solo travelers who are passionate about exploring different cuisines and culinary traditions, the world is a treasure trove of gastronomic delights waiting to be discovered. In this article, we\'ll explore 5 culinary experiences that promise solo foodies unforgettable tastes and flavors from around the globe.</p><p><br></p><p><b>1. Street Food Safari:</b></p><p>Embarking on a street food safari is like diving headfirst into the heart of a destination\'s culinary culture. Wander through bustling street markets, where the air is thick with the aromas of sizzling meats, aromatic spices, and freshly baked goods. Sample a variety of dishes from local vendors and food stalls, from piping hot dumplings and crispy spring rolls to sweet treats like freshly made crepes and exotic fruit skewers. Street food markets are not only a feast for the senses but also a window into the daily lives of locals, where you can mingle with street vendors and fellow food enthusiasts alike.</p><p><br></p><p><b>2. Cooking Class Adventure:</b></p><p>A cooking class adventure offers solo travelers the opportunity to roll up their sleeves and get hands-on in the kitchen. Whether it\'s mastering the art of making handmade pasta in Italy, whipping up spicy curries in Thailand, or learning the secrets of sushi-making in Japan, cooking classes provide an immersive culinary experience like no other. Led by expert chefs and local cooks, these classes delve deep into the traditional techniques, ingredients, and flavors of a destination\'s cuisine. Not only do cooking classes offer solo travelers the chance to learn new skills and recipes, but they also provide a unique insight into the cultural heritage and culinary traditions of a region.</p><p><br></p><p><b>3. Market Exploration:</b></p><p>Exploring bustling markets is a sensory adventure that solo travelers won\'t want to miss. From sprawling outdoor bazaars to historic indoor markets, these vibrant hubs of activity are a treasure trove of fresh produce, spices, and artisanal products unique to each destination. Wander through stalls piled high with colorful fruits and vegetables, inhale the intoxicating scents of exotic spices and herbs, and browse handcrafted goods and souvenirs made by local artisans. Whether you\'re bargaining for the freshest seafood, sampling street snacks, or simply soaking up the bustling atmosphere, market exploration offers solo travelers an authentic taste of local life and culture.</p><p><br></p><p><b>4. Food Tour Feast:</b></p><p>Joining a food tour is the perfect way for solo travelers to discover the culinary secrets of a destination with the guidance of local experts. Led by knowledgeable guides, food tours take you on a gastronomic journey through the streets and neighborhoods of a city, where you\'ll sample an array of dishes from hidden gems and local eateries. From savory street food to sweet treats, each stop offers a tantalizing taste of the region\'s culinary scene, accompanied by fascinating stories and insights into the history and culture behind the food. Whether you\'re exploring bustling night markets, historic food districts, or off-the-beaten-path neighborhoods, a food tour feast promises solo travelers an unforgettable culinary adventure filled with flavors, aromas, and discoveries.</p><p><br></p><p><b>5. Dining Solo:</b></p><p>Dining solo is a liberating experience that allows solo travelers to indulge their culinary cravings on their own terms. Whether you\'re sampling street food from a bustling market stall, enjoying a leisurely meal at a cozy cafe, or dining at a fine-dining restaurant, solo dining offers the freedom to explore a destination\'s culinary scene at your own pace. Solo travelers can savor each bite, engage with locals and fellow diners, and soak up the ambiance of their surroundings without the pressure of keeping up with group dynamics. Whether you\'re a seasoned solo traveler or embarking on your first solo adventure, dining solo offers a chance to connect with the flavors of a destination and create memorable culinary experiences that will last a lifetime.</p><p><br></p><p>For solo travelers with a love for food and adventure, these 5 culinary experiences offer a tantalizing glimpse into the diverse flavors and cuisines of the world. From street food safaris to cooking class adventures, market explorations, food tour feasts, and dining solo, each experience promises unforgettable tastes and discoveries that will delight the senses and nourish the soul. Embark on a solo culinary journey and taste your way through the rich tapestry of global gastronomy, one delicious bite at a time.</p>', 22, 'active', '2024-04-03 22:45:26', '2024-06-06 19:26:05');
 
 -- --------------------------------------------------------
 
@@ -702,6 +720,7 @@ CREATE TABLE `rooms` (
   `total_guests` text DEFAULT NULL,
   `featured_photo` text NOT NULL,
   `video_id` text DEFAULT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -710,11 +729,11 @@ CREATE TABLE `rooms` (
 -- Dumping data for table `rooms`
 --
 
-INSERT INTO `rooms` (`id`, `accommodation_id`, `room_name`, `description`, `price`, `total_rooms`, `amenities`, `size`, `total_beds`, `total_bathrooms`, `total_balconies`, `total_guests`, `featured_photo`, `video_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Standard Room', '<p>This is a description for a standard room</p>', '450', '2', '1,2,3,4,5,6,7,8', '60', '1', '1', '1', '2', '1712264174.jpg', 'qemqQHaeCYo', '2024-04-04 12:56:14', '2024-04-04 13:06:33'),
-(2, 4, 'Single Room', '<p>This is a description of a single room</p>', '350', '2', '1,2,3,4,5,8,9,16', '50 sq. meters', '1', '1', '0', '2', '1712659450.jpg', 's8vnc9l8sz4', '2024-04-09 02:44:10', '2024-04-09 02:44:10'),
-(3, 3, 'Room 001', '<p>This is a sample description of a room 1 in Abetom Apartment</p>', '3600', '1', '4,5,7,8,9,19,21,22', '60 sq. meters', '1', '1', '0', '3', '1713173100.jpg', 'T3Oo7VaeW-E', '2024-04-15 01:25:00', '2024-04-15 01:25:00'),
-(4, 5, 'BH Room 1', '<p>This is a short description for the bh room 1</p>', '1500', '1', '2,7,18,20,21', '40 sq. meters', '2', '1', '0', '2', '1717654759.jpg', 'kljghjhf', '2024-06-05 22:19:19', '2024-06-05 22:19:19');
+INSERT INTO `rooms` (`id`, `accommodation_id`, `room_name`, `description`, `price`, `total_rooms`, `amenities`, `size`, `total_beds`, `total_bathrooms`, `total_balconies`, `total_guests`, `featured_photo`, `video_id`, `remark`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Standard Room', '<p>This is a description for a standard room</p>', '450', '2', '1,2,3,4,5,6,7,8', '60', '1', '1', '1', '2', '1712264174.jpg', 'qemqQHaeCYo', 'active', '2024-04-04 12:56:14', '2024-04-04 13:06:33'),
+(2, 4, 'Single Room', '<p>This is a description of a single room</p>', '350', '2', '1,2,3,4,5,8,9,16', '50 sq. meters', '1', '1', '0', '2', '1712659450.jpg', 's8vnc9l8sz4', 'active', '2024-04-09 02:44:10', '2024-04-09 02:44:10'),
+(3, 3, 'Room 001', '<p>This is a sample description of a room 1 in Abetom Apartment</p>', '3600', '1', '4,5,7,8,9,19,21,22', '60 sq. meters', '1', '1', '0', '3', '1713173100.jpg', 'T3Oo7VaeW-E', 'active', '2024-04-15 01:25:00', '2024-04-15 01:25:00'),
+(4, 5, 'BH Room 1', '<p>This is a short description for the bh room 1</p>', '1500', '1', '2,7,18,20,21', '40 sq. meters', '2', '1', '0', '2', '1717654759.jpg', 'kljghjhf', 'active', '2024-06-05 22:19:19', '2024-06-05 22:19:19');
 
 -- --------------------------------------------------------
 
@@ -796,6 +815,7 @@ CREATE TABLE `slides` (
   `text` text DEFAULT NULL,
   `button_text` text DEFAULT NULL,
   `button_url` text DEFAULT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -804,10 +824,10 @@ CREATE TABLE `slides` (
 -- Dumping data for table `slides`
 --
 
-INSERT INTO `slides` (`id`, `photo`, `heading`, `text`, `button_text`, `button_url`, `created_at`, `updated_at`) VALUES
-(1, '1713920659.webp', 'Your Perfect Stay in Labason', 'Find Comfort and Convenience with Our Wide Range of Accommodations', 'Explore Now', 'accommodation-types', '2024-04-03 20:38:32', '2024-04-23 17:04:19'),
-(2, '1712206050.jpg', 'Indulge in Unparalleled Comfort', 'Discover Luxurious Accommodations Tailored to You', 'Find Yours', 'accommodation-types', '2024-04-03 20:47:30', '2024-04-03 20:55:21'),
-(3, '1712230057.webp', 'Embrace Effortless Living', 'Discover Convenient Accommodations for Every Traveler', 'Book Your Ease', 'accommodation-types', '2024-04-03 20:54:19', '2024-04-04 03:27:37');
+INSERT INTO `slides` (`id`, `photo`, `heading`, `text`, `button_text`, `button_url`, `remark`, `created_at`, `updated_at`) VALUES
+(1, '1713920659.webp', 'Your Perfect Stay in Labason', 'Find Comfort and Convenience with Our Wide Range of Accommodations', 'Explore Now', 'accommodation-types', 'active', '2024-04-03 20:38:32', '2024-04-23 17:04:19'),
+(2, '1712206050.jpg', 'Indulge in Unparalleled Comfort', 'Discover Luxurious Accommodations Tailored to You', 'Find Yours', 'accommodation-types', 'active', '2024-04-03 20:47:30', '2024-04-03 20:55:21'),
+(3, '1712230057.webp', 'Embrace Effortless Living', 'Discover Convenient Accommodations for Every Traveler', 'Book Your Ease', 'accommodation-types', 'active', '2024-04-03 20:54:19', '2024-06-10 06:39:58');
 
 -- --------------------------------------------------------
 
@@ -820,6 +840,7 @@ CREATE TABLE `subscribers` (
   `email` text NOT NULL,
   `token` text NOT NULL,
   `status` int(11) NOT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -828,8 +849,8 @@ CREATE TABLE `subscribers` (
 -- Dumping data for table `subscribers`
 --
 
-INSERT INTO `subscribers` (`id`, `email`, `token`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'jaspherbagor0357@gmail.com', '', 1, '2024-05-14 15:23:36', '2024-05-14 15:23:53');
+INSERT INTO `subscribers` (`id`, `email`, `token`, `status`, `remark`, `created_at`, `updated_at`) VALUES
+(1, 'jaspherbagor0357@gmail.com', '', 1, 'active', '2024-05-14 15:23:36', '2024-05-14 15:23:53');
 
 -- --------------------------------------------------------
 
@@ -843,6 +864,7 @@ CREATE TABLE `testimonials` (
   `name` text NOT NULL,
   `designation` text NOT NULL,
   `comment` text NOT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -851,10 +873,10 @@ CREATE TABLE `testimonials` (
 -- Dumping data for table `testimonials`
 --
 
-INSERT INTO `testimonials` (`id`, `photo`, `name`, `designation`, `comment`, `created_at`, `updated_at`) VALUES
-(1, '1712214783.jpg', 'Miguel Santos', 'Graphic Designer', 'Being a graphic designer, finding inspiration is crucial for my work. Labason Safe Haven provided me with the perfect retreat to recharge my creativity. The tranquil surroundings and exceptional service allowed me to focus on my projects without any interruptions. I\'m grateful for the amazing experience and can\'t wait to come back for another productive stay.', '2024-04-03 23:13:03', '2024-04-03 23:13:03'),
-(2, '1712214949.jpg', 'Isabella Cruz', 'Travel Blogger', 'As a travel blogger, I\'ve had the chance to stay in many accommodations worldwide, and Labason Safe Haven is undoubtedly one of the best. The breathtaking views, spotless rooms, and warm hospitality made my stay unforgettable. I\'m grateful for the amazing experience and the wonderful memories I made here. Thank you for making my trip to Labason truly special!', '2024-04-03 23:15:49', '2024-04-03 23:15:49'),
-(3, '1712215014.webp', 'Andy Reyes', 'Software Engineer', 'Labason Safe Haven went above and beyond my expectations. As a software engineer, I appreciate efficiency and attention to detail, and this hotel delivered on every aspect. From the seamless check-in process to the luxurious amenities, my stay was nothing short of perfect. I\'m thankful for the outstanding service and can\'t wait to recommend this gem to my friends.', '2024-04-03 23:16:54', '2024-04-03 23:16:54');
+INSERT INTO `testimonials` (`id`, `photo`, `name`, `designation`, `comment`, `remark`, `created_at`, `updated_at`) VALUES
+(1, '1712214783.jpg', 'Miguel Santos', 'Graphic Designer', 'Being a graphic designer, finding inspiration is crucial for my work. Labason Safe Haven provided me with the perfect retreat to recharge my creativity. The tranquil surroundings and exceptional service allowed me to focus on my projects without any interruptions. I\'m grateful for the amazing experience and can\'t wait to come back for another productive stay.', 'active', '2024-04-03 23:13:03', '2024-04-03 23:13:03'),
+(2, '1712214949.jpg', 'Isabella Cruz', 'Travel Blogger', 'As a travel blogger, I\'ve had the chance to stay in many accommodations worldwide, and Labason Safe Haven is undoubtedly one of the best. The breathtaking views, spotless rooms, and warm hospitality made my stay unforgettable. I\'m grateful for the amazing experience and the wonderful memories I made here. Thank you for making my trip to Labason truly special!', 'active', '2024-04-03 23:15:49', '2024-04-03 23:15:49'),
+(3, '1712215014.webp', 'Andy Reyes', 'Software Engineer', 'Labason Safe Haven went above and beyond my expectations. As a software engineer, I appreciate efficiency and attention to detail, and this hotel delivered on every aspect. From the seamless check-in process to the luxurious amenities, my stay was nothing short of perfect. I\'m thankful for the outstanding service and can\'t wait to recommend this gem to my friends.', 'active', '2024-04-03 23:16:54', '2024-06-10 06:52:27');
 
 -- --------------------------------------------------------
 
@@ -883,6 +905,7 @@ CREATE TABLE `videos` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `video_id` text NOT NULL,
   `caption` text DEFAULT NULL,
+  `remark` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -891,11 +914,11 @@ CREATE TABLE `videos` (
 -- Dumping data for table `videos`
 --
 
-INSERT INTO `videos` (`id`, `video_id`, `caption`, `created_at`, `updated_at`) VALUES
-(1, '4K6Sh1tsAW4', 'Cinematic Promo Video | Lisbon City Hotel', '2024-04-05 03:59:30', '2024-04-05 03:59:30'),
-(2, 'FOCp9rMMcZU', 'The Seven Hotel (Promotional Video)', '2024-04-05 04:01:49', '2024-04-05 04:01:49'),
-(3, 'OGVu0VYfKco', 'CONTINENTAL HOTEL Budapest promo video', '2024-04-05 04:02:18', '2024-04-05 04:02:18'),
-(4, '_mKmoO3o1JU', 'BAYANGAN MURCIELAGOS ISLAND - LABASON ZAMBOANGA DEL NORTE', '2024-04-05 04:03:37', '2024-04-05 04:04:28');
+INSERT INTO `videos` (`id`, `video_id`, `caption`, `remark`, `created_at`, `updated_at`) VALUES
+(1, '4K6Sh1tsAW4', 'Cinematic Promo Video | Lisbon City Hotel', 'active', '2024-04-05 03:59:30', '2024-04-05 03:59:30'),
+(2, 'FOCp9rMMcZU', 'The Seven Hotel (Promotional Video)', 'active', '2024-04-05 04:01:49', '2024-04-05 04:01:49'),
+(3, 'OGVu0VYfKco', 'CONTINENTAL HOTEL Budapest promo video', 'active', '2024-04-05 04:02:18', '2024-04-05 04:02:18'),
+(4, '_mKmoO3o1JU', 'BAYANGAN MURCIELAGOS ISLAND - LABASON ZAMBOANGA DEL NORTE', 'active', '2024-04-05 04:03:37', '2024-04-05 04:04:28');
 
 --
 -- Indexes for dumped tables
@@ -1079,7 +1102,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `accommodations`
 --
 ALTER TABLE `accommodations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `accommodation_rates`
@@ -1103,7 +1126,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `amenities`
 --
 ALTER TABLE `amenities`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `booked_rooms`
@@ -1127,7 +1150,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `faqs`
 --
 ALTER TABLE `faqs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `features`
