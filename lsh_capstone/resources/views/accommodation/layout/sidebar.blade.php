@@ -31,7 +31,7 @@
                 <a class="nav-link" href=""><i class="fa fa-money"></i> <span>Payment Information</span></a>
             </li>
 
-            <li class=""><a class="nav-link" href=""><i class="fa fa-bed"></i> <span>Rooms</span></a></li>
+            <li class="{{ Request::is('accommodation/room-view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('accommodation_room_view') }}"><i class="fa fa-bed"></i> <span>Rooms</span></a></li>
 
             <li class="{{ Request::is('accommodation/edit-profile') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('accommodation_profile') }}"><i class="fa fa-user"></i> <span>Edit Profile</span></a>

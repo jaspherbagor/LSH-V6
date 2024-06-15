@@ -5,6 +5,7 @@ use App\Http\Controllers\Accommodation\AccommodationHomeController;
 use App\Http\Controllers\Accommodation\AccommodationOrderController;
 use App\Http\Controllers\Accommodation\AccommodationProfileController;
 use App\Http\Controllers\Accommodation\AccommodationReviewController;
+use App\Http\Controllers\Accommodation\AccommodationRoomController;
 use App\Http\Controllers\Admin\AdminAccommodationController;
 use App\Http\Controllers\Admin\AdminAccommodationTypeController;
 use App\Http\Controllers\Admin\AdminAmenityController;
@@ -201,6 +202,8 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
     Route::get('accommodation/review', [AccommodationReviewController::class, 'index'])->name('accommodation_review');
 
     Route::get('accommodation/review/delete/{id}', [AccommodationReviewController::class, 'delete'])->name('accommodation_review_delete');
+
+    Route::get('/accommodation/room-view', [AccommodationRoomController::class, 'index'])->name('accommodation_room_view');
 
 });
 
