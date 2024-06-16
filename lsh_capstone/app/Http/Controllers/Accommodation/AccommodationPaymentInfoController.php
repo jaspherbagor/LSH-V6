@@ -21,11 +21,11 @@ class AccommodationPaymentInfoController extends Controller
             $payment_info = Payment::create([
                 'accommodation_id' => $accommodationId,
                 'gcash_qr' => 'default_gcash_qr.png',
-                'gcash_name' => 'default_gcash_name',
-                'gcash_number' => 'default_gcash_number',
+                'gcash_name' => 'Input your gcash name',
+                'gcash_number' => 'Input your gcash number',
                 'maya_qr' => 'default_maya_qr.png',
-                'maya_name' => 'default_maya_name',
-                'maya_number' => 'default_maya_number',
+                'maya_name' => 'Input your maya name',
+                'maya_number' => 'Input your maya number',
             ]);
         }
 
