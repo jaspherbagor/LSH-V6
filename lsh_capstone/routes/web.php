@@ -3,6 +3,7 @@
 use App\Http\Controllers\Accommodation\AccommodationAuthController;
 use App\Http\Controllers\Accommodation\AccommodationHomeController;
 use App\Http\Controllers\Accommodation\AccommodationOrderController;
+use App\Http\Controllers\Accommodation\AccommodationPaymentInfoController;
 use App\Http\Controllers\Accommodation\AccommodationProfileController;
 use App\Http\Controllers\Accommodation\AccommodationReviewController;
 use App\Http\Controllers\Accommodation\AccommodationRoomController;
@@ -204,6 +205,10 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
     Route::get('accommodation/review/delete/{id}', [AccommodationReviewController::class, 'delete'])->name('accommodation_review_delete');
 
     Route::get('/accommodation/room-view', [AccommodationRoomController::class, 'index'])->name('accommodation_room_view');
+
+    Route::get('/accommodation/payment-info', [AccommodationPaymentInfoController::class,'index'])->name('accommodation_payment_info');
+
+    Route::post('/accommodation/payment-info/update', [AccommodationPaymentInfoController::class, 'update'])->name('accommodation_payment_info_update');
 
 });
 

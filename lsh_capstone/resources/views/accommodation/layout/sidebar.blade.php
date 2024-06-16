@@ -27,8 +27,8 @@
                 <a class="nav-link" href="{{ route('accommodation_review') }}"><i class="fa fa-star"></i> <span>Reviews</span></a>
             </li>
 
-            <li class="">
-                <a class="nav-link" href=""><i class="fa fa-money"></i> <span>Payment Information</span></a>
+            <li class="{{ Request::is('accommodation/payment-info') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('accommodation_payment_info') }}"><i class="fa fa-money"></i> <span>Payment Information</span></a>
             </li>
 
             <li class="{{ Request::is('accommodation/room-view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('accommodation_room_view') }}"><i class="fa fa-bed"></i> <span>Rooms</span></a></li>
