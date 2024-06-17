@@ -116,8 +116,8 @@ class AccommodationRoomController extends Controller
             $existing_amenities = explode(',', $room_data->amenities);
         }
 
-        // Return the 'admin.room_edit' view with the room data, all amenities, and existing amenities
-        return view('admin.room_edit', compact('room_data', 'all_amenities', 'existing_amenities'));
+        // Return the 'accommodation.room_edit' view with the room data, all amenities, and existing amenities
+        return view('accommodation.room_edit', compact('room_data', 'all_amenities', 'existing_amenities'));
     }
 
     // Method to update a room
@@ -146,7 +146,7 @@ class AccommodationRoomController extends Controller
 
         // Validate the request data
         $request->validate([
-            'name' => 'required',  // Validate room name
+            'room_name' => 'required',  // Validate room name
             'description' => 'required',  // Validate room description
             'price' => 'required',  // Validate room price
             'total_rooms' => 'required'  // Validate total rooms

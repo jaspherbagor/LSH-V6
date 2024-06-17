@@ -158,7 +158,7 @@ class AdminRoomController extends Controller
 
         // Validate the request data
         $request->validate([
-            'name' => 'required',  // Validate room name
+            'room_name' => 'required',  // Validate room name
             'description' => 'required',  // Validate room description
             'price' => 'required',  // Validate room price
             'total_rooms' => 'required'  // Validate total rooms

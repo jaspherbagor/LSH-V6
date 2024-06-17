@@ -26,7 +26,8 @@
                                     @php $i=0; @endphp
                                     @foreach($rooms as $row)
                                     @php $i++;
-                                    $accommodation_type_info = \App\Models\AccommodationType::where('id', Auth::guard('accommodation')->user()->accommodation_type_id)->first();
+                                    $accommodation_info = \App\Models\Accommodation::where('id', Auth::guard('accommodation')->user()->id)->first();
+                                    $accommodation_type_info = \App\Models\AccommodationType::where('id', $accommodation_info->accommodation_type_id)->first();
                                     @endphp
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
@@ -41,10 +42,10 @@
                                             <button class="btn btn-warning mb-1" data-toggle="modal" data-target="#exampleModal{{ $i }}" data-toggle="tooltip" data-placement="top" title="Detail">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </button>
-                                            <a href="{{ route('admin_room_edit',$row->id) }}" class="btn btn-primary mb-1" data-toggle="tooltip" data-placement="top" title="Edit">
+                                            <a href="{{ route('accommodation_room_edit',$row->id) }}" class="btn btn-primary mb-1" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                                             </a>
-                                            <a href="" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete this room?');" data-toggle="tooltip" data-placement="top" title="Delete">
+                                            <a href="{{ route('admin_room_delete',$row->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');" data-toggle="tooltip" data-placement="top" title="Delete">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </a>
                                         </td>

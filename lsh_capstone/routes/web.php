@@ -210,9 +210,11 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
 
     Route::get('/accommodation/room-add', [AccommodationRoomController::class, 'add'])->name('accommodation_room_add');
 
-    Route::post('/accommodation/room/submit', [AccommodationRoomController::class, 'store'])->name('accommodation_room_submit');
+    Route::post('/accommodation/room-submit', [AccommodationRoomController::class, 'store'])->name('accommodation_room_submit');
 
+    Route::get('/accommodation/room/edit/{id}', [AccommodationRoomController::class, 'edit'])->name('accommodation_room_edit');
 
+    Route::post('/accommodation/room/update/{id}', [AccommodationRoomController::class, 'update'])->name('accommodation_room_update');
 
 
 
