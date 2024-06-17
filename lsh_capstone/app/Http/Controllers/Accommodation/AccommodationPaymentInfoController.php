@@ -22,10 +22,10 @@ class AccommodationPaymentInfoController extends Controller
                 'accommodation_id' => $accommodationId,
                 'gcash_qr' => 'default_gcash_qr.png',
                 'gcash_name' => 'Input your gcash name',
-                'gcash_number' => 'Input your gcash number',
+                'gcash_number' => 'ex. 09123456789',
                 'maya_qr' => 'default_maya_qr.png',
                 'maya_name' => 'Input your maya name',
-                'maya_number' => 'Input your maya number',
+                'maya_number' => 'ex. 09123456789',
             ]);
         }
 
