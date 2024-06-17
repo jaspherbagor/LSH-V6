@@ -3,7 +3,7 @@
 @section('heading', 'All Rooms')
 
 @section('right_top_button')
-<a href="" class="btn btn-primary"><i class="fa fa-plus"></i> Add New</a>
+<a href="{{ route('accommodation_room_add') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add New</a>
 @endsection
 @section('main_content')
     <div class="section-body">
