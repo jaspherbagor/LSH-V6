@@ -41,13 +41,10 @@
                                             <button class="btn btn-warning mb-1" data-toggle="modal" data-target="#exampleModal{{ $i }}" data-toggle="tooltip" data-placement="top" title="Detail">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </button>
-                                            <a href="" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="Gallery">
-                                                <i class="fa fa-picture-o" aria-hidden="true"></i>
-                                            </a>
                                             <a href="{{ route('admin_room_edit',$row->id) }}" class="btn btn-primary mb-1" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                                             </a>
-                                            <a href="" class="btn btn-danger" onClick="return confirm('Are you sure?');" data-toggle="tooltip" data-placement="top" title="Delete">
+                                            <a href="" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete this room?');" data-toggle="tooltip" data-placement="top" title="Delete">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </a>
                                         </td>

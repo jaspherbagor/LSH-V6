@@ -3,7 +3,7 @@
 @section('heading', 'Add Room')
 
 @section('right_top_button')
-<a href="" class="btn btn-primary"><i class="fa fa-eye"></i> View All</a>
+<a href="{{ route('accommodation_room_view') }}" class="btn btn-primary"><i class="fa fa-eye"></i> View All</a>
 @endsection
 
 @section('main_content')
@@ -12,7 +12,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('accommodation_room_submit') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
@@ -34,7 +34,7 @@
                                     @if($accommodation_type->name !== 'Hotel')
                                     <label class="form-label">Price (per month) *</label>
                                     @else
-                                    <label class="form-label">Price (per month) *</label>
+                                    <label class="form-label">Price (per night) *</label>
                                     @endif
                                     <input type="text" class="form-control" name="price" value="{{ old('price') }}">
                                 </div>

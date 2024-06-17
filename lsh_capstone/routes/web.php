@@ -210,6 +210,13 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
 
     Route::get('/accommodation/room-add', [AccommodationRoomController::class, 'add'])->name('accommodation_room_add');
 
+    Route::post('/accommodation/room/submit', [AccommodationRoomController::class, 'store'])->name('accommodation_room_submit');
+
+
+
+
+
+
     Route::get('/accommodation/payment-info', [AccommodationPaymentInfoController::class,'index'])->name('accommodation_payment_info');
 
     Route::post('/accommodation/payment-info/update', [AccommodationPaymentInfoController::class, 'update'])->name('accommodation_payment_info_update');
