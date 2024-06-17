@@ -89,7 +89,7 @@ class AdminAccommodationController extends Controller
             ]);
 
             // Remove the existing photo file from the uploads directory
-            unlink(public_path('uploads/' . $obj->photo));
+            //unlink(public_path('uploads/' . $obj->photo));
 
             // Get the file extension of the new photo
             $ext = $request->file('photo')->extension();
