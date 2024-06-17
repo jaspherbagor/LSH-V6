@@ -33,9 +33,23 @@
                             </a>
                             <h2 class="text-center mb-4 mt-3">Register An Accommodation</h2>  
                         </div>
-                        <form action="" >
+                        <form action="{{ route('accommodation_register_submit') }}" method="post" >
                             @csrf
                             <div class="login-form">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label for="accommodationTypeSelect" class="form-label">Accommodation Type</label>
+                                        <select class="form-control @if($errors->has('accommodation_type_id')) is-invalid @endif" id="accommodationTypeSelect" name="accommodation_type_id" value="{{ old('accommodation_type_id') }}">
+                                        @php 
+                                        $accommodation_types = \App\Models\AccommodationType::get();
+                                        @endphp
+                                        <option>-- Select an accommodation type --</option>
+                                        @foreach($accommodation_types as $accommodation_type)
+                                        <option value="{{ $accommodation_type->id }}">{{ $accommodation_type->name }}</option>
+                                        @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="" class="form-label">Accommodation Name</label>
