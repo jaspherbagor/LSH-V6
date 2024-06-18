@@ -15,7 +15,7 @@ class AccommodationAuthController extends Controller
     public function logout()
     {
         Auth::guard('accommodation')->logout();
-        return redirect()->route('admin_login');
+        return redirect()->route('customer_login');
     }
 
     public function register()

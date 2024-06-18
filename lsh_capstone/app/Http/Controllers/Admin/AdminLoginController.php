@@ -117,22 +117,11 @@ class AdminLoginController extends Controller
             'password' => $request->password
         ];
 
-        $accommodation_credentials = [
-            'contact_email' => $request->email,
-            'password' => $request->password,
-            'status' => 'approved',
-            'remark' => 'active',
-        ];
-
         // Attempt to authenticate the admin
         if (Auth::guard('admin')->attempt($credentials)) {
             // Redirect to the admin home page if authentication is successful
             return redirect()->route('admin_home');
-        } else if (Auth::guard('accommodation')->attempt($accommodation_credentials)){
-            return redirect()->route('accommodation_home');
-        }
-        
-        else {
+        } else {
             // Redirect back to the admin login page with an error message if authentication fails
             return redirect()->route('admin_login')->with('error', 'Invalid Credentials!');
         }

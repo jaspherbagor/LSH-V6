@@ -103,6 +103,7 @@ class AdminRoomController extends Controller
         $obj->total_balconies = $request->total_balconies;
         $obj->total_guests = $request->total_guests;
         $obj->video_id = $request->video_id;
+        $obj->remark = 'active';
 
         // Save the new Room object to the database
         $obj->save();
@@ -214,10 +215,12 @@ class AdminRoomController extends Controller
         $single_data = Room::where('id', $id)->first();
 
         // Remove the photo file associated with the room
-        unlink(public_path('uploads/' . $single_data->featured_photo));
+        //unlink(public_path('uploads/' . $single_data->featured_photo));
 
         // Delete the room from the database
-        $single_data->delete();
+        $single_data->remark = 'deleted';
+
+        $single_data->update();
 
         // Retrieve all room photos associated with the room ID
         $room_photo_data = RoomPhoto::where('room_id', $id)->get();

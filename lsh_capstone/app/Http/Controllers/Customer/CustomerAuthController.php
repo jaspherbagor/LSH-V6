@@ -51,11 +51,23 @@ class CustomerAuthController extends Controller
             'status' => 1 // Ensure customer account is active
         ];
 
+        // Define the credentials for authentication
+        $accommodation_credential = [
+            'contact_email' => $request->email,
+            'password' => $request->password,
+            'status' => 'approved',
+            'remark' => 'active',
+        ];
+
         // Attempt to authenticate the customer with the provided credentials
         if (Auth::guard('customer')->attempt($credential)) {
             // Redirect to the customer home page if authentication is successful
             return redirect()->route('customer_home');
-        } else {
+        } elseif(Auth::guard('accommodation')->attempt($accommodation_credential)) {
+            return redirect()->route('accommodation_home');
+        }
+        
+        else {
             // Redirect back to the login page with an error message if authentication fails
             return redirect()->route('customer_login')->with('error', 'Invalid credentials!');
         }

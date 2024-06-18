@@ -91,6 +91,7 @@ class AccommodationRoomController extends Controller
         $obj->total_balconies = $request->total_balconies;
         $obj->total_guests = $request->total_guests;
         $obj->video_id = $request->video_id;
+        $obj->remark = 'active';
 
         // Save the new Room object to the database
         $obj->save();
