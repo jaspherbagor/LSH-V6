@@ -2,9 +2,9 @@
 
 @section('heading', $accommodation_type->name)
 
-@section('right_top_button')
+{{-- @section('right_top_button')
 <a href="{{ route('admin_accommodation_add', $accommodation_type->id) }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add New</a>
-@endsection
+@endsection --}}
 
 @section('main_content')
     <div class="section-body">
