@@ -98,6 +98,10 @@
                     <div class="col-md-6 right-side">
                         <ul class="right">
                             @if($global_page_data->cart_status === 1)
+
+                            @if(Auth::guard('accommodation')->check())
+
+                            @else
                             <li class="menu">
                                 <a href="{{ route('cart') }}">
                                     {{ $global_page_data->cart_heading }}
@@ -106,13 +110,19 @@
                                     @endif
                                 </a>
                             </li>
-
+                            @endif
+                            
                             @endif
                             @if($global_page_data->checkout_status === 1)
-                            <li class="menu"><a href="{{ route('checkout') }}">{{ $global_page_data->checkout_heading}}</a></li>
+                                @if(Auth::guard('accommodation')->check())
+
+                                @else
+                                <li class="menu"><a href="{{ route('checkout') }}">{{ $global_page_data->checkout_heading}}</a></li>
+                                @endif
+
                             @endif
 
-                            @if(!Auth::guard('customer')->check())
+                            @if(!Auth::guard('customer')->check() && !Auth::guard('accommodation')->check() )
 
                                 @if($global_page_data->signup_status == 1)
                                 <li class="menu"><a href="{{ route('customer_signup') }}">{{ $global_page_data->signup_heading }}</a></li>
@@ -124,17 +134,36 @@
 
                             @else   
 
+                                @if(Auth::guard('customer')->check())
+                                    <li class="menu">
+                                        <a href="{{ route('customer_home') }}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ Auth::guard('customer')->user()->name }} - Dashboard">
+                                            @if(Auth::guard('customer')->user()->photo == '')
+                                            
+                                            <img alt="image" src="{{ asset('uploads/default.png') }}" class="rounded-circle mr-1 navbar-profile">
+                                            @else
+                                            
+                                            <img alt="image" src="{{ asset('uploads/'.Auth::guard('customer')->user()->photo) }}" class="rounded-circle mr-1 navbar-profile">
+                                            @endif
+                                        </a>
+                                    </li>
+
+                                @elseif(Auth::guard('accommodation')->check())
                                 <li class="menu">
-                                    <a href="{{ route('customer_home') }}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ Auth::guard('customer')->user()->name }} - Dashboard">
-                                        @if(Auth::guard('customer')->user()->photo == '')
+                                    <a href="{{ route('accommodation_home') }}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{ Auth::guard('accommodation')->user()->name }} - Dashboard">
+                                        @if(Auth::guard('accommodation')->user()->photo == '')
                                         
                                         <img alt="image" src="{{ asset('uploads/default.png') }}" class="rounded-circle mr-1 navbar-profile">
                                         @else
                                         
-                                        <img alt="image" src="{{ asset('uploads/'.Auth::guard('customer')->user()->photo) }}" class="rounded-circle mr-1 navbar-profile">
+                                        <img alt="image" src="{{ asset('uploads/'.Auth::guard('accommodation')->user()->photo) }}" class="rounded-circle mr-1 navbar-profile">
                                         @endif
                                     </a>
                                 </li>
+
+                                @else
+
+
+                                @endif
 
                                 
 
