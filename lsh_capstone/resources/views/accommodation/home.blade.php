@@ -79,7 +79,7 @@
         
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-        <a href="">
+        <a href="{{ route('accommodation_room_view') }}">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-website">
                     <i class="fa fa-bed"></i>
