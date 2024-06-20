@@ -512,5 +512,7 @@ Route::group(['middleware' => ['admin:admin']], function() {
     
     Route::get('/admin/room/all/view', [AdminRoomController::class, 'room_all'])->name('admin_room_all_view');
 
+    Route::get('/admin/pending/room/view', [AdminRoomController::class, 'pending_room'])->name('admin_pending_room_view');
+
 
 });
