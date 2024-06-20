@@ -41,7 +41,7 @@
                                         @endif
 
                                         <td>
-                                            @if($row->status === 'approved')
+                                            @if($row->status === 'published')
                                             <button class="btn btn-success">{{ $row->status }}</button>
                                             @else
                                             <button class="btn btn-danger">{{ $row->status }}</button>

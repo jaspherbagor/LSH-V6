@@ -41,7 +41,7 @@
                                         @endif
 
                                         <td>
-                                            @if($row->status === 'approved')
+                                            @if($row->status === 'published')
                                             <button class="btn btn-success">{{ $row->status }}</button>
                                             @else
                                             <button class="btn btn-danger">{{ $row->status }}</button>
@@ -51,9 +51,12 @@
                                             <button class="btn btn-warning mb-1" data-toggle="modal" data-target="#exampleModal{{ $i }}" data-toggle="tooltip" data-placement="top" title="Detail">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </button>
-                                            <a href="" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="Publish">
-                                                <i class="fa fa-check" aria-hidden="true"></i>
-                                            </a>
+                                            <form action="{{ route('admin_publish_room', $row->id) }}" method="POST" style="display:inline-block;">
+                                                @csrf
+                                                <button type="submit" onClick="return confirm('Are you sure you want to publish this room?');" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="Publish">
+                                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                                </button>
+                                            </form>
                                             <a href="{{ route('admin_room_gallery',$row->id) }}" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="Gallery">
                                                 <i class="fa fa-picture-o" aria-hidden="true"></i>
                                             </a>

@@ -315,4 +315,13 @@ class AdminRoomController extends Controller
 
         return view('admin.published_room', compact('published_rooms'));
     }
+
+    public function publish($id)
+    {
+        $room_info = Room::where('id', $id)->first();
+        $room_info->status = 'published';
+        $room_info->update();
+
+        return redirect()->back()->with('success', 'Room has been successfully published! We can now see it in the front-end.');
+    }
 }
