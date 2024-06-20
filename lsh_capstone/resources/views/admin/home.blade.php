@@ -151,7 +151,7 @@
                         <h4>Total Rooms</h4>
                     </div>
                     <div class="card-body">
-                        20+
+                        {{ $total_rooms }}
                     </div>
                 </div>
             </div>
