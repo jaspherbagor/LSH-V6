@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('heading', 'Approved Rooms')
+@section('heading', 'Published Rooms')
 
 
 @section('main_content')
@@ -24,7 +24,7 @@
                                 </thead>
                                 <tbody>
                                     @php $i=0; @endphp
-                                    @foreach($approved_rooms as $row)
+                                    @foreach($published_rooms as $row)
                                     @php $i++;
                                     $accommodation_info = \App\Models\Accommodation::where('id', $row->accommodation_id)->first();
                                     $accommodation_type_info = \App\Models\AccommodationType::where('id', $accommodation_info->accommodation_type_id)->first();

@@ -51,7 +51,7 @@
                                             <button class="btn btn-warning mb-1" data-toggle="modal" data-target="#exampleModal{{ $i }}" data-toggle="tooltip" data-placement="top" title="Detail">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </button>
-                                            <a href="" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="Approve">
+                                            <a href="" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="Publish">
                                                 <i class="fa fa-check" aria-hidden="true"></i>
                                             </a>
                                             <a href="{{ route('admin_room_gallery',$row->id) }}" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="Gallery">
