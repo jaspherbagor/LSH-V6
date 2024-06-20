@@ -168,7 +168,7 @@
                         <h4>Pending Rooms</h4>
                     </div>
                     <div class="card-body">
-                        20
+                        {{ $total_pending_rooms }}
                     </div>
                 </div>
             </div>
@@ -185,7 +185,7 @@
                         <h4>Published Rooms</h4>
                     </div>
                     <div class="card-body">
-                        20
+                        {{ $total_published_rooms }}
                     </div>
                 </div>
             </div>

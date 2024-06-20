@@ -42,10 +42,14 @@ class AdminHomeController extends Controller
 
         $total_rooms = Room::where('remark', 'active')->count();
 
+        $total_pending_rooms = Room::where('status', 'pending')->where('remark', 'active')->count();
+
+        $total_published_rooms = Room::where('status', 'published')->where('remark', 'active')->count();
+
         // Retrieve the 5 most recent orders in descending order of their IDs
         $recent_orders = Order::orderBy('id', 'desc')->where('status', 'Completed')->where('remark', 'active')->skip(0)->take(5)->get();
 
         // Return the 'admin.home' view with all the calculated data
-        return view('admin.home', compact('total_completed_orders', 'total_pending_orders', 'total_active_customers', 'total_pending_customers', 'total_accommodations', 'total_subscribers', 'recent_orders', 'total_pending_accommodations', 'total_approved_accommodations', 'total_rooms'));
+        return view('admin.home', compact('total_completed_orders', 'total_pending_orders', 'total_active_customers', 'total_pending_customers', 'total_accommodations', 'total_subscribers', 'recent_orders', 'total_pending_accommodations', 'total_approved_accommodations', 'total_rooms', 'total_pending_rooms', 'total_published_rooms'));
     }
 }
