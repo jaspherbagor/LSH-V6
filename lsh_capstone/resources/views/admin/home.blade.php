@@ -117,7 +117,7 @@
                         <h4>Pending Accommodations</h4>
                     </div>
                     <div class="card-body">
-                        20
+                        {{ $total_pending_accommodations }}
                     </div>
                 </div>
             </div>
