@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('heading', $accommodation->name.' Rooms')
+@section('heading', 'All Rooms')
 
 
 @section('main_content')
@@ -15,9 +15,10 @@
                                     <tr>
                                         <th>SL</th>
                                         <th>Photo</th>
-                                        <th>Accommodation Name</th>
                                         <th>Room</th>
+                                        <th>Accommodation Name</th>
                                         <th>Price</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -31,13 +32,21 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td><img src="{{ asset('uploads/'.$row->featured_photo) }}" alt="slide_image" class="w_200"></td>
-                                        <td>{{ $accommodation->name }}</td>
                                         <td>{{ $row->room_name }}</td>
+                                        <td>{{ $accommodation_info->name }}</td>
                                         @if($accommodation_type_info->name != 'Hotel')
                                         <td>₱{{ $row->price }}/month</td>
                                         @else
                                         <td>₱{{ $row->price }}/night</td>
                                         @endif
+
+                                        <td>
+                                            @if($row->status === 'approved')
+                                            <button class="btn btn-success">{{ $row->status }}</button>
+                                            @else
+                                            <button class="btn btn-danger">{{ $row->status }}</button>
+                                            @endif
+                                        </td>
                                         <td class="pt_10 pb_10">
                                             <button class="btn btn-warning mb-1" data-toggle="modal" data-target="#exampleModal{{ $i }}" data-toggle="tooltip" data-placement="top" title="Detail">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
@@ -47,9 +56,6 @@
                                             </a>
                                             <a href="{{ route('admin_room_edit',$row->id) }}" class="btn btn-primary mb-1" data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
-                                            </a>
-                                            <a href="{{ route('admin_room_delete',$row->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure?');" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </a>
                                         </td>
                                         <div class="modal fade" id="exampleModal{{ $i }}" tabindex="-1" aria-hidden="true">

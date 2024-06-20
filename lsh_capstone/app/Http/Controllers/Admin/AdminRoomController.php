@@ -295,4 +295,11 @@ class AdminRoomController extends Controller
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Photo is deleted successfully.');
     }
+
+    public function room_all()
+    {
+        $rooms = Room::where('remark', 'active')->get();
+
+        return view('admin.room_all', compact('rooms'));
+    }
 }

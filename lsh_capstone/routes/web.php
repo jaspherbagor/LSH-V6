@@ -317,7 +317,7 @@ Route::group(['middleware' => ['admin:admin']], function() {
     
     Route::get('/admin/approved/accommodation/view', [AdminAccommodationController::class, 'approved_accommodation'])->name('admin_approved_accommodation_view');
 
-    
+
     
     Route::get('/admin/feature/view', [AdminFeatureController::class, 'index'])->name('admin_feature_view');
     
@@ -508,7 +508,9 @@ Route::group(['middleware' => ['admin:admin']], function() {
     
     Route::post('/admin/room/gallery/store/{id}', [AdminRoomController::class, 'gallery_store'])->name('admin_room_gallery_store');
     
-    Route::get('/admin/room/gallery/delete/{id}', [AdminRoomController::class, 'gallery_delete'])->name('admin_room_gallery_delete'); 
+    Route::get('/admin/room/gallery/delete/{id}', [AdminRoomController::class, 'gallery_delete'])->name('admin_room_gallery_delete');
+    
+    Route::get('/admin/room/all/view', [AdminRoomController::class, 'room_all'])->name('admin_room_all_view');
 
 
 });
