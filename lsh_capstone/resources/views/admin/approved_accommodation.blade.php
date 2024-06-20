@@ -1,10 +1,6 @@
 @extends('admin.layout.app')
 
-@section('heading', $accommodation_type->name)
-
-{{-- @section('right_top_button')
-<a href="{{ route('admin_accommodation_add', $accommodation_type->id) }}" class="btn btn-primary"><i class="fa fa-plus"></i> Add New</a>
-@endsection --}}
+@section('heading', 'Approved Accommodations')
 
 @section('main_content')
     <div class="section-body">
@@ -20,25 +16,21 @@
                                         <th>Name</th>
                                         <th>Photo</th>
                                         <th>Address</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($accommodations as $row)
+                                    @foreach($approved_accommodations as $row)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $row->name }}</td>
                                         <td><img src="{{ asset('uploads/'.$row->photo) }}" alt="accommodation_type_image" class="w_200"></td>
                                         <td>{{ $row->address }}</td>
+                                        <td>{{ $row->status }}</td>
                                         <td class="pt_10 pb_10">
-                                            <a href="{{ route('admin_accommodation_edit',$row->id) }}" class="btn btn-primary mb-1" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                                            </a>
                                             <a href="{{ route('admin_room_view',$row->id) }}" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="See Rooms">
                                                 <i class="fa fa-bed" aria-hidden="true"></i>
-                                            </a>
-                                            <a href="{{ route('admin_accommodation_delete',$row->id) }}" class="btn btn-danger" onClick="return confirm('Are you sure you want to delete {{ $row->name }}?');" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </a>
                                         </td>
                                         
