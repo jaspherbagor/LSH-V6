@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
         $page_data = Page::where('id',1)->first();
-        $room_data = Room::where('remark', 'active')->get();
+        $room_data = Room::where('status', 'published')->where('remark', 'active')->get();
         $accommodation_type_data = AccommodationType::where('remark', 'active')->get();
         $setting_data = Setting::where('id',1)->first();
 
