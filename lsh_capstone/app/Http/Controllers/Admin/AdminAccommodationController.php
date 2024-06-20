@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin; // Define the namespace for the controller
 
 use App\Http\Controllers\Controller; // Import the base controller class
+use App\Mail\WebsiteMail;
 use App\Models\Accommodation; // Import the Accommodation model class
 use App\Models\AccommodationType; // Import the AccommodationType model class
 use Illuminate\Http\Request; // Import the Request class
+use Illuminate\Support\Facades\Mail;
 
 class AdminAccommodationController extends Controller
 {
@@ -153,5 +155,27 @@ class AdminAccommodationController extends Controller
         return view('admin.approved_accommodation', compact('approved_accommodations'));
     }
 
+    public function approve($id)
+    {
+        $accommodation_info = Accommodation::where('id', $id)->first();
+        $accommodation_info->status = 'approved';
+        $accommodation_info->update();
 
+        // Define the subject for the verification email
+        $subject = 'Registration has been approved: Welcome to Labason Safe Haven!';
+        
+        // Create the email message content with the verification link
+        $message = '<p>Dear <strong>' . $accommodation_info->name . '</strong>, </p>';
+        $message .= '<p>Thank you for joining Labason Safe Haven! Your account registration has been successfully approved. </p>';
+        $message .= '<p>Explore exclusive offers and seamless booking experiences with us. Need help? Contact us at contact@labason.space.</p>';
+        $message .= '<p>Welcome Aboard!</p>';
+        $message .= '<p>Best regard, </p>';
+        $message .= '<p>Labason Safe Haven Team</p>';
+
+        // Send the verification email to the customer
+        Mail::to($accommodation_info->contact_email)->send(new WebsiteMail($subject, $message));
+
+        // Redirect back with a success message prompting the customer to check their email for verification
+        return redirect()->back()->with('success', 'Accommodation has been successfully approved!');
+    }
 }

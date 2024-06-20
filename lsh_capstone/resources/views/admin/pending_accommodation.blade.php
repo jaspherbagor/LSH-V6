@@ -31,9 +31,21 @@
                                             <button class="btn btn-danger">{{ $row->status }}</button>
                                         </td>
                                         <td class="pt_10 pb_10">
-                                            <a href="{{ route('admin_room_view',$row->id) }}" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="Approve">
+
+                                            <a href="{{ route('admin_accommodation_edit',$row->id) }}" class="btn btn-primary mb-1" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </a>
+
+                                            <form action="{{ route('admin_accommodation_approve', $row->id) }}" method="POST" style="display:inline-block;">
+                                                @csrf
+                                                <button type="submit" onClick="return confirm('Are you sure you want to approve this accommodation?');" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="Approve">
+                                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                                </button>
+                                            </form>
+
+                                            {{-- <a href="{{ route('admin_accommodation_approve',$row->id) }}" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="Approve">
                                                 <i class="fa fa-check" aria-hidden="true"></i>
-                                            </a>                                            
+                                            </a>                                             --}}
                                         </td>
                                         
                                     </tr>

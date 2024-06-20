@@ -70,13 +70,11 @@ class AccommodationAuthController extends Controller
         $obj->save();
 
         // Define the subject for the verification email
-        $subject = 'Registration is waiting for approval: Welcome to Labason Safe Haven!';
+        $subject = 'Registration is waiting for approval';
         
         // Create the email message content with the verification link
         $message = '<p>Dear <strong>' . $request->name . '</strong>, </p>';
         $message .= '<p>Thank you for joining Labason Safe Haven! Your account registration is waiting for admin approval. Please wait for the admin to confirm your registration.</p> <br>';
-        $message .= '<p>Explore exclusive offers and seamless booking experiences with us. Need help? Contact us at contact@labason.space.</p>';
-        $message .= '<p>Welcome Aboard!</p>';
         $message .= '<p>Best, </p>';
         $message .= '<p>Labason Safe Haven Team</p>';
 
