@@ -139,4 +139,10 @@ class AdminAccommodationController extends Controller
         // Return a view with the list of all accommodations
         return view('admin.accommodation_all', compact('accommodation_all'));
     }
+
+    public function pending_accommodation()
+    {
+        $pending_accommodations = Accommodation::where('status', 'pending')->where('remark', 'active')->get();
+        return view('admin.pending_accommodation', compact('pending_accommodations'));
+    }
 }

@@ -312,6 +312,8 @@ Route::group(['middleware' => ['admin:admin']], function() {
     Route::post('/admin/accommodation/update/{id}', [AdminAccommodationController::class, 'update'])->name('admin_accommodation_update');
     
     Route::get('/admin/accommodation/delete/{id}', [AdminAccommodationController::class, 'delete'])->name('admin_accommodation_delete');
+
+    Route::get('/admin/pending/accommodation/view', [AdminAccommodationController::class, 'pending_accommodation'])->name('admin_pending_accommodation_view');
     
     
     
