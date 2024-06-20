@@ -27,7 +27,9 @@
                                         <td>{{ $row->name }}</td>
                                         <td><img src="{{ asset('uploads/'.$row->photo) }}" alt="accommodation_type_image" class="w_200"></td>
                                         <td>{{ $row->address }}</td>
-                                        <td>{{ $row->status }}</td>
+                                        <td>
+                                            <button class="btn btn-success">{{ $row->status }}</button>
+                                        </td>
                                         <td class="pt_10 pb_10">
                                             <a href="{{ route('admin_room_view',$row->id) }}" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="See Rooms">
                                                 <i class="fa fa-bed" aria-hidden="true"></i>
