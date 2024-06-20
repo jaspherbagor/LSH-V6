@@ -134,7 +134,7 @@
                         <h4>Approved Accommodations</h4>
                     </div>
                     <div class="card-body">
-                        20
+                        {{ $total_approved_accommodations }}
                     </div>
                 </div>
             </div>
