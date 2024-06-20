@@ -28,7 +28,7 @@ class AccommodationController extends Controller
         $accommodation_type = AccommodationType::where('id', $accommtype_id)->first();
         
         // Retrieve all accommodations associated with the specific accommodation type
-        $accommodation_all = Accommodation::where('accommodation_type_id', $accommtype_id)->where('remark', 'active')->get();
+        $accommodation_all = Accommodation::where('accommodation_type_id', $accommtype_id)->where('remark', 'active')->where('status', 'approved')->get();
         
         // Render the 'front.accommodation_detail' view and pass the retrieved accommodations and accommodation type to it
         return view('front.accommodation_detail', compact('accommodation_all', 'accommodation_type'));

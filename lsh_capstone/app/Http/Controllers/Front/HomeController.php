@@ -32,7 +32,7 @@ class HomeController extends Controller
         $post_all = Post::where('remark', 'active')->orderBy('id', 'desc')->limit(3)->get();
         
         // Retrieve the latest 4 rooms, ordered by ID in descending order
-        $room_all = Room::where('remark', 'active')->orderBy('id', 'desc')->limit(4)->get();
+        $room_all = Room::where('remark', 'active')->where('status', 'published')->orderBy('id', 'desc')->limit(4)->get();
         
         // Retrieve all accommodation types from the database
         $accommodation_types = AccommodationType::where('remark', 'active')->get();

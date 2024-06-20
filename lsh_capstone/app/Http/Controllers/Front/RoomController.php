@@ -23,10 +23,10 @@ class RoomController extends Controller
         $accommodation_type = AccommodationType::where('id', $accommodation->accommodation_type_id)->first();
         
         // Retrieve rooms associated with the accommodation and paginate them (12 rooms per page)
-        $room_all = Room::where('accommodation_id', $accomm_id)->where('remark', 'active')->paginate(12);
+        $room_all = Room::where('accommodation_id', $accomm_id)->where('remark', 'active')->where('status', 'published')->paginate(12);
         
         // Count the number of rooms associated with the accommodation
-        $room_count = Room::where('accommodation_id', $accomm_id)->where('remark', 'active')->count();
+        $room_count = Room::where('accommodation_id', $accomm_id)->where('remark', 'active')->where('status', 'published')->count();
         
         // Retrieve the rates associated with the accommodation
         $rates = AccommodationRate::where('accommodation_id', $accomm_id)->where('remark', 'active')->get();
