@@ -145,4 +145,13 @@ class AdminAccommodationController extends Controller
         $pending_accommodations = Accommodation::where('status', 'pending')->where('remark', 'active')->get();
         return view('admin.pending_accommodation', compact('pending_accommodations'));
     }
+
+    public function approved_accommodation()
+    {
+        $approved_accommodations = Accommodation::where('status', 'approved')->where('remark', 'active')->get();
+
+        return view('admin.approved_accommodation', compact('approved_accommodations'));
+    }
+
+
 }

@@ -315,6 +315,8 @@ Route::group(['middleware' => ['admin:admin']], function() {
 
     Route::get('/admin/pending/accommodation/view', [AdminAccommodationController::class, 'pending_accommodation'])->name('admin_pending_accommodation_view');
     
+    Route::get('/admin/approved/accommodation/view', [AdminAccommodationController::class, 'approved_accommodation'])->name('admin_approved_accommodation_view');
+
     
     
     Route::get('/admin/feature/view', [AdminFeatureController::class, 'index'])->name('admin_feature_view');
