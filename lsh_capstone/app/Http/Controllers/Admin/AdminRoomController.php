@@ -308,4 +308,11 @@ class AdminRoomController extends Controller
         $pending_rooms = Room::where('status', 'pending')->where('remark', 'active')->get();
         return view('admin.pending_room', compact('pending_rooms'));
     }
+
+    public function approved_room()
+    {
+        $approved_rooms = Room::where('status', 'approved')->where('remark', 'active')->get();
+
+        return view('admin.approved_room', compact('approved_rooms'));
+    }
 }
