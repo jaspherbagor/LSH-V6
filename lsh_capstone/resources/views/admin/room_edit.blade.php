@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('heading', 'Edit Accommodation')
+@section('heading', 'Edit Room')
 
 @section('right_top_button')
 <a href="{{ route('admin_room_view', $room_data->accommodation_id) }}" class="btn btn-primary"><i class="fa fa-eye"></i> View All</a>
