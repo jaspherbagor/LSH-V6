@@ -53,7 +53,7 @@
                                             </a>
                                             <form action="{{ route('accommodation_booking_confirm', $row->id) }}" method="POST" style="display:inline-block;">
                                                 @csrf
-                                                <button type="submit" onClick="return confirm('Are you sure you want to confirm this order?');" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="Confirm">
+                                                <button type="submit" onClick="return confirm('Are you sure you want to confirm this booking?');" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="Confirm booking">
                                                     <i class="fa fa-check" aria-hidden="true"></i>
                                                 </button>
                                             </form>
