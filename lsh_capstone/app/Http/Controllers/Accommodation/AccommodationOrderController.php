@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Accommodation;
 
 use App\Http\Controllers\Controller;
+use App\Mail\WebsiteMail;
+use App\Models\Accommodation;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AccommodationOrderController extends Controller
 {
@@ -69,7 +72,38 @@ class AccommodationOrderController extends Controller
         $completed_orders = OrderDetail::whereIn('room_id', $room_ids)->where('status', 'completed')->where('remark', 'active')->get();
 
         return view('accommodation.completed_orders', compact('completed_orders'));
-    } 
+    }
+    
+    public function confirm($id)
+    {
+        $order_detail_info = OrderDetail::where('id', $id)->first();
+        $order_detail_info->status = 'Completed';
+        $order_detail_info->update();
+
+
+        $room_info = Room::where('id', $order_detail_info->id)->first();
+        $accommodation_info = Accommodation::where('id', $room_info->accommodation_id)->first();
+        $order_info = Order::where('order_no', $order_detail_info)->first();
+        $customer_info = Customer::where('id', $order_info->customer_id)->first();
+
+        $subject = 'Your booking has been confirmed';
+        $message = '<p>Dear <strong>' . $customer_info->name . '</strong>,</p>';
+        $message .= '<p>We are delighted to inform you that your booking with booking number: <strong>'.$order_detail_info->order_no . 'at'. $room_info->name . 'of'. $accommodation_info->name .'</strong> has been approved! Thank you for choosing us for your upcoming stay.</p>';
+
+        $message .= '<p>Your booking has been confirmed, and we are eagerly awaiting your arrival. At Labason Safe Haven, we are dedicated to providing you with a comfortable and memorable experience.</p>';
+        $message .= '<p>If you have any special requests or requirements, please feel free to let us know, and we will do our best to accommodate them.</p>';
+        $message .= '<p>Once again, thank you for choosing Labason Safe Haven. We look forward to welcoming you and providing you with exceptional hospitality.</p>';
+        $message .= 'Warm regards, <br>';
+        $message .= '<strong>Celine Lerios</strong> <br>';
+        $message .= '<strong>Chief Operating Officer</strong><br>';
+        $message .= '<strong>Labason Safe Haven</strong><br>';
+
+        // Get the customer's email address and send the email message
+        $customer_email = $customer_info->email;
+        Mail::to($customer_email)->send(new WebsiteMail($subject, $message));
+
+        return redirect()->back()->with('success', 'Booking has been confirmed!');
+    }
 
 
 
