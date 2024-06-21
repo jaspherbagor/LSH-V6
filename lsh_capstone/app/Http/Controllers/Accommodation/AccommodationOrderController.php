@@ -77,7 +77,7 @@ class AccommodationOrderController extends Controller
     public function confirm($id)
     {
         $order_detail_info = OrderDetail::where('id', $id)->first();
-        $order_detail_info->status = 'Completed';
+        $order_detail_info->status = 'completed';
         $order_detail_info->update();
 
 
