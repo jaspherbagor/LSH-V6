@@ -48,9 +48,14 @@
                                             <a href="{{ route('accommodation_invoice',$row->id) }}" class="btn btn-primary mb-1" data-toggle="tooltip" data-placement="top" title="Detail">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </a>
-                                            <a href="" class="btn btn-danger mb-1" onClick="return confirm('Are you sure you want to decline the booking?');" data-toggle="tooltip" data-placement="top" title="Decline">
-                                                <i class="fa fa-times" aria-hidden="true"></i>
-                                            </a>
+                                            
+                                            <form action="{{ route('accommodation_booking_decline', $row->id) }}" method="POST" style="display:inline-block;">
+                                                @csrf
+                                                <button type="submit" onClick="return confirm('Are you sure you want to decline this booking?');" class="btn btn-danger mb-1" data-toggle="tooltip" data-placement="top" title="Decline booking">
+                                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                                </button>
+                                            </form>
+
                                             <form action="{{ route('accommodation_booking_confirm', $row->id) }}" method="POST" style="display:inline-block;">
                                                 @csrf
                                                 <button type="submit" onClick="return confirm('Are you sure you want to confirm this booking?');" class="btn btn-success mb-1" data-toggle="tooltip" data-placement="top" title="Confirm booking">
