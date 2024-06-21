@@ -66,6 +66,19 @@
                 </ul>
             </li>
 
+
+            <li class="nav-item dropdown {{ Request::is('admin/room/all/view') || Request::is('admin/pending/room/view') || Request::is('admin/published/room/view')  ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fa fa-bed"></i><span>Room Section</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Request::is('admin/room/all/view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_room_all_view') }}"><i class="fa fa-angle-right"></i> <span>All Rooms</span></a></li>
+
+                    <li class="{{ Request::is('admin/published/room/view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_published_room_view') }}"><i class="fa fa-angle-right"></i> <span>Published Rooms</span></a></li>
+
+                    <li class="{{ Request::is('admin/pending/room/view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_pending_room_view') }}"><i class="fa fa-angle-right"></i> <span>Pending Rooms</span></a></li>
+
+                </ul>
+            </li>
+
             <li class="{{ Request::is('admin/review/view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_review_view') }}"><i class="fa fa-star"></i> <span>Accommodation Reviews</span></a></li>
 
             <li class="{{ Request::is('admin/slide/view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_slide_view') }}"><i class="fa fa-sliders"></i> <span>Slide</span></a></li>
