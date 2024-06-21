@@ -21,12 +21,16 @@
             <li class="{{ Request::is('admin/datewise-rooms') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_datewise_rooms') }}"><i class="fa fa-calendar"></i> <span>Datewise Rooms</span></a></li>
 
 
-            <li class="nav-item dropdown {{ Request::is('admin/amenity/view') || Request::is('admin/room/view') || Request::is('admin/accommodation-type/view') || Request::is('admin/accommodations') ? 'active' : '' }}">
+            <li class="nav-item dropdown {{ Request::is('admin/amenity/view') || Request::is('admin/room/view') || Request::is('admin/accommodation-type/view') || Request::is('admin/accommodations') || Request::is('admin/pending/accommodation/view') || Request::is('admin/approved/accommodation/view') ? 'active' : '' }}">
                 <a href="#" class="nav-link has-dropdown"><i class="fa fa-building-o"></i><span>Accommodation Section</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::is('admin/amenity/view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_amenity_view') }}"><i class="fa fa-angle-right"></i>Amenities</a></li>
                     <li class="{{ Request::is('admin/accommodation-type/view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_accommodation_type_view') }}"><i class="fa fa-angle-right"></i>Accommodation Types</a></li>
                     <li class="{{ Request::is('admin/accommodations') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_accommodation_all') }}"><i class="fa fa-angle-right"></i>All Accommodations</a></li>
+                    <li class="{{ Request::is('admin/pending/accommodation/view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_pending_accommodation_view') }}"><i class="fa fa-angle-right"></i>Pending Accommodations</a></li>
+                    <li class="{{ Request::is('admin/approved/accommodation/view') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_approved_accommodation_view') }}"><i class="fa fa-angle-right"></i>Approved Accommodations</a></li>
+
+
                 </ul>
             </li>
 
