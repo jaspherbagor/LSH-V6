@@ -218,6 +218,8 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
 
     Route::post('/accommodation/order/confirm/{id}', [AccommodationOrderController::class, 'confirm'])->name('accommodation_booking_confirm');
 
+    Route::post('/accommodation/order/decline/{id}', [AccommodationOrderController::class, 'decline'])->name('accommodation_booking_decline');
+
     Route::get('/accommodation/payment-info', [AccommodationPaymentInfoController::class,'index'])->name('accommodation_payment_info');
 
     Route::post('/accommodation/payment-info/update', [AccommodationPaymentInfoController::class, 'update'])->name('accommodation_payment_info_update');
