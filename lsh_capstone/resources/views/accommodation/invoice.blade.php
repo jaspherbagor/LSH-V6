@@ -1,6 +1,6 @@
 @extends('accommodation.layout.app')
 
-@section('heading', 'Order Invoice')
+@section('heading', 'Booking Invoice')
 
 @section('right_top_button')
 <a href="" class="btn btn-primary"><i class="fa fa-eye"></i> View All</a>
@@ -106,8 +106,8 @@
                                 <td class="text-center">{{ $item->children }}</td>
                                 <td class="text-right">
                                     @php
-                                        $d1 = explode('/',$item->checkin_date);
-                                        $d2 = explode('/',$item->checkout_date);
+                                        $d1 = explode('/',$order->checkin_date);
+                                        $d2 = explode('/',$order->checkout_date);
                                         $d1_new = $d1[2].'-'.$d1[1].'-'.$d1[0];
                                         $d2_new = $d2[2].'-'.$d2[1].'-'.$d2[0];
                                         $t1 = strtotime($d1_new);
