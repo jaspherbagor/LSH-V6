@@ -151,7 +151,7 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $row->order_no }}</td>
                                             <td>{{ $order_info->payment_method }}</td>
-                                            <td>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $check_date->checkin_date)->format('F d, Y') }} 3:00PM - {{ \Carbon\Carbon::createFromFormat('d/m/Y', $check_date->checkout_date)->format('F d, Y') }} 12:00PM</td>
+                                            <td>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $check_date->checkin_date)->format('F d, Y') }} 3:00PM - {{ \Carbon\Carbon::createFromFormat('d/m/Y', $check_date->checkout_date)->format('F d, Y') }} 11:00AM</td>
                                             <td>₱{{ number_format($row->subtotal, 2) }}</td>
                                             <td class="pt_10 pb_10">
                                                 @if($row->status === 'completed')
