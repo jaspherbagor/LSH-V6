@@ -25,9 +25,25 @@ class BookingController extends Controller
         $request->validate([
             'room_id' => 'required', // Room ID must be provided
             'checkin_checkout' => 'required', // Check-in and check-out date range must be provided
-            'adult' => 'required',// Number of adults must be provided
-            'children' => 'required' // Number of adults must be provided
+            'adult' => 'required', // Number of adults must be provided
+            'children' => 'required' // Number of children must be provided
         ]);
+
+        // Retrieve the room details from the database
+        $new_room = Room::where('id', $request->room_id)->first();
+
+        // Check if the cart already contains items
+        $cart_room_ids = session()->get('cart_room_id', []);
+        if (!empty($cart_room_ids)) {
+            // Get the accommodation ID of the first room in the cart
+            $first_cart_room_id = $cart_room_ids[0];
+            $first_cart_room = Room::where('id', $first_cart_room_id)->first();
+
+            // Check if the new room's accommodation ID matches the existing cart's accommodation ID
+            if ($new_room->accommodation_id !== $first_cart_room->accommodation_id) {
+                return redirect()->back()->with('error', 'You can only add to cart rooms of the same accommodation at a time.');
+            }
+        }
 
         // Split the check-in and check-out date range
         $dates = explode(' - ', $request->checkin_checkout);
@@ -52,25 +68,23 @@ class BookingController extends Controller
             if ($t1 >= $t2) {
                 break;
             }
-            
+
             // Format the current date as 'd/m/Y'
             $single_date = date('d/m/Y', $t1);
-            
+
             // Check how many rooms have already been booked for the current date
             $total_already_booked_rooms = BookedRoom::where('booking_date', $single_date)
                 ->where('room_id', $request->room_id)
                 ->count();
-            
-            // Retrieve the room details from the database
-            $arr = Room::where('id', $request->room_id)->first();
+
             // Get the total allowed rooms for the specific room ID
-            $total_allowed_rooms = $arr->total_rooms;
-            
+            $total_allowed_rooms = $new_room->total_rooms;
+
             // Retrieve the total number of adults from the request
             $cart_total_guest = $request->adult;
 
             // Get the maximum number of guests allowed in the room
-            $room_total_guest = $arr->total_guests;
+            $room_total_guest = $new_room->total_guests;
 
             // Check if the number of adults in the cart exceeds the allowed number of guests in the room
             if ($cart_total_guest > $room_total_guest) {
@@ -84,7 +98,7 @@ class BookingController extends Controller
                 $count = 0;
                 break;
             }
-            
+
             // Move to the next day by adding one day to the current timestamp
             $t1 = strtotime('+1 day', $t1);
         }
@@ -105,6 +119,7 @@ class BookingController extends Controller
         // Redirect back with a success message indicating the room has been added to the cart
         return redirect()->back()->with('success', 'Room is added to the cart successfully.');
     }
+
 
     public function cart_view()
     {
