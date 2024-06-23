@@ -507,11 +507,17 @@ class BookingController extends Controller
         $statement = DB::select("SHOW TABLE STATUS LIKE 'orders'");
         $ai_id = $statement[0]->Auto_increment;
 
+         // Retrieve the room ID from the cart to find the accommodation ID
+         $first_cart_room_id = session()->get('cart_room_id')[0];
+         $room = Room::where('id', $first_cart_room_id)->first();
+         $accommodation_id = $room->accommodation_id;
+
         // Create a new order and populate it with the relevant details
         $obj = new Order();
         $obj->customer_id = Auth::guard('customer')->user()->id;
         $obj->order_no = $order_no;
         $obj->transaction_id = $request->reference_id;
+        $obj->accommodation_id = $accommodation_id; // Store the accommodation ID
         $obj->payment_method = 'Gcash';
         $obj->card_last_digit = '';
         $obj->paid_amount = $price;
