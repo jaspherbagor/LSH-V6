@@ -43,7 +43,7 @@ class BookingController extends Controller
             if ($new_room->accommodation_id !== $first_cart_room->accommodation_id) {
                 return redirect()->back()->with('error', 'You can only add to cart rooms of the same accommodation at a time.');
             }
-        }
+        }  
 
         // Split the check-in and check-out date range
         $dates = explode(' - ', $request->checkin_checkout);
