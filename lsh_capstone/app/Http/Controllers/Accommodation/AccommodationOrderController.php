@@ -20,13 +20,9 @@ class AccommodationOrderController extends Controller
        // Get the logged-in accommodation ID
         $accommodation_id = Auth::guard('accommodation')->user()->id;
 
-        // Retrieve the room IDs belonging to this accommodation
-        $room_ids = Room::where('remark', 'active')->where('accommodation_id', $accommodation_id)->pluck('id');
+        $orders = Order::where('accommodation_id', $accommodation_id)->where('remark', 'active')->get();
 
-        // Retrieve the order details for these rooms
-        $order_details = OrderDetail::whereIn('room_id', $room_ids)->where('remark', 'active')->get();
-
-        return view('accommodation.orders', compact('order_details'));
+        return view('accommodation.orders', compact('orders'));
     } 
 
 
@@ -35,11 +31,8 @@ class AccommodationOrderController extends Controller
        // Get the logged-in accommodation ID
         $accommodation_id = Auth::guard('accommodation')->user()->id;
 
-        // Retrieve the room IDs belonging to this accommodation
-        $room_ids = Room::where('remark', 'active')->where('accommodation_id', $accommodation_id)->pluck('id');
-
         // Retrieve the order details for these rooms
-        $pending_orders = OrderDetail::whereIn('room_id', $room_ids)->where('status', 'pending')->where('remark', 'active')->get();
+        $pending_orders = Order::where('status', 'Pending')->where('remark', 'active')->where('accommodation_id', $accommodation_id)->get();
 
         return view('accommodation.pending_orders', compact('pending_orders'));
     } 
@@ -50,11 +43,8 @@ class AccommodationOrderController extends Controller
        // Get the logged-in accommodation ID
         $accommodation_id = Auth::guard('accommodation')->user()->id;
 
-        // Retrieve the room IDs belonging to this accommodation
-        $room_ids = Room::where('remark', 'active')->where('accommodation_id', $accommodation_id)->pluck('id');
-
         // Retrieve the order details for these rooms
-        $declined_orders = OrderDetail::whereIn('room_id', $room_ids)->where('status', 'declined')->where('remark', 'active')->get();
+        $declined_orders = Order::where('status', 'Declined')->where('remark', 'active')->where('accommodation_id', $accommodation_id)->get();
 
         return view('accommodation.declined_orders', compact('declined_orders'));
     } 
@@ -65,11 +55,8 @@ class AccommodationOrderController extends Controller
        // Get the logged-in accommodation ID
         $accommodation_id = Auth::guard('accommodation')->user()->id;
 
-        // Retrieve the room IDs belonging to this accommodation
-        $room_ids = Room::where('remark', 'active')->where('accommodation_id', $accommodation_id)->pluck('id');
-
         // Retrieve the order details for these rooms
-        $completed_orders = OrderDetail::whereIn('room_id', $room_ids)->where('status', 'completed')->where('remark', 'active')->get();
+        $completed_orders = Order::where('accommodation_id', $accommodation_id)->where('status', 'Completed')->where('remark', 'active')->get();
 
         return view('accommodation.completed_orders', compact('completed_orders'));
     }
