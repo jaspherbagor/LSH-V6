@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('customer_id');
             $table->text('order_no');
             $table->text('transaction_id');
+            $table->integer('accommodation_id');
             $table->text('payment_method');
             $table->text('card_last_digit')->nullable();
             $table->text('paid_amount');
