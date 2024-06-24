@@ -36,17 +36,10 @@
                         <div class="col-md-4">
                             <address>
                                 <strong>Invoice To</strong><br>
-                                @if($customer_data->photo!= '')
                                 <img src="{{ asset('uploads/'.$customer_data->photo) }}" alt="profile photo" class="w_50" ><br>
-                                @else
-                                <img src="{{ asset('uploads/default.png') }}" alt="profile photo" class="w_50" ><br>
-                                @endif
                                 {{ $customer_data->name }}<br>
-
                                 {{ $customer_data->address }},<br>
-
                                 {{ $customer_data->city }}, <br>
-
                                 {{ $customer_data->province }}
                             </address>
                         </div>
@@ -100,14 +93,14 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $accommodation_data->name }}</td>
                                 <td>{{ $room_data->room_name }}</td>
-                                <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->checkin_date)->format('F d, Y') }} - 12:00PM</td>
-                                <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->checkout_date)->format('F d, Y') }} - 12:00PM</td>
+                                <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->checkin_date)->format('F d, Y') }} 3:00PM</td>
+                                <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->checkout_date)->format('F d, Y') }} 11:00AM</td>
                                 <td class="text-center">{{ $item->adult }}</td>
                                 <td class="text-center">{{ $item->children }}</td>
                                 <td class="text-right">
                                     @php
-                                        $d1 = explode('/',$order->checkin_date);
-                                        $d2 = explode('/',$order->checkout_date);
+                                        $d1 = explode('/',$item->checkin_date);
+                                        $d2 = explode('/',$item->checkout_date);
                                         $d1_new = $d1[2].'-'.$d1[1].'-'.$d1[0];
                                         $d2_new = $d2[2].'-'.$d2[1].'-'.$d2[0];
                                         $t1 = strtotime($d1_new);

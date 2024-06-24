@@ -73,8 +73,8 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $accommodation_data->name }}</td>
                                 <td>{{ $room_data->room_name }}</td>
-                                <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->checkin_date)->format('F d, Y') }}</td>
-                                <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->checkout_date)->format('F d, Y') }}</td>
+                                <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->checkin_date)->format('F d, Y') }} 3:00PM</td>
+                                <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->checkout_date)->format('F d, Y') }} 11:00AM</td>
                                 <td class="text-center">{{ $item->adult }}</td>
                                 <td class="text-center">{{ $item->children }}</td>
                                 <td class="text-right">
