@@ -21,23 +21,23 @@ class AccommodationHomeController extends Controller
         // Get the logged-in accommodation ID
         $accommodation_id = Auth::guard('accommodation')->user()->id;
 
-        // Retrieve the room IDs belonging to this accommodation
-        $room_ids = Room::where('remark', 'active')->where('accommodation_id', $accommodation_id)->pluck('id');
+        // // Retrieve the room IDs belonging to this accommodation
+        // $room_ids = Room::where('remark', 'active')->where('accommodation_id', $accommodation_id)->pluck('id');
 
-        $total_orders = OrderDetail::whereIn('room_id', $room_ids)->where('remark', 'active')->count();
+        $total_orders = Order::where('accommodation_id', $accommodation_id)->where('remark', 'active')->count();
 
         // Retrieve the order details for these rooms
-        $total_completed_orders = OrderDetail::whereIn('room_id', $room_ids)->where('status', 'completed')->where('remark', 'active')->count();
+        $total_completed_orders = Order::where('accommodation_id', $accommodation_id)->where('status', 'Completed')->where('remark', 'active')->count();
 
 
-        $total_pending_orders = OrderDetail::whereIn('room_id', $room_ids)->where('status', 'pending')->where('remark', 'active')->count();
+        $total_pending_orders = Order::where('accommodation_id', $accommodation_id)->where('status', 'Pending')->where('remark', 'active')->count();
 
-        $total_declined_orders = OrderDetail::whereIn('room_id', $room_ids)->where('status', 'declined')->where('remark', 'active')->count();
+        $total_declined_orders = Order::where('accommodation_id', $accommodation_id)->where('status', 'Declined')->where('remark', 'active')->count();
 
         $total_rooms = Room::where('accommodation_id', Auth::guard('accommodation')->user()->id)->count();
 
 
-        $recent_orders = OrderDetail::whereIn('room_id', $room_ids)->where('status', 'completed')->where('remark', 'active')->orderBy('id', 'desc')
+        $recent_orders = Order::where('accommodation_id', $accommodation_id)->where('status', 'Completed')->where('remark', 'active')->orderBy('id', 'desc')
         ->take(5)->get();
 
 

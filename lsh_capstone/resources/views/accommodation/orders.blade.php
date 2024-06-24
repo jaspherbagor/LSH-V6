@@ -23,23 +23,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($order_details as $row)
+                                    @foreach($orders as $row)
 
                                     @php
-                                    $order_info = \App\Models\Order::where('order_no', $row->order_no)->first(); 
-                                    $customer_info = \App\Models\Customer::where('id', $order_info->customer_id)->first();
+                                    $customer_info = \App\Models\Customer::where('id', $row->customer_id)->first();
                                     @endphp
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $order_info->transaction_id }}</td>
+                                        <td>{{ $row->transaction_id }}</td>
                                         <td>{{ $customer_info->name }}</td>
-                                        <td>{{ $order_info->payment_method }}</td>
-                                        <td>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $order_info->booking_date)->format('F d, Y') }}</td>
-                                        <td>₱{{ number_format($row->subtotal, 2) }}</td>
+                                        <td>{{ $row->payment_method }}</td>
+                                        <td>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $row->booking_date)->format('F d, Y') }}</td>
+                                        <td>₱{{ number_format($row->paid_amount, 2) }}</td>
                                         <td class="pt_10 pb_10">
-                                            @if($row->status === 'completed')
+                                            @if($row->status === 'Completed')
                                             <button class="btn btn-success">{{ $row->status }}</button>
-                                            @elseif($row->status === 'pending')
+                                            @elseif($row->status === 'Pending')
                                             <button class="btn btn-danger">{{ $row->status }}</button>
                                             @else
                                             <button class="btn btn-dark">{{ $row->status }}</button>
