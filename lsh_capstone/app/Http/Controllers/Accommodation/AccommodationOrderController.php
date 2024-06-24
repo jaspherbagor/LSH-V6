@@ -63,19 +63,17 @@ class AccommodationOrderController extends Controller
     
     public function confirm($id)
     {
-        $order_detail_info = OrderDetail::where('id', $id)->first();
+        $order_info = Order::where('id', $id)->first();
 
-        $room_info = Room::where('id', $order_detail_info->id)->first();
-        $accommodation_info = Accommodation::where('id', $room_info->accommodation_id)->first();
-        $order_info = Order::where('order_no', $order_detail_info->order_no)->first();
+        $accommodation_info = Accommodation::where('id', $order_info->accommodation_id)->first();
         $customer_info = Customer::where('id', $order_info->customer_id)->first();
 
-        $order_detail_info->status = 'completed';
-        $order_detail_info->update();
+        $order_info->status = 'Completed';
+        $order_info->update();
 
         $subject = 'Your booking has been confirmed';
         $message = '<p>Dear <strong>' . $customer_info->name . '</strong>,</p>';
-        $message .= '<p>We are delighted to inform you that your booking with booking number: <strong>'.$order_detail_info->order_no . '</strong> at <strong>'. $room_info->room_name . '</strong> of <strong>'. $accommodation_info->name .'</strong> has been approved! Thank you for choosing us for your upcoming stay.</p>';
+        $message .= '<p>We are delighted to inform you that your booking with booking number: <strong>'.$order_info->order_no . '</strong> of <strong>'. $accommodation_info->name .'</strong> has been approved! Thank you for choosing us for your upcoming stay.</p>';
 
         $message .= '<p>Your booking has been confirmed, and we are eagerly awaiting your arrival at ' .$accommodation_info->name. '. At Labason Safe Haven, we are dedicated to providing you with a comfortable and memorable experience.</p>';
         $message .= '<p>If you have any special requests or requirements, please feel free to let us know, and we will do our best to accommodate them.</p>';
@@ -94,19 +92,17 @@ class AccommodationOrderController extends Controller
 
     public function decline($id)
     {
-        $order_detail_info = OrderDetail::where('id', $id)->first();
+        $order_info = Order::where('id', $id)->first();
 
-        $room_info = Room::where('id', $order_detail_info->id)->first();
-        $accommodation_info = Accommodation::where('id', $room_info->accommodation_id)->first();
-        $order_info = Order::where('order_no', $order_detail_info->order_no)->first();
+        $accommodation_info = Accommodation::where('id', $order_info->accommodation_id)->first();
         $customer_info = Customer::where('id', $order_info->customer_id)->first();
 
-        $order_detail_info->status = 'declined';
-        $order_detail_info->update();
+        $order_info->status = 'Declined';
+        $order_info->update();
 
         $subject = 'Your booking has been declined';
         $message = '<p>Dear <strong>' . $customer_info->name . '</strong>,</p>';
-        $message .= '<p>We regret to inform you that there was an issue processing your booking with booking number: <strong>'.$order_detail_info->order_no . '</strong> at <strong>'. $room_info->room_name . '</strong> of <strong>'. $accommodation_info->name .'</strong>. Unfortunately, the reference number provided for the payment method does not match our records.</p>';
+        $message .= '<p>We regret to inform you that there was an issue processing your booking with booking number: <strong>'.$order_info->order_no . '</strong> of <strong>'. $accommodation_info->name .'</strong>. Unfortunately, the reference number provided for the payment method does not match our records.</p>';
 
         $message .= '<p>To proceed with your booking, please ensure that the reference number provided matches the one associated with your payment transaction. Once you have verified the reference number, please reply to this email with the correct information, or contact our customer support team at <strong>contact@labason.space</strong> for further assistance.</p>';
         $message .= '<p>We apologize for any inconvenience this may have caused and appreciate your prompt attention to this matter. Our team is here to assist you and ensure a smooth booking process.</p>';
