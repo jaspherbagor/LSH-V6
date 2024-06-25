@@ -159,6 +159,7 @@ class AdminAccommodationController extends Controller
     {
         $accommodation_info = Accommodation::where('id', $id)->first();
         $accommodation_info->status = 'approved';
+        $accommodation_info->token = '';
         $accommodation_info->update();
 
         // Define the subject for the verification email
