@@ -282,11 +282,22 @@ class CustomerAuthController extends Controller
         // Find the customer with the given token and email
         $customer_data = Customer::where('token', $request->token)->where('email', $request->email)->first();
 
-        // Set the new password and clear the token
-        $customer_data->password = Hash::make($request->password); // Hash the new password
-        $customer_data->token = ''; // Clear the token
-        $customer_data->update(); // Save the changes to the database
+        $accommodation_data = Accommodation::where('token', $request->token)->where('contact_email', $request->email)->first();
 
+        if($customer_data) {
+            // Set the new password and clear the token
+            $customer_data->password = Hash::make($request->password); // Hash the new password
+            $customer_data->token = ''; // Clear the token
+            $customer_data->update(); // Save the changes to the database
+        } elseif($accommodation_data) {
+            // Set the new password and clear the token
+            $accommodation_data->password = Hash::make($request->password); // Hash the new password
+            $accommodation_data->token = ''; // Clear the token
+            $accommodation_data->update(); // Save the changes to the database
+        } else {
+            return redirect()->route('customer_forget_password')->with('error', 'Something went wrong. Please try again!');
+        }
+        
         // Redirect to the customer login page with a success message
         return redirect()->route('customer_login')->with('success', 'Password is reset successfully');
     }
