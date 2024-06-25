@@ -246,13 +246,19 @@ class CustomerAuthController extends Controller
         // Find the customer with the given token and email
         $customer_data = Customer::where('token', $token)->where('email', $email)->first();
         
-        // If the customer data is not found, redirect to the customer login page
-        if (!$customer_data) {
+        $accommodation_data = Accommodation::where('token', $token)->where('contact_email', $email)->first();
+
+        if ($customer_data) {
+            // Render the 'front.reset_password' view for the reset password page
+            return view('front.reset_password', compact('token', 'email'));
+        } elseif($accommodation_data) {
+            // Render the 'front.reset_password' view for the reset password page
+            return view('front.reset_password', compact('token', 'email'));
+        } else {
+            // If the data is not found, redirect to the customer login page
             return redirect()->route('customer_login');
         }
 
-        // Render the 'front.reset_password' view for the reset password page
-        return view('front.reset_password', compact('token', 'email'));
     }
 
     // Method to handle reset password form submission
