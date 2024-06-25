@@ -90,6 +90,8 @@ class CustomerAuthController extends Controller
         return view('front.signup');
     }
 
+    
+
     // Method to handle signup form submission
     public function signup_submit(Request $request)
     {
