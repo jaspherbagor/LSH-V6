@@ -82,6 +82,8 @@ class CustomerAuthController extends Controller
         // If the customer is already authenticated, redirect to the customer home page
         if (Auth::guard('customer')->check()) {
             return redirect()->route('customer_home');
+        } elseif(Auth::guard('accommodation')->check()){
+            return redirect()->route('accommodation_home');
         }
 
         // Render the 'front.signup' view for the signup page
