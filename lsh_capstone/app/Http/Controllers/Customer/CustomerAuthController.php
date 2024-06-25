@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash; // Importing the Hash facade for hashing pa
 use Illuminate\Support\Facades\Auth; // Importing the Auth facade for authentication
 use Illuminate\Support\Facades\Mail; // Importing the Mail facade for sending emails
 use App\Mail\WebsiteMail; // Importing the WebsiteMail class for sending emails
+use App\Models\Accommodation;
 use App\Models\Customer; // Importing the Customer model
 
 // Controller for handling customer authentication-related requests
@@ -198,18 +199,24 @@ class CustomerAuthController extends Controller
 
         // Find the customer with the given email
         $customer_data = Customer::where('email', $request->email)->first();
+
+        $accommodation_data = Accommodation::where('contact_email', $request->email)->first();
         
-        // If the customer data is not found, redirect back with an error message
-        if (!$customer_data) {
-            return redirect()->back()->with('error', 'Email address not found!');
-        }
 
         // Generate a unique reset token for the customer
         $token = hash('sha256', time());
 
-        // Set the reset token for the customer
-        $customer_data->token = $token;
-        $customer_data->update(); // Save the changes to the database
+        if($customer_data) {
+            // Set the reset token for the customer
+            $customer_data->token = $token;
+            $customer_data->update(); // Save the changes to the database
+        } elseif($accommodation_data) {
+            // Set the reset token for the customer
+            $accommodation_data->token = $token;
+            $accommodation_data->update(); // Save the changes to the database
+        } else {
+            return redirect()->back()->with('error', 'Email address not found!');
+        }
 
         // Generate a password reset link for the customer
         $reset_link = url('reset-password/' . $token . '/' . $request->email);
