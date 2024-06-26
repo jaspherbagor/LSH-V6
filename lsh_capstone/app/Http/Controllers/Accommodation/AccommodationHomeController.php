@@ -21,8 +21,6 @@ class AccommodationHomeController extends Controller
         // Get the logged-in accommodation ID
         $accommodation_id = Auth::guard('accommodation')->user()->id;
 
-        // // Retrieve the room IDs belonging to this accommodation
-        // $room_ids = Room::where('remark', 'active')->where('accommodation_id', $accommodation_id)->pluck('id');
 
         $total_orders = Order::where('accommodation_id', $accommodation_id)->where('remark', 'active')->count();
 
