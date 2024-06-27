@@ -39,6 +39,7 @@ class AdminHomeController extends Controller
         //count the total pending accommodations
         $total_pending_accommodations = Accommodation::where('status', 'pending')->where('remark', 'active')->count();
 
+        //count the total approved accommodations
         $total_approved_accommodations = Accommodation::where('status', 'approved')->where('remark', 'active')->count();
 
         $total_rooms = Room::where('remark', 'active')->count();
