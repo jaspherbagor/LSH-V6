@@ -54,6 +54,7 @@
                 {
                     $room_data = DB::table('rooms')->where('id',$arr_cart_room_id[$i])->first();
                     $accommodation = DB::table('accommodations')->where('id', $room_data->accommodation_id)->first();
+                    $payment_info = DB::table('payments')->where('accommodation_id', $accommodation->id)->first();
                     $accommodation_type = DB::table('accommodation_types')->where('id', $accommodation->accommodation_type_id)->first();                            
                     $d1 = explode('/',$arr_cart_checkin_date[$i]);
                     $d2 = explode('/',$arr_cart_checkout_date[$i]);
