@@ -83,15 +83,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12 mb-3">
-                                        <label for="" class="form-label">Map Iframe Code</label>
-                                        <input type="text" class="form-control form-input @if($errors->has('map')) is-invalid @endif" name="map" value="{{ old('map') }}">
-                                        @if($errors->has('map'))
-                                            <span class="text-danger">{{ $errors->first('map') }}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <div class="mb-3">
                                         <label for="" class="form-label">Password</label>
                                         <input type="password" class="form-control form-input @if($errors->has('password')) is-invalid @endif" name="password">
