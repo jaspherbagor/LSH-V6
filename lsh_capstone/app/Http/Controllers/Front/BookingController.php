@@ -240,7 +240,7 @@ class BookingController extends Controller
             return redirect()->back()->with('error', 'You must have to login in order to checkout');
         }
 
-        $payment_info = Payment::where('id', 1)->first();
+        // $payment_info = Payment::where('id', 1)->first();
 
         // Check if the cart contains any items; if not, redirect back with an error message
         if (!session()->has('cart_room_id')) {
@@ -270,7 +270,7 @@ class BookingController extends Controller
         session()->put('billing_zip', $request->billing_zip);
 
         // Render the payment view
-        return view('front.payment', compact('payment_info'));
+        return view('front.payment');
     }
 
     public function stripe(Request $request, $final_price)
