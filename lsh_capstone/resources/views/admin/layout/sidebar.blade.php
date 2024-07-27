@@ -102,7 +102,7 @@
                 </ul>
             </li>
 
-            <li class="{{ Request::is('admin/transaction/report') ? 'active' : '' }}"><a class="nav-link" href="{{ route('transaction_report') }}"><i class="fa fa-users"></i> <span>Report</span></a></li>
+            <li class="{{ Request::is('admin/transaction/report') ? 'active' : '' }}"><a class="nav-link" href="{{ route('transaction_report') }}"><i class="fa fa-sticky-note-o"></i> <span>Report</span></a></li>
         </ul>
     </aside>
 </div>
