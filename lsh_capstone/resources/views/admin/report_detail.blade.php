@@ -27,9 +27,7 @@
                                         <th>Payment Method</th>
                                         <th>Booking Date</th>
                                         <th>Paid Amount</th>
-                                        {{-- <th>Status</th> --}}
                                         <th>Percentage (10%)</th>
-                                        {{-- <th>Action</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -44,19 +42,18 @@
                                         <td>{{ $row->payment_method }}</td>
                                         <td>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $row->booking_date)->format('Y-m-d') }}</td>
                                         <td>₱{{ number_format($row->paid_amount, 2) }}</td>
-                                        {{-- <td class="pt_10 pb_10">
-                                            <button class="btn btn-success">{{ $row->status }}</button>
-                                        </td> --}}
                                         <td>₱{{ number_format($row->paid_amount * .1, 2) }}</td>
-                                        {{-- <td class="pt_10 pb_10">
-                                            <a href="" class="btn btn-primary mb-1" data-toggle="tooltip" data-placement="top" title="View Booking Transactions">
-                                                <i class="fa fa-info-circle" aria-hidden="true"></i>
-                                            </a>
-                                        </td> --}}
                                         
                                     </tr>
                                     @endforeach
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="5" style="text-align:right">Total:</th>
+                                        <th id="totalPaidAmount">₱0.00</th>
+                                        <th id="totalPercentage">₱0.00</th>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -92,6 +89,32 @@
         $('#min, #max').change(function() {
             table.draw();
         });
+
+        // Function to calculate and update the totals
+        function updateTotals() {
+            var totalPaidAmount = 0;
+            var totalPercentage = 0;
+
+            table.rows({ search: 'applied' }).every(function() {
+                var data = this.data();
+                var paidAmount = parseFloat(data[5].replace(/[^0-9.-]+/g, "")) || 0;
+                var percentage = parseFloat(data[6].replace(/[^0-9.-]+/g, "")) || 0;
+
+                totalPaidAmount += paidAmount;
+                totalPercentage += percentage;
+            });
+
+            $('#totalPaidAmount').text('₱' + totalPaidAmount.toFixed(2));
+            $('#totalPercentage').text('₱' + totalPercentage.toFixed(2));
+        }
+
+        // Call updateTotals whenever the table is drawn
+        table.on('draw', function() {
+            updateTotals();
+        });
+
+        // Initial call to set totals
+        updateTotals();
     });
     </script>
 
