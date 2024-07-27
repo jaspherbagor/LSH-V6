@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 // Import necessary classes
 use App\Http\Controllers\Controller;  // Base controller class
 use App\Mail\WebsiteMail;
+use App\Models\Accommodation;
 use App\Models\Customer;  // Model for customers
 use App\Models\Order;  // Model for orders
 use App\Models\OrderDetail;  // Model for order details
@@ -130,5 +131,14 @@ class AdminOrderController extends Controller
 
         // Redirect back with a success message
         return redirect()->back()->with('success', 'Order is deleted successfully!');
+    }
+
+    public function transaction_report()
+    {
+        $booking_info = Order::get();
+        foreach($booking_info as $data) {
+            $accommodation_info = Accommodation::where('id', $data->accommodation_id)->first();
+        }
+        return view('admin.report', compact('booking_info', 'accommodation_info'));
     }
 }
