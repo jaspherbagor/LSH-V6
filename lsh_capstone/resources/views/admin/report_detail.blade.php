@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('heading', 'All Bookings Report')
+@section('heading', $accommodation_info->name.' Bookings Report')
 
 @section('main_content')
     <div class="section-body">
@@ -13,24 +13,35 @@
                                 <thead>
                                     <tr>
                                         <th>SL</th>
-                                        <th>Accommodation Name</th>
-                                        <th>Action</th>
+                                        <th>Booking No.</th>
+                                        <th>Customer's Name</th>
+                                        <th>Payment Method</th>
+                                        <th>Booking Date</th>
+                                        <th>Paid Amount</th>
+                                        <th>Status</th>
+                                        {{-- <th>Action</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($booking_info as $row)
+                                    @foreach($accommodation_transaction as $row)
                                     @php
-                                    $accommodation_info = \App\Models\Accommodation::where('id', $row->accommodation_id)->first();
+                                    $customer_info = \App\Models\Customer::where('id', $row->customer_id)->first();
                                     @endphp
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        
-                                        <td>{{ $accommodation_info->name }}</td>
+                                        <td>{{ $row->order_no }}</td>
+                                        <td>{{ $customer_info->name }}</td>
+                                        <td>{{ $row->payment_method }}</td>
+                                        <td>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $row->booking_date)->format('F d, Y') }}</td>
+                                        <td>₱{{ number_format($row->paid_amount, 2) }}</td>
                                         <td class="pt_10 pb_10">
+                                            <button class="btn btn-success">{{ $row->status }}</button>
+                                        </td>
+                                        {{-- <td class="pt_10 pb_10">
                                             <a href="" class="btn btn-primary mb-1" data-toggle="tooltip" data-placement="top" title="View Booking Transactions">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </a>
-                                        </td>
+                                        </td> --}}
                                         
                                     </tr>
                                     @endforeach

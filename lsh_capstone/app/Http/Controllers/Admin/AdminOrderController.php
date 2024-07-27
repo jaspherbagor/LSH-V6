@@ -135,7 +135,15 @@ class AdminOrderController extends Controller
 
     public function transaction_report()
     {
-        $accommodation_info = Accommodation::where('status', 'approved')->get();
+        $accommodation_info = Accommodation::where('status', 'approved')->where('remark', 'active')->get();
         return view('admin.report', compact('accommodation_info'));
+    }
+
+    public function report_detail($id)
+    {
+        $accommodation_transaction = Order::where('accommodation_id', $id)->where('status', 'completed')->where('remark', 'active')->get();
+        $accommodation_info = Accommodation::where('id', $id)->first();
+
+        return view('admin.report_detail', compact('accommodation_transaction', 'accommodation_info'));
     }
 }

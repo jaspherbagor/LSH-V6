@@ -24,7 +24,7 @@
                                         
                                         <td>{{ $row->name }}</td>
                                         <td class="pt_10 pb_10">
-                                            <a href="" class="btn btn-primary mb-1" data-toggle="tooltip" data-placement="top" title="View Booking Transactions">
+                                            <a href="{{ route('transaction_report_detail', $row->id) }}" class="btn btn-primary mb-1" data-toggle="tooltip" data-placement="top" title="View Booking Transactions">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                                             </a>
                                         </td>
