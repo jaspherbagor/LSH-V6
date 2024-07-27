@@ -521,5 +521,7 @@ Route::group(['middleware' => ['admin:admin']], function() {
 
     Route::post('/admin/publish/room/{id}', [AdminRoomController::class, 'publish'])->name('admin_publish_room');
 
+    Route::get('/admin/transaction/report', [AdminOrderController::class, 'transaction_report'])->name('transaction_report');
+
 
 });

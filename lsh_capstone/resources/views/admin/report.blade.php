@@ -18,14 +18,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($completed_orders as $row)
+                                    @foreach($booking_info as $row)
                                     @php
-                                    $customer_info = \App\Models\Customer::where('id', $row->customer_id)->first();
+                                    $accommodation_info = \App\Models\Accommodation::where('id', $row->accommodation_id)->first();
                                     @endphp
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         
-                                        <td>{{  }}</td>
+                                        <td>{{ $accommodation_info->name }}</td>
                                         <td class="pt_10 pb_10">
                                             <a href="" class="btn btn-primary mb-1" data-toggle="tooltip" data-placement="top" title="View Booking Transactions">
                                                 <i class="fa fa-info-circle" aria-hidden="true"></i>

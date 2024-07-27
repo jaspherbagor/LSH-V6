@@ -101,6 +101,8 @@
                     <li class="{{ Request::is('admin/subscriber/send-email') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin_subscriber_send_email') }}"><i class="fa fa-angle-right"></i>Send Email</a></li>
                 </ul>
             </li>
+
+            <li class="{{ Request::is('admin/transaction/report') ? 'active' : '' }}"><a class="nav-link" href="{{ route('transaction_report') }}"><i class="fa fa-users"></i> <span>Report</span></a></li>
         </ul>
     </aside>
 </div>

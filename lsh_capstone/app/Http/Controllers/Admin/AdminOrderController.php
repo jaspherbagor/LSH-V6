@@ -136,9 +136,6 @@ class AdminOrderController extends Controller
     public function transaction_report()
     {
         $booking_info = Order::get();
-        foreach($booking_info as $data) {
-            $accommodation_info = Accommodation::where('id', $data->accommodation_id)->first();
-        }
-        return view('admin.report', compact('booking_info', 'accommodation_info'));
+        return view('admin.report', compact('booking_info'));
     }
 }
