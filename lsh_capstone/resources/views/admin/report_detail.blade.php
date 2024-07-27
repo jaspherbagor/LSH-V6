@@ -53,6 +53,11 @@
                                         <th id="totalPaidAmount">₱0.00</th>
                                         <th id="totalPercentage">₱0.00</th>
                                     </tr>
+                                    <tr id="invoiceRow" style="display: none;">
+                                        <td colspan="7" style="text-align: right;">
+                                            <button id="invoiceButton" class="btn btn-primary">Generate Invoice</button>
+                                        </td>
+                                    </tr>
                                 </tfoot>
                             </table>
                         </div>
@@ -106,6 +111,13 @@
 
             $('#totalPaidAmount').text('₱' + totalPaidAmount.toFixed(2));
             $('#totalPercentage').text('₱' + totalPercentage.toFixed(2));
+
+            // Show or hide the invoice button based on the results
+            if (totalPaidAmount > 0 || rowCount > 0) {
+                $('#invoiceRow').show();
+            } else {
+                $('#invoiceRow').hide();
+            }
         }
 
         // Call updateTotals whenever the table is drawn
