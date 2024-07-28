@@ -110,7 +110,7 @@
         <a href="{{ route('admin_pending_accommodation_view') }}">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-website">
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-clock-o"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
@@ -127,7 +127,7 @@
         <a href="{{ route('admin_approved_accommodation_view') }}">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-website">
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-check"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
@@ -144,7 +144,7 @@
         <a href="{{ route('admin_room_all_view') }}">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-website">
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-bed"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
@@ -161,7 +161,7 @@
         <a href="{{ route('admin_pending_room_view') }}">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-website">
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-clock-o"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
@@ -178,7 +178,7 @@
         <a href="{{ route('admin_published_room_view') }}">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-website">
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-check"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
