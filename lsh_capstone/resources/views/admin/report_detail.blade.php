@@ -8,18 +8,15 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form id="filterForm" method="GET" action="">
-                        <div class="row">
-                            <div class="col-md-6"></div>
-                            <div class="col-md-6">
-                                <label for="min">Start:</label>
-                                <input type="date" id="min" name="min" value="{{ request('min') }}" required>
-                                <label for="max">End:</label>
-                                <input type="date" id="max" name="max" value="{{ request('max') }}" required>
-                                <button type="submit" class="btn btn-primary mb-2">Find</button>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <label for="min">Start Date:</label>
+                            <input type="date" id="min" name="min">
+                            <label for="max">End Date:</label>
+                            <input type="date" id="max" name="max">
                         </div>
-                    </form>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-bordered" id="reportDetailTable">
                             <thead>
@@ -51,13 +48,14 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th colspan="5" style="text-align:right">Total:</th>
+                                    <th colspan="4" style="text-align:right">{{ $accommodation_info->name }} Bookings Report</th>
+                                    <th style="text-align:right">Total:</th>
                                     <th id="totalPaidAmount">₱0.00</th>
                                     <th id="totalPercentage">₱0.00</th>
                                 </tr>
                                 <tr id="invoiceRow" style="display: none;">
                                     <td colspan="7" style="text-align: right;">
-                                        <button id="invoiceButton" class="btn btn-primary">Generate Invoice</button>
+                                        <a id="invoiceButton" href="javascript:window.print();" class="btn btn-primary">Generate Invoice</a>
                                     </td>
                                 </tr>
                             </tfoot>
