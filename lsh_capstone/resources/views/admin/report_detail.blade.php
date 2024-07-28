@@ -8,15 +8,18 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6"></div>
-                        <div class="col-md-6">
-                            <label for="min">Start Date:</label>
-                            <input type="date" id="min" name="min">
-                            <label for="max">End Date:</label>
-                            <input type="date" id="max" name="max">
+                    <form id="filterForm" method="GET" action="">
+                        <div class="row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <label for="min">Start:</label>
+                                <input type="date" id="min" name="min" value="{{ request('min') }}" required>
+                                <label for="max">End:</label>
+                                <input type="date" id="max" name="max" value="{{ request('max') }}" required>
+                                <button type="submit" class="btn btn-primary mb-2">Find</button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                     <div class="table-responsive">
                         <table class="table table-bordered" id="reportDetailTable">
                             <thead>
