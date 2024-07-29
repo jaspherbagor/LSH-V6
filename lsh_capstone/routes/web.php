@@ -525,10 +525,5 @@ Route::group(['middleware' => ['admin:admin']], function() {
 
     Route::get('/admin/transaction/report-detail/{id}', [AdminOrderController::class, 'report_detail'])->name('transaction_report_detail');
 
-    Route::post('/clear-filtered-bookings', [BookingController::class, 'clearFilteredBookings'])->name('clear_filtered_bookings');
-
-    Route::post('/save-filtered-bookings', [BookingController::class, 'saveFilteredBookings'])->name('save_filtered_bookings');
-
-    Route::get('/generate-filtered-booking-invoice', [BookingController::class, 'generateInvoice'])->name('generate_filtered_booking_invoice');
 
 });
