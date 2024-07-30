@@ -274,7 +274,7 @@
                                     <span class="text-danger">{{ $errors->first('reference_id') }}</span>
                                 @endif
                             </div>
-                            <button type="submit" class="btn btn-success bg-website text-dark fw-bold w-100">Transact</button>
+                            <button type="submit" class="btn btn-success bg-website text-dark fw-bold w-100" onClick="return confirm('In case you want to cancel this booking, there would be a refund for 50% from the admin. Are you sure you want to transact?');">Transact</button>
                         </form>
                     </div>
 
