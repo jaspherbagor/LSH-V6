@@ -36,6 +36,9 @@
                                             <a href="{{ route('admin_accommodation_delete',$row->id) }}" class="btn btn-danger mb-1" onClick="return confirm('Are you sure you want to delete {{ $row->name }}?');" data-toggle="tooltip" data-placement="top" title="Delete">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </a>
+                                            <a href="" class="btn btn-danger mb-1" onClick="return confirm('Are you sure you want to deactivate {{ $row->name }}?');" data-toggle="tooltip" data-placement="top" title="Deactivate">
+                                                <i class="fa fa-power-off" aria-hidden="true"></i>
+                                            </a>
                                         </td>
                                         
                                     </tr>
