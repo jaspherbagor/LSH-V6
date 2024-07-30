@@ -179,4 +179,13 @@ class AdminAccommodationController extends Controller
         // Redirect back with a success message prompting the customer to check their email for verification
         return redirect()->back()->with('success', 'Accommodation has been successfully approved!');
     }
+
+    public function deactivate($id)
+    {
+        $accommodation_info = Accommodation::where('id', $id)->first();
+        $accommodation_info->status = 'deactivated';
+        $accommodation_info->update();
+        
+        return redirect()->back()->with('success', 'Accommodation has been successfully deactivated!');
+    }
 }
