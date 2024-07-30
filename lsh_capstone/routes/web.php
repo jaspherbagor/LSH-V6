@@ -322,6 +322,8 @@ Route::group(['middleware' => ['admin:admin']], function() {
 
     Route::post('admin/accommodation/deactivate/{id}', [AdminAccommodationController::class, 'deactivate'])->name('admin_accommodation_deactivate');
 
+    Route::post('admin/accommodation/activate/{id}', [AdminAccommodationController::class, 'activate'])->name('admin_accommodation_activate');
+
 
     
     Route::get('/admin/feature/view', [AdminFeatureController::class, 'index'])->name('admin_feature_view');

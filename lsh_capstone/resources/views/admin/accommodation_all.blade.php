@@ -36,15 +36,21 @@
                                             <a href="{{ route('admin_accommodation_delete',$row->id) }}" class="btn btn-danger mb-1" onClick="return confirm('Are you sure you want to delete {{ $row->name }}?');" data-toggle="tooltip" data-placement="top" title="Delete">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </a>
+
+                                            @if($row->status === 'approved')
                                             <form action="{{ route('admin_accommodation_deactivate', $row->id) }}" method="POST"> @csrf
                                                 <button type="submit" class="btn btn-danger mb-1" onClick="return confirm('Are you sure you want to deactivate {{ $row->name }}?');" data-toggle="tooltip" data-placement="top" title="Deactivate">
                                                     <i class="fa fa-power-off" aria-hidden="true"></i>
                                                 </button>
                                             </form>
+                                            @elseif($row->status === 'deactivated')
+                                            <form action="{{ route('admin_accommodation_activate', $row->id) }}" method="POST"> @csrf
+                                                <button type="submit" class="btn btn-success mb-1" onClick="return confirm('Are you sure you want to activate {{ $row->name }}?');" data-toggle="tooltip" data-placement="top" title="Activate">
+                                                    <i class="fa fa-power-off" aria-hidden="true"></i>
+                                                </button>
+                                            </form>
+                                            @endif
 
-                                            <a href="" class="btn btn-success mb-1" onClick="return confirm('Are you sure you want to activate {{ $row->name }}?');" data-toggle="tooltip" data-placement="top" title="Activate">
-                                                <i class="fa fa-power-off" aria-hidden="true"></i>
-                                            </a>
                                         </td>
                                         
                                     </tr>
