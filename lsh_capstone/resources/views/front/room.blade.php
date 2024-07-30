@@ -157,7 +157,7 @@
 </div>
 @else 
 <div class="container">
-    <p class="text-danger text-center">No rooms were available as of now!</p>
+    <p class="text-danger text-center mb-4">No rooms were available as of now!</p>
 </div>
 @endif
 @endsection
