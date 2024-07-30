@@ -39,6 +39,9 @@
                                             <a href="" class="btn btn-danger mb-1" onClick="return confirm('Are you sure you want to deactivate {{ $row->name }}?');" data-toggle="tooltip" data-placement="top" title="Deactivate">
                                                 <i class="fa fa-power-off" aria-hidden="true"></i>
                                             </a>
+                                            <a href="" class="btn btn-success mb-1" onClick="return confirm('Are you sure you want to activate {{ $row->name }}?');" data-toggle="tooltip" data-placement="top" title="Activate">
+                                                <i class="fa fa-power-off" aria-hidden="true"></i>
+                                            </a>
                                         </td>
                                         
                                     </tr>
