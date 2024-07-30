@@ -185,7 +185,16 @@ class AdminAccommodationController extends Controller
         $accommodation_info = Accommodation::where('id', $id)->first();
         $accommodation_info->status = 'deactivated';
         $accommodation_info->update();
-        
+
         return redirect()->back()->with('success', 'Accommodation has been successfully deactivated!');
+    }
+
+    public function activate($id)
+    {
+        $accommodation_info = Accommodation::where('id', $id)->first();
+        $accommodation_info->status = 'approved';
+        $accommodation_info->update();
+        
+        return redirect()->back()->with('success', 'Accommodation has been successfully activated!');
     }
 }
