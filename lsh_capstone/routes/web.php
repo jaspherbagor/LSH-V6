@@ -320,6 +320,8 @@ Route::group(['middleware' => ['admin:admin']], function() {
 
     Route::post('admin/accommodation/approve/{id}', [AdminAccommodationController::class, 'approve'])->name('admin_accommodation_approve');
 
+    Route::post('admin/accommodation/deactivate/{id}', [AdminAccommodationController::class, 'deactivate'])->name('admin_accommodation_deactivate');
+
 
     
     Route::get('/admin/feature/view', [AdminFeatureController::class, 'index'])->name('admin_feature_view');
