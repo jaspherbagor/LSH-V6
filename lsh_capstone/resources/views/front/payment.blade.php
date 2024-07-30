@@ -285,7 +285,7 @@
                               <label for="reference-number" class="form-label">Reference Number (Maya):</label>
                               <input type="text" class="form-control" name="reference_id" placeholder="Input Reference No.">
                             </div>
-                            <button type="submit" class="btn btn-success bg-website text-dark fw-bold w-100">Transact</button>
+                            <button type="submit" class="btn btn-success bg-website text-dark fw-bold w-100" onClick="return confirm('In case you want to cancel this booking, there would be a refund for 50% from the admin. Are you sure you want to transact?');">Transact</button>
                         </form>
                     </div>
 
