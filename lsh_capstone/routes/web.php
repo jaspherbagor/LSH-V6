@@ -47,7 +47,6 @@ use App\Http\Controllers\Front\RoomController;
 use App\Http\Controllers\Front\SubscriberController;
 use App\Http\Controllers\Front\TermsController;
 use App\Http\Controllers\Front\VideoController;
-use App\Http\Middleware\CheckAuth;
 use Illuminate\Support\Facades\Route;
 
 
