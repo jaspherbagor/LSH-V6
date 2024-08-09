@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller; // Import the base controller class
 use App\Mail\WebsiteMail;
 use App\Models\Accommodation; // Import the Accommodation model class
 use App\Models\AccommodationType; // Import the AccommodationType model class
+use App\Models\Room;
 use Illuminate\Http\Request; // Import the Request class
 use Illuminate\Support\Facades\Mail;
 
@@ -186,6 +187,13 @@ class AdminAccommodationController extends Controller
         $accommodation_info->status = 'deactivated';
         $accommodation_info->update();
 
+        $accommodation_rooms = Room::where('accommodation_id', $id)->get();
+
+        foreach($accommodation_rooms as $room_info) {
+            $room_info->remark = 'deactivated';
+            $room_info->update();
+        }
+
         return redirect()->back()->with('success', 'Accommodation has been successfully deactivated!');
     }
 
@@ -194,6 +202,13 @@ class AdminAccommodationController extends Controller
         $accommodation_info = Accommodation::where('id', $id)->first();
         $accommodation_info->status = 'approved';
         $accommodation_info->update();
+
+        $accommodation_rooms = Room::where('accommodation_id', $id)->get();
+
+        foreach($accommodation_rooms as $room_info) {
+            $room_info->remark = 'active';
+            $room_info->update();
+        }
         
         return redirect()->back()->with('success', 'Accommodation has been successfully activated!');
     }
