@@ -67,9 +67,6 @@
                                 <div class="mb-3 text-center">
                                     <button type="submit" class="btn btn-primary bg-website register-btn w-100">Register</button>
                                 </div>
-                                <div class="mt-3">
-                                    Not booking a room? Register an <a href="{{ route('accommodation_register') }}" class="primary-color ">Accommodation.</a>
-                                </div>
                                 <div class="mb-3">
                                     Already have an account?
                                     <a href="{{ route('customer_login') }}" class="primary-color"> Login instead.</a>

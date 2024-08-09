@@ -59,6 +59,9 @@
                                 <div class="mt-2">
                                     <a href="{{ route('customer_forget_password') }}" class="primary-color">Forget password.</a>
                                     <br>
+                                    <div class="mt-3">
+                                        Not booking a room? Register an <a href="{{ route('accommodation_register') }}" class="primary-color ">Accommodation.</a>
+                                    </div>
                                     Don't have an account yet?
                                     <a href="{{ route('customer_signup') }}" class="primary-color">Register instead.</a>
                                 </div>
