@@ -147,18 +147,5 @@ class AdminOrderController extends Controller
         return view('admin.report_detail', compact('accommodation_transaction', 'accommodation_info'));
     }
 
-        public function clearFilteredBookings()
-    {
-        // Session::forget('filtered_bookings');
-        session()->forget('filtered_bookings');
-        return response()->json(['success' => true]);
-    }
-
-    public function generateInvoice()
-    {
-        $filteredBookings = session()->get('filtered_bookings', []);
-        
-        // Pass filtered bookings to the view for invoice generation
-        return view('admin.filtered_booking_invoice', ['filteredBookings' => $filteredBookings]);
-    }
+    
 }
