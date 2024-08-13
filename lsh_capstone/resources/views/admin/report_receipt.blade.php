@@ -1,10 +1,6 @@
 @extends('admin.layout.app')
 
-@section('heading', 'Booking Invoice')
-
-@section('right_top_button')
-<a href="{{ route('admin_order_view') }}" class="btn btn-primary"><i class="fa fa-eye"></i> View All</a>
-@endsection
+@section('heading', 'Report Receipt')
 
 @section('main_content')
 <div class="section-body">
@@ -13,34 +9,34 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="invoice-title">
-                        <h2>Invoice</h2>
-                        <div class="invoice-number">Booking No. <span class="c1">{{ $order->order_no }}</span></div>
+                        <h2>Receipt</h2>
+                        <div class="invoice-number">Date: <span class="c1">August 14, 2024</span></div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-6">
                             <address>
-                                <strong>Invoice To</strong><br>
-                                @if($customer_data->photo!= '')
-                                <img src="{{ asset('uploads/'.$customer_data->photo) }}" alt="profile photo" class="w_50" ><br>
+                                <strong>Accommodation Info:</strong><br>
+                                @if($accommodation_data->photo!= '')
+                                <img src="{{ asset('uploads/'.$accommodation_data->photo) }}" alt="profile photo" class="w_50" ><br>
                                 @else
                                 <img src="{{ asset('uploads/default.png') }}" alt="profile photo" class="w_50" ><br>
                                 @endif
-                                {{ $customer_data->name }}<br>
+                                {{ $accommodation_data->name }}<br>
 
-                                {{ $customer_data->address }},<br>
+                                {{ $accommodation_data->address }},<br>
 
-                                {{ $customer_data->city }}, <br>
+                                {{ $accommodation_data->contact_number }}, <br>
 
-                                {{ $customer_data->province }}
+                                {{ $accommodation_data->contact_email }}
                             </address>
                         </div>
-                        <div class="col-md-6 text-md-right">
+                        {{-- <div class="col-md-6 text-md-right">
                             <address>
                                 <strong>Invoice Date</strong><br>
                                 {{ \Carbon\Carbon::createFromFormat('d/m/Y', $order->booking_date)->format('F d, Y') }}
                             </address>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -54,29 +50,27 @@
                         <table class="table table-striped table-hover table-md">
                             <tr>
                                 <th>SL</th>
-                                <th>Accommodation Name</th>
-                                <th>Room Name</th>
-                                <th class="text-center">Checkin Date</th>
-                                <th class="text-center">Checkout Date</th>
-                                <th class="text-center">Number of Adult</th>
-                                <th class="text-center">Number of Children</th>
-                                <th class="text-right">Subtotal</th>
+                                <th>Booking Number</th>
+                                <th>Customer Name</th>
+                                <th class="text-center">Payment Method</th>
+                                <th class="text-center">Booking Date</th>
+                                <th class="text-center">Paid Amount</th>
+                                {{-- <th class="text-center">Number of Children</th> --}}
+                                <th class="text-right">Percentage (10%)</th>
                             </tr>
                             @php   $total = 0;   @endphp
-                            @foreach($order_detail as $item)
+                            @foreach($order_data as $item)
                             @php
-                            $room_data = \App\Models\Room::where('id',$item->room_id)->first();
-                            $accommodation_data = \App\Models\Accommodation::where('id', $room_data->accommodation_id)->first();
-                            $accommodation_type_data = \App\Models\AccommodationType::where('id', $accommodation_data->accommodation_type_id)->first();
+                            
                             @endphp
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $accommodation_data->name }}</td>
-                                <td>{{ $room_data->room_name }}</td>
-                                <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->checkin_date)->format('F d, Y') }} 3:00PM</td>
-                                <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->checkout_date)->format('F d, Y') }} 11:00AM</td>
-                                <td class="text-center">{{ $item->adult }}</td>
-                                <td class="text-center">{{ $item->children }}</td>
+                                <td>{{ $item->order_no }}</td>
+                                <td>{{ $customer_info->name }}</td>
+                                <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->booking_date)->format('F d, Y') }}</td>
+                                {{-- <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->checkout_date)->format('F d, Y') }} 11:00AM</td> --}}
+                                <td class="text-center">{{ number_format($item->paid_amount, 2) }}</td>
+                                <td class="text-center">{{ number_format($item->paid_amount * .10, 2) }}</td>
                                 <td class="text-right">
                                     @php
                                         $d1 = explode('/',$item->checkin_date);
@@ -107,6 +101,10 @@
                         <div class="col-lg-12 text-right">
                             <div class="invoice-detail-item">
                                 <div class="invoice-detail-name">Total</div>
+                                <div class="invoice-detail-value invoice-detail-value-lg">₱{{ number_format($total, 2) }}</div>
+                            </div>
+                            <div class="invoice-detail-item">
+                                <div class="invoice-detail-name">Total (10%)</div>
                                 <div class="invoice-detail-value invoice-detail-value-lg">₱{{ number_format($total, 2) }}</div>
                             </div>
                         </div>
