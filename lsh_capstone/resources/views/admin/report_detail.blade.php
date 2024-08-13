@@ -7,60 +7,64 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6"></div>
-                        <div class="col-md-6">
-                            <label for="min">Start Date:</label>
-                            <input type="date" id="min" name="min">
-                            <label for="max">End Date:</label>
-                            <input type="date" id="max" name="max">
+                <form action="" method="post">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">  
+                                <label for="min">Start Date:</label>
+                                <input type="date" id="min" name="min">
+                                <label for="max">End Date:</label>
+                                <input type="date" id="max" name="max">
+                                <input type="hidden" value="{{ $accommodation_info->id }}" name="accommodation_id">
+                            </div>
                         </div>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="reportDetailTable">
-                            <thead>
-                                <tr>
-                                    <th>SL</th>
-                                    <th>Booking No.</th>
-                                    <th>Customer's Name</th>
-                                    <th>Payment Method</th>
-                                    <th>Booking Date</th>
-                                    <th>Paid Amount</th>
-                                    <th>Percentage (10%)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($accommodation_transaction as $row)
-                                @php
-                                $customer_info = \App\Models\Customer::where('id', $row->customer_id)->first();
-                                @endphp
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $row->order_no }}</td>
-                                    <td>{{ $customer_info->name }}</td>
-                                    <td>{{ $row->payment_method }}</td>
-                                    <td>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $row->booking_date)->format('Y-m-d') }}</td>
-                                    <td>₱{{ number_format($row->paid_amount, 2) }}</td>
-                                    <td>₱{{ number_format($row->paid_amount * .1, 2) }}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th colspan="4" style="text-align:right">{{ $accommodation_info->name }} Bookings Report</th>
-                                    <th style="text-align:right">Total:</th>
-                                    <th id="totalPaidAmount">₱0.00</th>
-                                    <th id="totalPercentage">₱0.00</th>
-                                </tr>
-                                <tr id="invoiceRow" style="display: none;">
-                                    <td colspan="7" style="text-align: right;">
-                                        <a id="invoiceButton" href="javascript:window.print();" class="btn btn-primary">Generate Invoice</a>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="reportDetailTable">
+                                <thead>
+                                    <tr>
+                                        <th>SL</th>
+                                        <th>Booking No.</th>
+                                        <th>Customer's Name</th>
+                                        <th>Payment Method</th>
+                                        <th>Booking Date</th>
+                                        <th>Paid Amount</th>
+                                        <th>Percentage (10%)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($accommodation_transaction as $row)
+                                    @php
+                                    $customer_info = \App\Models\Customer::where('id', $row->customer_id)->first();
+                                    @endphp
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $row->order_no }}</td>
+                                        <td>{{ $customer_info->name }}</td>
+                                        <td>{{ $row->payment_method }}</td>
+                                        <td>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $row->booking_date)->format('Y-m-d') }}</td>
+                                        <td>₱{{ number_format($row->paid_amount, 2) }}</td>
+                                        <td>₱{{ number_format($row->paid_amount * .1, 2) }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="4" style="text-align:right">{{ $accommodation_info->name }} Bookings Report</th>
+                                        <th style="text-align:right">Total:</th>
+                                        <th id="totalPaidAmount">₱0.00</th>
+                                        <th id="totalPercentage">₱0.00</th>
+                                    </tr>
+                                    <tr id="invoiceRow" style="display: none;">
+                                        <td colspan="7" style="text-align: right;">
+                                            {{-- <a id="invoiceButton" href="javascript:window.print();" class="btn btn-primary">Generate Invoice</a> --}}
+                                            <button id="invoiceButton" type="submit" class="btn btn-primary">Generate Invoice</button>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
