@@ -225,8 +225,6 @@ Route::group(['middleware' => ['accommodation:accommodation']], function() {
 
 });
 
-
-
 /* Admin Routes with Admin Middleware*/
 Route::group(['middleware' => ['admin:admin']], function() {
     Route::get('/admin/edit-profile', [AdminProfileController::class, 'index'])->name('admin_profile');
@@ -323,7 +321,6 @@ Route::group(['middleware' => ['admin:admin']], function() {
 
     Route::post('admin/accommodation/activate/{id}', [AdminAccommodationController::class, 'activate'])->name('admin_accommodation_activate');
 
-
     
     Route::get('/admin/feature/view', [AdminFeatureController::class, 'index'])->name('admin_feature_view');
     
@@ -336,8 +333,7 @@ Route::group(['middleware' => ['admin:admin']], function() {
     Route::post('/admin/feature/update/{id}', [AdminFeatureController::class, 'update'])->name('admin_feature_update');
     
     Route::get('/admin/feature/delete/{id}', [AdminFeatureController::class, 'delete'])->name('admin_feature_delete');
-    
-    
+      
     
     Route::get('/admin/testimonial/view', [AdminTestimonialController::class, 'index'])->name('admin_testimonial_view');
     
@@ -352,7 +348,6 @@ Route::group(['middleware' => ['admin:admin']], function() {
     Route::get('/admin/testimonial/delete/{id}', [AdminTestimonialController::class, 'delete'])->name('admin_testimonial_delete');
     
     
-    
     Route::get('/admin/post/view', [AdminPostController::class, 'index'])->name('admin_post_view');
     
     Route::get('/admin/post/add', [AdminPostController::class, 'add'])->name('admin_post_add');
@@ -365,8 +360,7 @@ Route::group(['middleware' => ['admin:admin']], function() {
     
     Route::get('/admin/post/delete/{id}', [AdminPostController::class, 'delete'])->name('admin_post_delete');
     
-    
-    
+     
     Route::get('/admin/photo/view', [AdminPhotoController::class, 'index'])->name('admin_photo_view');
     
     Route::get('/admin/photo/add', [AdminPhotoController::class, 'add'])->name('admin_photo_add');
@@ -379,8 +373,7 @@ Route::group(['middleware' => ['admin:admin']], function() {
     
     Route::get('/admin/photo/delete/{id}', [AdminPhotoController::class, 'delete'])->name('admin_photo_delete');
     
-    
-    
+     
     Route::get('/admin/video/view', [AdminVideoController::class, 'index'])->name('admin_video_view');
     
     Route::get('/admin/video/add', [AdminVideoController::class, 'add'])->name('admin_video_add');
@@ -449,7 +442,6 @@ Route::group(['middleware' => ['admin:admin']], function() {
     Route::post('/admin/page/room/update', [AdminPageController::class, 'room_update'])->name('admin_room_page_update');
     
     
-    
     Route::get('/admin/page/cart', [AdminPageController::class, 'cart'])->name('admin_cart_page');
     
     Route::post('/admin/page/cart/update', [AdminPageController::class, 'cart_update'])->name('admin_cart_page_update');
@@ -494,8 +486,6 @@ Route::group(['middleware' => ['admin:admin']], function() {
     Route::post('/admin/amenity/update/{id}', [AdminAmenityController::class, 'update'])->name('admin_amenity_update');
     
     Route::get('/admin/amenity/delete/{id}', [AdminAmenityController::class, 'delete'])->name('admin_amenity_delete');
-    
-    
     
     
     Route::get('/admin/room/view/{accom_id}', [AdminRoomController::class, 'index'])->name('admin_room_view');
