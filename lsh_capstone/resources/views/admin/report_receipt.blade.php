@@ -70,8 +70,8 @@
                                 <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->booking_date)->format('F d, Y') }}</td>
                                 {{-- <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->checkout_date)->format('F d, Y') }} 11:00AM</td> --}}
                                 <td class="text-center">{{ number_format($item->paid_amount, 2) }}</td>
-                                <td class="text-center">{{ number_format($item->paid_amount * .10, 2) }}</td>
-                                <td class="text-right">
+                                <td class="text-right">{{ number_format($item->paid_amount * .10, 2) }}</td>
+                                {{-- <td class="text-right">
                                     @php
                                         $d1 = explode('/',$item->checkin_date);
                                         $d2 = explode('/',$item->checkout_date);
@@ -89,7 +89,7 @@
                                         $sub = $subtotal;
                                         echo '₱'.number_format($sub, 2);
                                     @endphp
-                                </td>
+                                </td> --}}
                             </tr>
                             @php
                             $total += $sub;
