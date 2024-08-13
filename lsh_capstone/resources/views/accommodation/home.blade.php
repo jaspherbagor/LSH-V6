@@ -133,6 +133,7 @@
                                         <tr>
                                             <th>SL</th>
                                             <th>Booking No</th>
+                                            <th>Customer Name</th>
                                             <th>Payment Method</th>
                                             <th>Checkin & Checkout Date</th>
                                             <th>Paid Amount</th>
@@ -144,11 +145,13 @@
                                         @foreach($recent_orders as $row)
                                         @php
                                         $check_date = \App\Models\OrderDetail::where('order_no', $row->order_no)->first();
+                                        $customer_info = \App\Models\Customer::where('id', $row->customer_id)->first();
                                         @endphp
 
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $row->order_no }}</td>
+                                            <td>{{ $customer_info->name }}</td>
                                             <td>{{ $row->payment_method }}</td>
                                             <td>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $check_date->checkin_date)->format('F d, Y') }} 3:00PM - {{ \Carbon\Carbon::createFromFormat('d/m/Y', $check_date->checkout_date)->format('F d, Y') }} 11:00AM</td>
                                             <td>₱{{ number_format($row->paid_amount, 2) }}</td>
