@@ -147,5 +147,16 @@ class AdminOrderController extends Controller
         return view('admin.report_detail', compact('accommodation_transaction', 'accommodation_info'));
     }
 
-    
+    public function report_receipt(Request $request)
+    {
+        $request->validate([
+            'start_date' => 'required',
+            'end_date' => 'required'
+        ]);
+
+        $booking_info = Order::where('status', 'Completed')->where('accommodation_id', $request->accommodation_id)->get();
+
+        
+        dd($request->start_date);
+    }
 }

@@ -7,15 +7,16 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <form action="" method="post">
+                <form action="{{ route('report_receipt') }}" method="post">
+                    @csrf
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6"></div>
                             <div class="col-md-6">  
                                 <label for="min">Start Date:</label>
-                                <input type="date" id="min" name="min">
+                                <input type="date" id="min" name="start_date" value="{{ old('start_date') }}">
                                 <label for="max">End Date:</label>
-                                <input type="date" id="max" name="max">
+                                <input type="date" id="max" name="end_date" value="{{ old('end_date') }}">
                                 <input type="hidden" value="{{ $accommodation_info->id }}" name="accommodation_id">
                             </div>
                         </div>

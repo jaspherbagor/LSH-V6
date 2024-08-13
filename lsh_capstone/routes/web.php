@@ -518,5 +518,7 @@ Route::group(['middleware' => ['admin:admin']], function() {
 
     Route::get('/admin/transaction/report-detail/{id}', [AdminOrderController::class, 'report_detail'])->name('transaction_report_detail');
 
+    Route::post('/admin/transaction/report/receipt', [AdminOrderController::class, 'report_receipt'])->name('report_receipt');
+
 
 });
