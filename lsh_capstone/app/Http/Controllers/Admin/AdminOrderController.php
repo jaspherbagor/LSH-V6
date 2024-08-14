@@ -155,11 +155,11 @@ class AdminOrderController extends Controller
             'end_date' => 'required|date'
         ]);
 
-        // Parse the dates into Y-m-d format for the query
-        $start_date = Carbon::parse($request->start_date)->format('Y-m-d');
-        $end_date = Carbon::parse($request->end_date)->format('Y-m-d');
+        // Parse the dates into  format for the query
+        $start_date = Carbon::parse($request->start_date)->format('d/m/Y');
+        $end_date = Carbon::parse($request->end_date)->format('d/m/Y');
 
-        // Query the database using the Y-m-d formatted dates
+        // Query the database using the formatted dates
         $booking_info = Order::where('status', 'Completed')
                             ->where('accommodation_id', $request->accommodation_id)
                             ->whereBetween('booking_date', [$start_date, $end_date])
@@ -167,5 +167,6 @@ class AdminOrderController extends Controller
 
         // Debugging: dump the results to check what is returned
         dd($booking_info);
+        return view('admin.report_receipt', compact('booking_info', 'accommodation_data', 'start_date', 'end_date'));
     }
 }

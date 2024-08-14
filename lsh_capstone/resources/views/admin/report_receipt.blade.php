@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="invoice-title">
-                        <h2>Receipt</h2>
+                        <h2>Booking Report Receipt</h2>
                         <div class="invoice-number">Date: <span class="c1">August 14, 2024</span></div>
                     </div>
                     <hr>
@@ -35,7 +35,7 @@
                             <address>
                                 <strong>Date Range</strong><br>
                                 {{-- {{ \Carbon\Carbon::createFromFormat('d/m/Y', $order->booking_date)->format('F d, Y') }} --}}
-                                Start Date - End Date
+                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $start_date)->format('F d, Y') }} - {{ \Carbon\Carbon::createFromFormat('d/m/Y', $end_date)->format('F d, Y') }}
                             </address>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
             <div class="row mt-4">
                 <div class="col-md-12">
                     <div class="section-title">Booking Summary</div>
-                    <p class="section-lead">Room information given below in detail:</p>
+                    <p class="section-lead">Booking information given below in detail:</p>
                     <hr class="invoice-above-table">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover table-md">
@@ -61,11 +61,12 @@
                             </tr>
                             @php   
                             $total_paid_amount = 0;
-                            $total_percentage = 0;   
+                            $total_percentage = 0; 
                             @endphp
                             @foreach($booking_info as $item)
                             @php
                             $percentage = $item->paid_amount * .10;
+                            $customer_info = \App\Models\Customer::where('id', $item->customer_id)->first();
                             @endphp
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
@@ -99,6 +100,9 @@
                             $total_paid_amount += $paid_amount;
                             $total_percentage += $percentage;
                             @endphp
+                            @endforeach
+                        </table>
+                    </div>
                     <div class="row mt-4">
                         <div class="col-lg-12 text-right">
                             <div class="invoice-detail-item">
