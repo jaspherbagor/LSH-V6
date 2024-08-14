@@ -10,6 +10,7 @@ use App\Models\Accommodation;
 use App\Models\Customer;  // Model for customers
 use App\Models\Order;  // Model for orders
 use App\Models\OrderDetail;  // Model for order details
+use Carbon\Carbon;
 use Illuminate\Http\Request;  // Request handling class
 use Illuminate\Support\Facades\Auth;  // Authentication facade for handling logins
 use Illuminate\Support\Facades\Mail;
@@ -150,13 +151,21 @@ class AdminOrderController extends Controller
     public function report_receipt(Request $request)
     {
         $request->validate([
-            'start_date' => 'required',
-            'end_date' => 'required'
+            'start_date' => 'required|date',
+            'end_date' => 'required|date'
         ]);
 
-        $booking_info = Order::where('status', 'Completed')->where('accommodation_id', $request->accommodation_id)->get();
+        // Parse the dates into Y-m-d format for the query
+        $start_date = Carbon::parse($request->start_date)->format('Y-m-d');
+        $end_date = Carbon::parse($request->end_date)->format('Y-m-d');
 
-        
-        dd($request->start_date);
+        // Query the database using the Y-m-d formatted dates
+        $booking_info = Order::where('status', 'Completed')
+                            ->where('accommodation_id', $request->accommodation_id)
+                            ->whereBetween('booking_date', [$start_date, $end_date])
+                            ->get();
+
+        // Debugging: dump the results to check what is returned
+        dd($booking_info);
     }
 }

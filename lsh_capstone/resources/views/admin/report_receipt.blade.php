@@ -31,12 +31,13 @@
                                 {{ $accommodation_data->contact_email }}
                             </address>
                         </div>
-                        {{-- <div class="col-md-6 text-md-right">
+                        <div class="col-md-6 text-md-right">
                             <address>
-                                <strong>Invoice Date</strong><br>
-                                {{ \Carbon\Carbon::createFromFormat('d/m/Y', $order->booking_date)->format('F d, Y') }}
+                                <strong>Date Range</strong><br>
+                                {{-- {{ \Carbon\Carbon::createFromFormat('d/m/Y', $order->booking_date)->format('F d, Y') }} --}}
+                                Start Date - End Date
                             </address>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,10 +59,13 @@
                                 {{-- <th class="text-center">Number of Children</th> --}}
                                 <th class="text-right">Percentage (10%)</th>
                             </tr>
-                            @php   $total = 0;   @endphp
-                            @foreach($order_data as $item)
+                            @php   
+                            $total_paid_amount = 0;
+                            $total_percentage = 0;   
+                            @endphp
+                            @foreach($booking_info as $item)
                             @php
-                            
+                            $percentage = $item->paid_amount * .10;
                             @endphp
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
@@ -70,7 +74,7 @@
                                 <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->booking_date)->format('F d, Y') }}</td>
                                 {{-- <td class="text-center">{{ \Carbon\Carbon::createFromFormat('d/m/Y', $item->checkout_date)->format('F d, Y') }} 11:00AM</td> --}}
                                 <td class="text-center">{{ number_format($item->paid_amount, 2) }}</td>
-                                <td class="text-right">{{ number_format($item->paid_amount * .10, 2) }}</td>
+                                <td class="text-right">{{ number_format($percentage, 2) }}</td>
                                 {{-- <td class="text-right">
                                     @php
                                         $d1 = explode('/',$item->checkin_date);
@@ -92,20 +96,18 @@
                                 </td> --}}
                             </tr>
                             @php
-                            $total += $sub;
+                            $total_paid_amount += $paid_amount;
+                            $total_percentage += $percentage;
                             @endphp
-                            @endforeach
-                        </table>
-                    </div>
                     <div class="row mt-4">
                         <div class="col-lg-12 text-right">
                             <div class="invoice-detail-item">
-                                <div class="invoice-detail-name">Total</div>
-                                <div class="invoice-detail-value invoice-detail-value-lg">₱{{ number_format($total, 2) }}</div>
+                                <div class="invoice-detail-name">Total Paid Amount</div>
+                                <div class="invoice-detail-value invoice-detail-value-lg">₱{{ number_format($total_paid_amount, 2) }}</div>
                             </div>
                             <div class="invoice-detail-item">
-                                <div class="invoice-detail-name">Total (10%)</div>
-                                <div class="invoice-detail-value invoice-detail-value-lg">₱{{ number_format($total, 2) }}</div>
+                                <div class="invoice-detail-name">Total Percentage(10%)</div>
+                                <div class="invoice-detail-value invoice-detail-value-lg">₱{{ number_format($total_percentage, 2) }}</div>
                             </div>
                         </div>
                     </div>
