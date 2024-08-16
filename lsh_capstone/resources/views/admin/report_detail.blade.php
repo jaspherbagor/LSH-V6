@@ -1,12 +1,47 @@
 @extends('admin.layout.app')
 
-@section('heading', $accommodation_info->name.' Bookings Report')
+@section('heading', ' Bookings Report')
 
 @section('main_content')
 <div class="section-body">
     <div class="row">
         <div class="col-12">
             <div class="card">
+                <h4 class="text-center mb-4 mt-4">{{ $accommodation_info->name }} Bookings Report</h4>
+                @php
+                $receipt_date = time();
+                @endphp
+                <div class="container row">
+                    <div class="col-md-4 mt-4">
+                        <strong>Receipt to:</strong><br>
+                        @if($accommodation_info->photo!= '')
+                        <img src="{{ asset('uploads/'.$accommodation_info->photo) }}" alt="profile photo" class="w_50" ><br>
+                        @else
+                        <img src="{{ asset('uploads/default.png') }}" alt="profile photo" class="w_50" ><br>
+                        @endif
+                        {{ $accommodation_info->name }}<br>
+
+                        {{ $accommodation_info->address }},<br>
+
+                        {{-- {{ $accommodation_info->contact_number }}, <br> --}}
+
+                        {{ $accommodation_info->contact_email }}
+                    </div>
+                    <div class="col-md-4 mt-4">
+                        <address>
+                            <strong>Receipt from:</strong><br>                    
+                            <img src="{{ asset('uploads/logo.png') }}" alt="" class="w_100"><br>
+                            Tandang Sora St., Antonino,<br>
+                            Labason, Zamboanga del Norte, 7117 <br>
+                            contact@labason.space <br>
+                        </address>
+                    </div>
+                    <div class="col-md-4 mt-4">
+                        <strong>Receipt Date:</strong>
+                        {{ \Carbon\Carbon::createFromTimestamp($receipt_date)->format('F j, Y h:i A') }}
+                    </div>
+                </div>
+            
                 <form action="{{ route('report_receipt') }}" method="post">
                     @csrf
                     <div class="card-body">
@@ -58,8 +93,8 @@
                                     </tr>
                                     <tr id="invoiceRow" style="display: none;">
                                         <td colspan="7" style="text-align: right;">
-                                            {{-- <a id="invoiceButton" href="javascript:window.print();" class="btn btn-primary">Generate Invoice</a> --}}
-                                            <button id="invoiceButton" type="submit" class="btn btn-primary">Generate Invoice</button>
+                                            <a id="invoiceButton" href="javascript:window.print();" class="btn btn-primary">Generate Invoice</a>
+                                            {{-- <button id="invoiceButton" type="submit" class="btn btn-primary">Generate Invoice</button> --}}
                                         </td>
                                     </tr>
                                 </tfoot>
