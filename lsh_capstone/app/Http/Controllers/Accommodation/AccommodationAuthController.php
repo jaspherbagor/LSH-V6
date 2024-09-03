@@ -39,7 +39,6 @@ class AccommodationAuthController extends Controller
             'contact_email' => 'required|email|unique:accommodations', // Email is required, must be valid, and must be unique among customers
             'contact_number' => 'required',
             'address' => 'required',
-            'map' => 'required',
             'password' => [
                 'required',
                 'min:8',
@@ -82,7 +81,7 @@ class AccommodationAuthController extends Controller
         Mail::to($request->contact_email)->send(new WebsiteMail($subject, $message));
 
         // Redirect back with a success message prompting the customer to check their email for verification
-        return redirect()->route('admin_login')->with('success', 'Your account registration is waiting for approval. Please check your email for an update');
+        return redirect()->route('customer_login')->with('success', 'Your account registration is waiting for approval. Please check your email for an update');
     }
 
     
