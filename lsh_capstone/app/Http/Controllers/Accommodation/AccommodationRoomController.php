@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Accommodation;
 use App\Models\AccommodationType;
 use App\Models\Amenity;
+use App\Models\Payment;
 use App\Models\Room;
 use App\Models\RoomPhoto;
 use Illuminate\Http\Request;
@@ -25,14 +26,35 @@ class AccommodationRoomController extends Controller
         // Retrieve accommodation based on the provided accommodation ID
         $accommodation = Accommodation::where('id', Auth::guard('accommodation')->user()->id)->first();
 
+        $default_gcash_qr = 'default_gcash_qr.png';
+        $default_gcash_name = 'Input your gcash name';
+        $default_gcash_number = 'ex. 09123456789';
+        $default_maya_qr = 'default_maya_qr.png';
+        $default_maya_name = 'Input your maya name';
+        $default_maya_number = 'ex. 09123456789';
+
+        $payment_info = Payment::where('accommodation_id', $accommodation->id)->first();
+
         // Retrieve accommodation type associated with the accommodation
         $accommodation_type = AccommodationType::where('id', $accommodation->accommodation_type_id)->first();
 
         // Retrieve all amenities from the database
         $all_amenities = Amenity::all();
 
-        // Return the 'accommodation.room_add' view with the accommodation, accommodation type, and amenities data
-        return view('accommodation.room_add', compact('all_amenities', 'accommodation', 'accommodation_type'));
+        if(!$payment_info) {
+
+            return redirect()->route('accommodation_payment_info')->with('error', 'Please provide first your payment information to add rooms!');   
+
+        } else if($payment_info->gcash_qr == $default_gcash_qr || $payment_info->gcash_name == $default_gcash_name || $payment_info->gcash_number == $default_gcash_number || $payment_info->maya_qr == $default_maya_qr || $payment_info->maya_name == $default_maya_name || $payment_info->maya_number == $default_maya_number) {
+
+            return redirect()->route('accommodation_payment_info')->with('error', 'Please provide your accurate payment information to add rooms!');
+
+        } else {
+
+            // Return the 'accommodation.room_add' view with the accommodation, accommodation type, and amenities data
+            return view('accommodation.room_add', compact('all_amenities', 'accommodation', 'accommodation_type'));
+            
+        }
     }
 
     // Method to store a new room
