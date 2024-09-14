@@ -88,10 +88,10 @@
                 </div>
                 @endif
 
-                <div class="container py-5 mb-4">
+                <div class="container py-2 mb-4">
                     <h2 class="text-center mb-5">CUSTOMERS REVIEW</h2>
                     <div class="container">
-                        <div class="row">
+                        {{-- <div class="row">
                             @foreach($rates as $item)
                             @php 
                             $user = \App\Models\Customer::where('id', $item->customer_id)->first();
@@ -160,8 +160,8 @@
                             </div>
                             @endforeach
             
-                        </div>
-                    </div>
+                        </div> --}}
+                    </div> 
             
                 </div>
 
