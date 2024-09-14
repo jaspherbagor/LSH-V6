@@ -13,4 +13,8 @@ class Room extends Model
     {
         return $this->hasMany(RoomPhoto::class);
     }
+
+    public function roomRates() {
+        return $this->hasMany(RoomRate::class);
+    }
 }

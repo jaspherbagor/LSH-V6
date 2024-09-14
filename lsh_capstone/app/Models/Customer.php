@@ -13,4 +13,9 @@ class Customer extends Authenticatable
     {
         return $this->hasMany(AccommodationRate::class, 'customer_id');
     }
+
+    public function roomRates()
+    {
+        return $this->hasMany(RoomRate::class);
+    }
 }

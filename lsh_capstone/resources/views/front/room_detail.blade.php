@@ -88,6 +88,83 @@
                 </div>
                 @endif
 
+                <div class="container py-5 mb-4">
+                    <h2 class="text-center mb-5">CUSTOMERS REVIEW</h2>
+                    <div class="container">
+                        <div class="row">
+                            @foreach($rates as $item)
+                            @php 
+                            $user = \App\Models\Customer::where('id', $item->customer_id)->first();
+                            @endphp
+            
+                            <div class="col-md-3 col-sm-6 col-12">
+                                <div class="card testimonial-card mb-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title mb-3 fw-bold">{{ $item->review_heading }}</h5>
+                                        <div class="text-start mb-3">
+                                            @switch($item->rate)
+                                                @case(1)
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    @break
+            
+                                                @case(2)
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    @break
+            
+                                                @case(3)
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    @break
+            
+                                                @case(4)
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    @break
+            
+                                                @case(5)
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star text-warning fs-5" aria-hidden="true"></i>
+                                                    @break
+            
+                                                @default
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                                    <i class="fa fa-star-o text-warning fs-5" aria-hidden="true"></i>
+                                            @endswitch
+                                        </div>
+                                        <img src="{{ asset('/uploads/'.$user->photo) }}" alt="" class="w-25 img-fluid rounded-circle">
+                                        <p class="card-text mt-3 fst-italic">" {{ $item->review_description }} "</p>
+                                        <h6 class="card-subtitle mb-2 text-muted">- {{ $user->name }}</h6>
+                                        <p class="fs-6 fst-italic">{{ $item->created_at->format('d F Y h:i A') }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+            
+                        </div>
+                    </div>
+            
+                </div>
+
 
             </div>
             <div class="col-lg-4 col-md-5 col-sm-12 right">
