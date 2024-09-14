@@ -32,92 +32,98 @@ class BookingController extends Controller
         // Retrieve the room details from the database
         $new_room = Room::where('id', $request->room_id)->first();
 
-        // Check if the cart already contains items
-        $cart_room_ids = session()->get('cart_room_id', []);
-        if (!empty($cart_room_ids)) {
-            // Get the accommodation ID of the first room in the cart
-            $first_cart_room_id = $cart_room_ids[0];
-            $first_cart_room = Room::where('id', $first_cart_room_id)->first();
+        if(!Auth::guard('customer')->check() || !Auth::guard('accommodation')->check() || !Auth::guard('admin')->check()) {
+            return redirect()->back()->with('error', 'You need to login first in order to book a room!');
+        } else {
+             // Check if the cart already contains items
+            $cart_room_ids = session()->get('cart_room_id', []);
+            if (!empty($cart_room_ids)) {
+                // Get the accommodation ID of the first room in the cart
+                $first_cart_room_id = $cart_room_ids[0];
+                $first_cart_room = Room::where('id', $first_cart_room_id)->first();
 
-            // Check if the new room's accommodation ID matches the existing cart's accommodation ID
-            if ($new_room->accommodation_id !== $first_cart_room->accommodation_id) {
-                return redirect()->back()->with('error', 'You can only add to cart rooms of the same accommodation at a time.');
+                // Check if the new room's accommodation ID matches the existing cart's accommodation ID
+                if ($new_room->accommodation_id !== $first_cart_room->accommodation_id) {
+                    return redirect()->back()->with('error', 'You can only add to cart rooms of the same accommodation at a time.');
+                }
+            }  
+
+            // Split the check-in and check-out date range
+            $dates = explode(' - ', $request->checkin_checkout);
+            $checkin_date = $dates[0]; // Extract the check-in date
+            $checkout_date = $dates[1]; // Extract the check-out date
+
+            // Convert the dates from 'd/m/Y' format to 'Y-m-d' format
+            $d1 = explode('/', $checkin_date);
+            $d2 = explode('/', $checkout_date);
+            $d1_new = $d1[2] . '-' . $d1[1] . '-' . $d1[0];
+            $d2_new = $d2[2] . '-' . $d2[1] . '-' . $d2[0];
+
+            // Convert the date strings to timestamps
+            $t1 = strtotime($d1_new); // Timestamp for check-in date
+            $t2 = strtotime($d2_new); // Timestamp for check-out date
+
+            // Initialize a flag for checking room availability
+            $count = 1;
+            // Loop through each day from check-in date to check-out date
+            while (1) {
+                // If the check-in date is equal to or later than the check-out date, stop the loop
+                if ($t1 >= $t2) {
+                    break;
+                }
+
+                // Format the current date as 'd/m/Y'
+                $single_date = date('d/m/Y', $t1);
+
+                // Check how many rooms have already been booked for the current date
+                $total_already_booked_rooms = BookedRoom::where('booking_date', $single_date)
+                    ->where('room_id', $request->room_id)
+                    ->count();
+
+                // Get the total allowed rooms for the specific room ID
+                $total_allowed_rooms = $new_room->total_rooms;
+
+                // Retrieve the total number of adults from the request
+                $cart_total_guest = $request->adult;
+
+                // Get the maximum number of guests allowed in the room
+                $room_total_guest = $new_room->total_guests;
+
+                // Check if the number of adults in the cart exceeds the allowed number of guests in the room
+                if ($cart_total_guest > $room_total_guest) {
+                    // Redirect back with an error message if the number of guests exceeds the allowed number
+                    return redirect()->back()->with('error', 'There were only ' . $room_total_guest . ' guests allowed to book in this room!');
+                }
+
+                // Check if all rooms for the current date are already booked
+                if ($total_already_booked_rooms == $total_allowed_rooms) {
+                    // If all rooms are booked, set the flag to 0 and break the loop
+                    $count = 0;
+                    break;
+                }
+
+                // Move to the next day by adding one day to the current timestamp
+                $t1 = strtotime('+1 day', $t1);
             }
-        }  
 
-        // Split the check-in and check-out date range
-        $dates = explode(' - ', $request->checkin_checkout);
-        $checkin_date = $dates[0]; // Extract the check-in date
-        $checkout_date = $dates[1]; // Extract the check-out date
-
-        // Convert the dates from 'd/m/Y' format to 'Y-m-d' format
-        $d1 = explode('/', $checkin_date);
-        $d2 = explode('/', $checkout_date);
-        $d1_new = $d1[2] . '-' . $d1[1] . '-' . $d1[0];
-        $d2_new = $d2[2] . '-' . $d2[1] . '-' . $d2[0];
-
-        // Convert the date strings to timestamps
-        $t1 = strtotime($d1_new); // Timestamp for check-in date
-        $t2 = strtotime($d2_new); // Timestamp for check-out date
-
-        // Initialize a flag for checking room availability
-        $count = 1;
-        // Loop through each day from check-in date to check-out date
-        while (1) {
-            // If the check-in date is equal to or later than the check-out date, stop the loop
-            if ($t1 >= $t2) {
-                break;
+            // If the flag is 0, it means the room is already fully booked for the desired date range
+            if ($count == 0) {
+                // Redirect back with an error message
+                return redirect()->back()->with('error', 'Maximum number of this room is already booked');
             }
 
-            // Format the current date as 'd/m/Y'
-            $single_date = date('d/m/Y', $t1);
+            // Store the booking details in the session (room ID, check-in date, check-out date, number of adults, and children)
+            session()->push('cart_room_id', $request->room_id);
+            session()->push('cart_checkin_date', $checkin_date);
+            session()->push('cart_checkout_date', $checkout_date);
+            session()->push('cart_adult', $request->adult);
+            session()->push('cart_children', $request->children);
 
-            // Check how many rooms have already been booked for the current date
-            $total_already_booked_rooms = BookedRoom::where('booking_date', $single_date)
-                ->where('room_id', $request->room_id)
-                ->count();
-
-            // Get the total allowed rooms for the specific room ID
-            $total_allowed_rooms = $new_room->total_rooms;
-
-            // Retrieve the total number of adults from the request
-            $cart_total_guest = $request->adult;
-
-            // Get the maximum number of guests allowed in the room
-            $room_total_guest = $new_room->total_guests;
-
-            // Check if the number of adults in the cart exceeds the allowed number of guests in the room
-            if ($cart_total_guest > $room_total_guest) {
-                // Redirect back with an error message if the number of guests exceeds the allowed number
-                return redirect()->back()->with('error', 'There were only ' . $room_total_guest . ' guests allowed to book in this room!');
-            }
-
-            // Check if all rooms for the current date are already booked
-            if ($total_already_booked_rooms == $total_allowed_rooms) {
-                // If all rooms are booked, set the flag to 0 and break the loop
-                $count = 0;
-                break;
-            }
-
-            // Move to the next day by adding one day to the current timestamp
-            $t1 = strtotime('+1 day', $t1);
+            // Redirect back with a success message indicating the room has been added to the cart
+            return redirect()->back()->with('success', 'Room is added to the cart successfully.');
         }
 
-        // If the flag is 0, it means the room is already fully booked for the desired date range
-        if ($count == 0) {
-            // Redirect back with an error message
-            return redirect()->back()->with('error', 'Maximum number of this room is already booked');
-        }
-
-        // Store the booking details in the session (room ID, check-in date, check-out date, number of adults, and children)
-        session()->push('cart_room_id', $request->room_id);
-        session()->push('cart_checkin_date', $checkin_date);
-        session()->push('cart_checkout_date', $checkout_date);
-        session()->push('cart_adult', $request->adult);
-        session()->push('cart_children', $request->children);
-
-        // Redirect back with a success message indicating the room has been added to the cart
-        return redirect()->back()->with('success', 'Room is added to the cart successfully.');
+       
     }
 
 
