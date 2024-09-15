@@ -181,7 +181,7 @@ Route::group(['middleware' => ['customer:customer']], function() {
 
     Route::get('/customer/room/review/view', [CustomerRoomRateController::class, 'index'])->name('customer_room_review_view');
 
-    // Route::get('/customer/review/add/{id}', [CustomerReviewController::class, 'add_review'])->name('customer_review_add');
+    Route::get('/customer/room/review/add/{id}', [CustomerRoomRateController::class, 'add_review'])->name('customer_room_review_add');
 
     // Route::post('/customer/review/submit/{id}', [CustomerReviewController::class, 'review_store'])->name('customer_review_submit');
 
