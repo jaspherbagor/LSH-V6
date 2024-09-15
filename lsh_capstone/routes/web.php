@@ -34,6 +34,7 @@ use App\Http\Controllers\Customer\CustomerHomeController;
 use App\Http\Controllers\Customer\CustomerOrderController;
 use App\Http\Controllers\Customer\CustomerProfileController;
 use App\Http\Controllers\Customer\CustomerReviewController;
+use App\Http\Controllers\Customer\CustomerRoomRateController;
 use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\AccommodationController;
 use App\Http\Controllers\Front\BlogController;
@@ -176,6 +177,19 @@ Route::group(['middleware' => ['customer:customer']], function() {
     Route::post('/customer/review/update/{id}', [CustomerReviewController::class, 'review_update'])->name('customer_review_update');
 
     Route::get('/customer/review/delete/{id}', [CustomerReviewController::class, 'review_delete'])->name('customer_review_delete');
+
+
+    Route::get('/customer/room/review/view', [CustomerRoomRateController::class, 'index'])->name('customer_room_review_view');
+
+    // Route::get('/customer/review/add/{id}', [CustomerReviewController::class, 'add_review'])->name('customer_review_add');
+
+    // Route::post('/customer/review/submit/{id}', [CustomerReviewController::class, 'review_store'])->name('customer_review_submit');
+
+    // Route::get('/customer/review/edit/{id}', [CustomerReviewController::class, 'review_edit'])->name('customer_review_edit');
+
+    // Route::post('/customer/review/update/{id}', [CustomerReviewController::class, 'review_update'])->name('customer_review_update');
+
+    // Route::get('/customer/review/delete/{id}', [CustomerReviewController::class, 'review_delete'])->name('customer_review_delete');
 
 });
 

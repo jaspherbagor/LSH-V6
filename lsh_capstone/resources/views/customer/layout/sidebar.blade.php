@@ -26,7 +26,11 @@
             </li>
 
             <li class="{{ Request::is('customer/review/view') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('customer_review_view') }}"><i class="fa fa-star"></i> <span>My Reviews</span></a>
+                <a class="nav-link" href="{{ route('customer_review_view') }}"><i class="fa fa-star"></i> <span>My Accommodation Reviews</span></a>
+            </li>
+
+            <li class="{{ Request::is('customer/room/review/view') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('customer_room_review_view') }}"><i class="fa fa-star"></i> <span>My Room Reviews</span></a>
             </li>
 
             <li class="{{ Request::is('customer/edit-profile') ? 'active' : '' }}">
