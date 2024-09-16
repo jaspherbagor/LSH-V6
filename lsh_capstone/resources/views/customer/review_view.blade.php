@@ -1,6 +1,6 @@
 @extends('customer.layout.app')
 
-@section('heading', 'My Reviews')
+@section('heading', 'My Accommodation Reviews')
 
 @section('main_content')
     <div class="section-body">

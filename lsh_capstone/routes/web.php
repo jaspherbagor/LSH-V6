@@ -185,11 +185,11 @@ Route::group(['middleware' => ['customer:customer']], function() {
 
     Route::post('/customer/room/review/submit/{id}', [CustomerRoomRateController::class, 'review_store'])->name('customer_room_review_submit');
 
-    // Route::get('/customer/review/edit/{id}', [CustomerReviewController::class, 'review_edit'])->name('customer_review_edit');
+    Route::get('/customer/room/review/edit/{id}', [CustomerRoomRateController::class, 'review_edit'])->name('customer_room_review_edit');
 
-    // Route::post('/customer/review/update/{id}', [CustomerReviewController::class, 'review_update'])->name('customer_review_update');
+    Route::post('/customer/room/review/update/{id}', [CustomerRoomRateController::class, 'review_update'])->name('customer_room_review_update');
 
-    // Route::get('/customer/review/delete/{id}', [CustomerReviewController::class, 'review_delete'])->name('customer_review_delete');
+    Route::get('/customer/room/review/delete/{id}', [CustomerRoomRateController::class, 'review_delete'])->name('customer_room_review_delete');
 
 });
 

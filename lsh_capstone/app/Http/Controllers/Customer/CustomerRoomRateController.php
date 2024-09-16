@@ -55,7 +55,44 @@ class CustomerRoomRateController extends Controller
         return redirect()->back()->with('success', 'Review for room has been submitted successfully!');
     }
 
-    
+    // Method to display the form for editing a specific review
+    public function review_edit($id)
+    {
+        // Retrieve the review data for the specific accommodation based on the ID
+        $review_data = RoomRate::where('id', $id)->first();
+        
+        // Render the 'customer.review_edit' view and pass the review data to it
+        return view('customer.room_review_edit', compact('review_data'));
+    }
+
+    // Method to handle form submission for updating an existing review
+    public function review_update(Request $request, $id)
+    {
+        // Retrieve the review data for the specific accommodation based on the ID
+        $review_data = RoomRate::where('id', $id)->first();
+
+        // Update the review data with the new data from the request
+        $review_data->rate = $request->rate;
+        $review_data->review_heading = $request->review_heading;
+        $review_data->review_description = $request->review_description;
+        $review_data->update(); // Save the updated review data to the database
+
+        // Redirect back with a success message indicating that the review was updated successfully
+        return redirect()->back()->with('success', 'Review has been successfully updated!');
+    }
+
+    // Method to handle deleting a specific review
+    public function review_delete($id)
+    {
+        // Retrieve the review data for the specific review ID
+        $review_data = RoomRate::where('id', $id)->first();
+
+        // Delete the review from the database
+        $review_data->delete();
+
+        // Redirect back with a success message indicating that the review was deleted successfully
+        return redirect()->back()->with('success', 'Room review has been successfully deleted!');
+    }
 
 
 
