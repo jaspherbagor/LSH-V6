@@ -88,16 +88,16 @@
                 </div>
                 @endif
 
-                <div class="container py-2 mb-4">
-                    <h2 class="text-center mb-5">CUSTOMERS REVIEW</h2>
+                <div class="py-2 mb-4">
+                    <h2 class="text-center mb-5">ROOM REVIEWS</h2>
                     <div class="container">
-                        {{-- <div class="row">
-                            @foreach($rates as $item)
+                        <div class="row">
+                            @foreach($room_rates as $item)
                             @php 
                             $user = \App\Models\Customer::where('id', $item->customer_id)->first();
                             @endphp
             
-                            <div class="col-md-3 col-sm-6 col-12">
+                            <div class="col-md-6 col-sm-6 col-12">
                                 <div class="card testimonial-card mb-4">
                                     <div class="card-body">
                                         <h5 class="card-title mb-3 fw-bold">{{ $item->review_heading }}</h5>
@@ -160,7 +160,7 @@
                             </div>
                             @endforeach
             
-                        </div> --}}
+                        </div>
                        
                         @if(Auth::guard('customer')->check())
                         <div class="room_add_rate_container container text-center mt-4">

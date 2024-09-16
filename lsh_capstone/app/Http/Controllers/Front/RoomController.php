@@ -8,6 +8,7 @@ use App\Models\Accommodation; // Importing the Accommodation model
 use App\Models\AccommodationRate; // Importing the AccommodationRate model
 use App\Models\AccommodationType; // Importing the AccommodationType model
 use App\Models\Room; // Importing the Room model
+use App\Models\RoomRate;
 use Illuminate\Http\Request; // Importing the Request class
 
 // Controller for handling room-related requests
@@ -41,7 +42,8 @@ class RoomController extends Controller
         // Retrieve the specific room data along with its photos
         $single_room_data = Room::with('RoomPhotos')->where('id', $id)->first();
         
+        $room_rates = RoomRate::where('id', $id)->get();
         // Render the 'front.room_detail' view and pass the single room data to it
-        return view('front.room_detail', compact('single_room_data'));
+        return view('front.room_detail', compact('single_room_data', 'room_rates'));
     }
 }

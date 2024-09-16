@@ -55,6 +55,8 @@ class CustomerRoomRateController extends Controller
         return redirect()->back()->with('success', 'Review for room has been submitted successfully!');
     }
 
+    
+
 
 
 }
