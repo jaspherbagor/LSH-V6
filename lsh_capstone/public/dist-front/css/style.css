@@ -28,6 +28,19 @@ body,
 	background: #Deb887!important;
 	border: 0;
 }
+
+.add-review-btn {
+	background: #deb887;
+	color:white;
+	border:none;
+}
+
+.add-review-btn:hover {
+	background: #e1a85e;
+	color:white;
+	border:none;
+}
+
 .ml-auto {
 	margin-left: auto!important;
 }
