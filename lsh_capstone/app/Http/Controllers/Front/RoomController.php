@@ -42,7 +42,7 @@ class RoomController extends Controller
         // Retrieve the specific room data along with its photos
         $single_room_data = Room::with('RoomPhotos')->where('id', $id)->first();
         
-        $room_rates = RoomRate::where('id', $id)->get();
+        $room_rates = RoomRate::where('room_id', $id)->get();
         // Render the 'front.room_detail' view and pass the single room data to it
         return view('front.room_detail', compact('single_room_data', 'room_rates'));
     }
