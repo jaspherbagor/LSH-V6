@@ -12,7 +12,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="#" method="post">
+                    <form action="{{ route('customer_room_review_submit', $room_info->id) }}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
