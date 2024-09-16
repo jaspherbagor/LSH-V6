@@ -161,6 +161,12 @@
                             @endforeach
             
                         </div> --}}
+                       
+                        @if(Auth::guard('customer')->check())
+                        <div class="container text-center mt-4">
+                            <a href="{{ route('customer_room_review_add', $single_room_data->id) }}" class="btn btn-warning py-2 px-2 fw-bold"><i class="fa fa-plus"></i> Add Review</a>
+                        </div>
+                        @endif
                     </div> 
             
                 </div>
