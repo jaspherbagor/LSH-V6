@@ -32,7 +32,7 @@ class BookingController extends Controller
         // Retrieve the room details from the database
         $new_room = Room::where('id', $request->room_id)->first();
 
-        if(!Auth::guard('customer')->check() || !Auth::guard('accommodation')->check() || !Auth::guard('admin')->check()) {
+        if(!Auth::guard('customer')->check()) {
             return redirect()->back()->with('error', 'You need to login first in order to book a room!');
         } else {
              // Check if the cart already contains items
