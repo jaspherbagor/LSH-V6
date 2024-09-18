@@ -100,8 +100,6 @@ class CustomerAuthController extends Controller
             return redirect()->route('customer_home');
         }
 
-        dd($request);
-
         // Validate the request data for signup
         $request->validate([
             'name' => 'required', // Name is required
@@ -125,11 +123,45 @@ class CustomerAuthController extends Controller
         
         // Create a verification link for the customer
         $verification_link = url('signup-verify/' . $request->email . '/' . $token);
+
         
         // Create a new Customer object and populate its fields
         $obj = new Customer();
+
+        // Check if a photo file is provided in the request
+        if ($request->hasFile('id_image') || $request->hasFile('selfie')) {
+            // Validate the photo file (type and size restrictions)
+            $request->validate([
+                'id_image' => 'image|mimes:jpg,jpeg,png,gif,svg,webp|max:5120', // Photo file must be an image and within the size limit
+                'selfie' => 'image|mimes:jpg,jpeg,png,gif,svg,webp|max:5120' // Photo file must be an image and within the size limit
+            ]);
+
+            // Retrieve the extension of the uploaded photo file
+            $id_image_ext = $request->file('id_image')->extension();
+
+            // Retrieve the extension of the uploaded photo file
+            $selfie_image_ext = $request->file('selfie')->extension();
+            
+            // Generate a unique file name for the photo using the current timestamp
+            $final_id_image_name = 'ID'.time() . '.' . $id_image_ext;
+
+            // Generate a unique file name for the photo using the current timestamp
+            $final_selfie_image_name = 'Selfie'.time() . '.' . $selfie_image_ext;
+            
+            // Move the uploaded photo file to the specified directory with the new file name
+            $request->file('id_image')->move(public_path('uploads/'), $final_id_image_name);
+
+            $request->file('selfie')->move(public_path('uploads/'), $final_selfie_image_name);
+
+            // Update the customer's photo file name in the database
+            $obj->id_image = $final_id_image_name;
+
+            $obj->selfie = $final_selfie_image_name;
+        }
+
         $obj->name = $request->name; // Set the customer's name
         $obj->email = $request->email; // Set the customer's email address
+        $obj->id_type = $request->id_type;
         $obj->password = $password; // Set the hashed password
         $obj->token = $token; // Set the verification token
         $obj->status = 0; // Set the customer status to unverified (0)
