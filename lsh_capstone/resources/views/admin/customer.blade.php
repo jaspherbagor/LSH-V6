@@ -16,6 +16,8 @@
                                         <th>Photo</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Selfie</th>
+                                        <th>ID</th>
                                         <th>Phone</th>
                                         <th>Status</th>
                                     </tr>
@@ -26,13 +28,19 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             @if($row->photo!= '')
-                                            <img src="{{ asset('uploads/'.$row->photo) }}" alt="slide_image" class="w_100">
+                                            <img src="{{ asset('uploads/'.$row->photo) }}" alt="photo" class="w_100">
                                             @else
-                                            <img src="{{ asset('uploads/default.png') }}" alt="slide_image" class="w_100">
+                                            <img src="{{ asset('uploads/default.png') }}" alt="photo" class="w_100">
                                             @endif
                                         </td>
                                         <td>{{ $row->name }}</td>
                                         <td>{{ $row->email }}</td>
+                                        <td>
+                                            <img src="{{ asset('uploads/'.$row->selfie) }}" alt="selfie" class="w_100">
+                                        </td>
+                                        <td>
+                                            <img src="{{ asset('uploads/'.$row->id_image) }}" alt="id" class="w_100 magnific">
+                                        </td>
                                         <td>{{ $row->phone }}</td>
                                         <td class="pt_10 pb_10">
                                             @if($row->status == 1)

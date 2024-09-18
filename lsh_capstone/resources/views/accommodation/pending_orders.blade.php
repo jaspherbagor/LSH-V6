@@ -16,6 +16,8 @@
                                         <th>Reference No.</th>
                                         <th>Customer's Name</th>
                                         <th>Payment Method</th>
+                                        <th>Selfie</th>
+                                        <th>ID</th>
                                         <th>Booking Date</th>
                                         <th>Paid Amount</th>
                                         <th>Status</th>
@@ -32,6 +34,12 @@
                                         <td>{{ $row->transaction_id }}</td>
                                         <td>{{ $customer_info->name }}</td>
                                         <td>{{ $row->payment_method }}</td>
+                                        <td>
+                                            <img src="{{ asset('uploads/'.$customer_info->selfie) }}" alt="selfie" class="w_100">
+                                        </td>
+                                        <td>
+                                            <img src="{{ asset('uploads/'.$customer_info->id_image) }}" alt="selfie" class="w_100 magnific">
+                                        </td>
                                         <td>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $row->booking_date)->format('F d, Y') }}</td>
                                         <td>₱{{ number_format($row->paid_amount, 2) }}</td>
                                         <td class="pt_10 pb_10">
