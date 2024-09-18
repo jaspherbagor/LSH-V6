@@ -36,10 +36,10 @@
                                         <td>{{ $row->name }}</td>
                                         <td>{{ $row->email }}</td>
                                         <td>
-                                            <img src="{{ asset('uploads/'.$row->selfie) }}" alt="selfie" class="w_100">
+                                            <img src="{{ asset('uploads/'.$row->selfie) }}" alt="selfie" class="w_150">
                                         </td>
                                         <td>
-                                            <img src="{{ asset('uploads/'.$row->id_image) }}" alt="id" class="w_100 magnific">
+                                            <img src="{{ asset('uploads/'.$row->id_image) }}" alt="id" class="w_300 magnific">
                                         </td>
                                         <td>{{ $row->phone }}</td>
                                         <td class="pt_10 pb_10">

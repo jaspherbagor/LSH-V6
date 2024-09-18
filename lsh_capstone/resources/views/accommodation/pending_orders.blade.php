@@ -35,10 +35,10 @@
                                         <td>{{ $customer_info->name }}</td>
                                         <td>{{ $row->payment_method }}</td>
                                         <td>
-                                            <img src="{{ asset('uploads/'.$customer_info->selfie) }}" alt="selfie" class="w_100">
+                                            <img src="{{ asset('uploads/'.$customer_info->selfie) }}" alt="selfie" class="w_150">
                                         </td>
                                         <td>
-                                            <img src="{{ asset('uploads/'.$customer_info->id_image) }}" alt="selfie" class="w_100 magnific">
+                                            <img src="{{ asset('uploads/'.$customer_info->id_image) }}" alt="selfie" class="w_300 magnific">
                                         </td>
                                         <td>{{ \Carbon\Carbon::createFromFormat('d/m/Y', $row->booking_date)->format('F d, Y') }}</td>
                                         <td>₱{{ number_format($row->paid_amount, 2) }}</td>
