@@ -100,10 +100,15 @@ class CustomerAuthController extends Controller
             return redirect()->route('customer_home');
         }
 
+        dd($request);
+
         // Validate the request data for signup
         $request->validate([
             'name' => 'required', // Name is required
             'email' => 'required|email|unique:customers', // Email is required, must be valid, and must be unique among customers
+            'id_type' => 'required',
+            'id_image' => 'required|image|mimes:jpg,jpeg,png,gif,svg,webp|max:5120',
+            'selfie' => 'required|image|mimes:jpg,jpeg,png,gif,svg,webp|max:5120',
             'password' => [
                 'required',
                 'min:8',

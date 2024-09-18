@@ -33,7 +33,7 @@
                             </a>
                             <h2 class="text-center mb-4 mt-3">Register Account</h2>  
                         </div>
-                        <form action="{{ route('customer_signup_submit') }}" method="post">
+                        <form action="{{ route('customer_signup_submit') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="login-form">
                                 <div class="mb-3">
@@ -48,6 +48,37 @@
                                     <input type="text" class="form-control form-input @if($errors->has('email')) is-invalid @endif" name="email" value="{{ old('email') }}">
                                     @if($errors->has('email'))
                                         <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @endif
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Identification Card Type</label>
+                                    <select class="form-select" name="id_type" aria-label="Default select example" @if($errors->has('id_type')) is-invalid @endif" value="{{ old('id_type') }}">
+                                        <option selected>-- Choose your type of I.D. --</option>
+                                        <option value="National ID">National ID</option>
+                                        <option value="Voter's ID">Voter's ID</option>
+                                        <option value="School ID">School ID</option>
+                                        <option value="Driver's License">Driver's License</option>
+                                        <option value="PhilHealth ID">PhilHealth ID</option>
+                                        <option value="Passport">Passport</option>
+                                    </select>
+                                    @if($errors->has('id_type'))
+                                        <span class="text-danger">{{ $errors->first('id_type') }}</span>
+                                    @endif
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">ID Image</label>
+                                    <input type="file" class="form-control form-input @if($errors->has('id_image')) is-invalid @endif" name="id_image" value="{{ old('id_image') }}">
+                                    @if($errors->has('id_image'))
+                                        <span class="text-danger">{{ $errors->first('id_image') }}</span>
+                                    @endif
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Selfie Image</label>
+                                    <input type="file" class="form-control form-input @if($errors->has('selfie')) is-invalid @endif" name="selfie" value="{{ old('selfie') }}">
+                                    @if($errors->has('selfie'))
+                                        <span class="text-danger">{{ $errors->first('selfie') }}</span>
                                     @endif
                                 </div>
                                 <div class="mb-3">
