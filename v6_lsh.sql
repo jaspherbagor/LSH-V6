@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2024 at 09:14 AM
+-- Generation Time: Sep 20, 2024 at 01:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -49,12 +49,13 @@ CREATE TABLE `accommodations` (
 --
 
 INSERT INTO `accommodations` (`id`, `accommodation_type_id`, `name`, `password`, `token`, `photo`, `address`, `contact_number`, `contact_email`, `map`, `status`, `remark`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Bayangan Hotel', '$2y$10$5QC51cUEzI2bYB02Vl.qPuYj7gJC3PFIwoGh/231wNsu9Pp79yBha', NULL, '1718166286.jpg', 'Osukan, Zamboanga Del Norte, Philippines', '0977 829 8391', 'ilovebayangan2019@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11336.716057512067!2d122.5053524!3d8.0645048!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253c98221b67083%3A0xb2ef693fa07a146e!2sBAYANGAN%20HOTEL%20AND%20BEACH%20RESORT!5e1!3m2!1sen!2sph!4v1712231798704!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'approved', 'active', '2024-04-03 01:14:59', '2024-06-12 04:24:46'),
+(1, 1, 'Bayangan Hotel', '$2y$10$wrZnyR2zyyZk36M5bmPW7ewwuWcDg2Tng2ZgpNeXdUF4KrukPBhUm', '', '1718166286.jpg', 'Osukan, Zamboanga Del Norte, Philippines', '0977 829 8391', 'ilovebayangan2019@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11336.716057512067!2d122.5053524!3d8.0645048!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253c98221b67083%3A0xb2ef693fa07a146e!2sBAYANGAN%20HOTEL%20AND%20BEACH%20RESORT!5e1!3m2!1sen!2sph!4v1712231798704!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'approved', 'active', '2024-04-03 01:14:59', '2024-07-31 14:13:59'),
 (3, 3, 'Abetom Apartment', '$2y$10$5QC51cUEzI2bYB02Vl.qPuYj7gJC3PFIwoGh/231wNsu9Pp79yBha', NULL, '1712185727.jpg', 'Antonino, Labason, Zamboanga del Norte', '0945-347-9526', 'abetom_apartment09@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1450.5164855744738!2d122.51732479780912!3d8.066477018422786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253c908fffca009%3A0x8059d01c64128706!2sTmpla%20Cafe!5e1!3m2!1sen!2sph!4v1713174487084!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'approved', 'active', '2024-04-03 15:08:47', '2024-04-15 01:48:34'),
-(4, 1, 'Casi Hotel', '$2y$10$5QC51cUEzI2bYB02Vl.qPuYj7gJC3PFIwoGh/231wNsu9Pp79yBha', NULL, '1713096503.jpg', 'Padre Zamora St., Gil Sanchez, Labason, Zamboanga Del Norte, Labason, Philippines', '0939 254 2305', 'casihotel.official@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11336.51477239691!2d122.5257506!3d8.0716814!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253b74fbded0d71%3A0x4ccb873bb0b80a34!2sCASI%20Hotel!5e1!3m2!1sen!2sph!4v1712232319265!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'approved', 'active', '2024-04-04 04:05:30', '2024-04-14 04:08:23'),
+(4, 1, 'Casi Hotel', '$2y$10$5QC51cUEzI2bYB02Vl.qPuYj7gJC3PFIwoGh/231wNsu9Pp79yBha', NULL, '1713096503.jpg', 'Padre Zamora St., Gil Sanchez, Labason, Zamboanga Del Norte, Labason, Philippines', '0939 254 2305', 'casihotel.official@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11336.51477239691!2d122.5257506!3d8.0716814!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253b74fbded0d71%3A0x4ccb873bb0b80a34!2sCASI%20Hotel!5e1!3m2!1sen!2sph!4v1712232319265!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'approved', 'active', '2024-04-04 04:05:30', '2024-08-09 05:53:50'),
 (5, 2, 'Maravillas Boarding House', '$2y$10$5QC51cUEzI2bYB02Vl.qPuYj7gJC3PFIwoGh/231wNsu9Pp79yBha', NULL, '1717654585.jpg', 'Gil Sanchez, Labason, Zamboanga del Norte', '097588345678', 'maravillasbh@gmail.com', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11603.954149660089!2d122.52188072092449!3d8.072666771283341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3253b7fea373cb35%3A0x505c8b5cfad8c559!2sGil%20Sanchez%2C%20Zamboanga%20del%20Norte!5e1!3m2!1sen!2sph!4v1717654570813!5m2!1sen!2sph\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'approved', 'active', '2024-06-05 22:16:25', '2024-06-05 22:16:25'),
-(6, 2, 'Sample BH', '$2y$10$5QC51cUEzI2bYB02Vl.qPuYj7gJC3PFIwoGh/231wNsu9Pp79yBha', NULL, '1717997366.jpg', 'Sample address', '46579456461', 'samplebh@gmail.com', 'iugiuooyfvkjnjfgtuiujfd', 'approved', 'active', '2024-06-10 05:29:26', '2024-06-20 03:40:49'),
-(7, 3, 'Sample Apartment', '$2y$10$fRww/15XzyI9syPyEN84F.bymeVuh.nar6KlygtkeioKQijLvd9pa', '683311f68ccd88398556fb6e96b00e257778fbd6e9ad3cc5a2e8909bf19992c7', '1718615888.png', 'Sample Address', '0987467885678536', 'apartment@gmail.com', 'ljkhnnsdfklhjgbkjasdcnfg', 'pending', 'active', '2024-06-17 09:06:50', '2024-06-17 09:18:08');
+(6, 2, 'Sample BH', '$2y$10$5QC51cUEzI2bYB02Vl.qPuYj7gJC3PFIwoGh/231wNsu9Pp79yBha', NULL, '1717997366.jpg', 'Sample address', '46579456461', 'samplebh@gmail.com', 'iugiuooyfvkjnjfgtuiujfd', 'approved', 'active', '2024-06-10 05:29:26', '2024-07-30 13:46:52'),
+(7, 3, 'Sample Apartment', '$2y$10$fRww/15XzyI9syPyEN84F.bymeVuh.nar6KlygtkeioKQijLvd9pa', '683311f68ccd88398556fb6e96b00e257778fbd6e9ad3cc5a2e8909bf19992c7', '1718615888.png', 'Sample Address', '0987467885678536', 'apartment@gmail.com', 'ljkhnnsdfklhjgbkjasdcnfg', 'pending', 'active', '2024-06-17 09:06:50', '2024-06-17 09:18:08'),
+(8, 1, 'Sample Hotel', '$2y$10$5GnaX8g4hMALbAF453X.CuqLRfNlsq6O.RFZlknrfSxYIOoUR0lXC', '', NULL, 'Sample address', '09123456789', 'sample2024@gmail.com', NULL, 'approved', 'active', '2024-09-03 12:10:31', '2024-09-03 12:15:58');
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,9 @@ INSERT INTO `accommodation_rates` (`id`, `customer_id`, `accommodation_id`, `rat
 (1, 2, 1, 5, 'Excellent! Amazing! Awesome!', 'I absolutely love my stay at Bayangan Hotel. The staffs are friendly and amazing. The room is clean, cool and I am very comfortable. Highly recommended!', 'active', '2024-04-16 21:57:30', '2024-06-14 13:33:43'),
 (5, 2, 4, 5, 'Exellent Accommodation!', 'I love my stay at Casi Hotel. The rooms were neat and clean. The staff were friendly and approachable. I feel relaxed and comfy.', 'active', '2024-04-19 01:46:28', '2024-04-19 01:46:28'),
 (6, 2, 3, 5, 'Very affordable place to stay!', 'It has been a premium experience staying at Abetom Apartment. I have no regret in booking this accommodation. It\'s very comfy and the room is neat and clean. I have a peace of mind. Highly recommended to everyone!', 'active', '2024-05-13 23:55:44', '2024-05-13 23:55:44'),
-(7, 3, 4, 5, 'I love Casi Hotel!', 'I love my stay at Casi Hotel. The room is neat and clean. Staffs are so friendly and approachable. I highly recommend this to anyone!', 'active', '2024-05-14 15:20:00', '2024-06-10 06:26:46');
+(7, 3, 4, 5, 'I love Casi Hotel!', 'I love my stay at Casi Hotel. The room is neat and clean. Staffs are so friendly and approachable. I highly recommend this to anyone!', 'active', '2024-05-14 15:20:00', '2024-06-10 06:26:46'),
+(8, 2, 1, 5, 'Heading!', 'Body of the review!', 'active', '2024-09-16 09:07:26', '2024-09-16 09:07:26'),
+(9, 2, 1, 5, 'Heading!', 'Sample desc!', 'active', '2024-09-16 09:09:17', '2024-09-16 09:09:17');
 
 -- --------------------------------------------------------
 
@@ -203,7 +206,16 @@ INSERT INTO `booked_rooms` (`id`, `booking_date`, `order_no`, `room_id`, `create
 (122, '25/06/2024', '1719209269', 2, '2024-06-24 06:07:49', '2024-06-24 06:07:49'),
 (123, '26/06/2024', '1719209269', 2, '2024-06-24 06:07:49', '2024-06-24 06:07:49'),
 (124, '27/06/2024', '1719209269', 2, '2024-06-24 06:07:49', '2024-06-24 06:07:49'),
-(125, '28/06/2024', '1719209269', 2, '2024-06-24 06:07:49', '2024-06-24 06:07:49');
+(125, '28/06/2024', '1719209269', 2, '2024-06-24 06:07:49', '2024-06-24 06:07:49'),
+(126, '19/08/2024', '1721994558', 1, '2024-07-26 11:49:18', '2024-07-26 11:49:18'),
+(127, '20/08/2024', '1721994558', 1, '2024-07-26 11:49:18', '2024-07-26 11:49:18'),
+(128, '21/08/2024', '1721994558', 1, '2024-07-26 11:49:18', '2024-07-26 11:49:18'),
+(129, '22/08/2024', '1721994558', 1, '2024-07-26 11:49:18', '2024-07-26 11:49:18'),
+(130, '23/08/2024', '1721994558', 1, '2024-07-26 11:49:18', '2024-07-26 11:49:18'),
+(131, '18/09/2024', '1726660736', 2, '2024-09-18 11:58:56', '2024-09-18 11:58:56'),
+(132, '19/09/2024', '1726660736', 2, '2024-09-18 11:58:56', '2024-09-18 11:58:56'),
+(133, '20/09/2024', '1726660736', 2, '2024-09-18 11:58:56', '2024-09-18 11:58:56'),
+(134, '21/09/2024', '1726660736', 2, '2024-09-18 11:58:56', '2024-09-18 11:58:56');
 
 -- --------------------------------------------------------
 
@@ -215,6 +227,9 @@ CREATE TABLE `customers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` text NOT NULL,
   `email` text NOT NULL,
+  `id_type` text NOT NULL,
+  `id_image` text NOT NULL,
+  `selfie` text NOT NULL,
   `password` text NOT NULL,
   `phone` text DEFAULT NULL,
   `country` text DEFAULT NULL,
@@ -234,9 +249,10 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `name`, `email`, `password`, `phone`, `country`, `address`, `province`, `city`, `zip`, `photo`, `token`, `status`, `remark`, `created_at`, `updated_at`) VALUES
-(2, 'Momar Kiram', 'momar@gmail.com', '$2y$10$6PFkgZI0ZKyW9R51hhQXh.yJ9z8mBqFWDlt5V5XY7qKlzIzOHUWea', '09123456789', 'Philippines', 'Antonino', 'Zamboanga del Norte', 'Labason', '7117', '1713523556.jpg', 'edc252625cc64b8faca465ac422aff2bf2ed6982c359ba757597af6d3605f2d5', 1, 'active', '2024-04-06 02:11:39', '2024-05-10 17:15:25'),
-(3, 'Jaspher Bagor', 'jaspherbagor0357@gmail.com', '$2y$10$uBgGJ2lBAJ9gCYBtNDqXN.myL/VrwrqVJeXunCZy8gtmpn5j83lgC', '09169675327', 'Philippines', 'Sector 6, Kipit', 'Zamboanga del Norte', 'Labason', '7117', '1715728183.png', '', 1, 'active', '2024-05-14 15:07:09', '2024-06-06 19:22:39');
+INSERT INTO `customers` (`id`, `name`, `email`, `id_type`, `id_image`, `selfie`, `password`, `phone`, `country`, `address`, `province`, `city`, `zip`, `photo`, `token`, `status`, `remark`, `created_at`, `updated_at`) VALUES
+(2, 'Momar Kiram', 'momar@gmail.com', '', '', '', '$2y$10$6PFkgZI0ZKyW9R51hhQXh.yJ9z8mBqFWDlt5V5XY7qKlzIzOHUWea', '09123456789', 'Philippines', 'Antonino', 'Zamboanga del Norte', 'Labason', '7117', '1713523556.jpg', 'edc252625cc64b8faca465ac422aff2bf2ed6982c359ba757597af6d3605f2d5', 1, 'active', '2024-04-06 02:11:39', '2024-05-10 17:15:25'),
+(3, 'Jaspher Bagor', 'jaspherbagor0357@gmail.com', '', '', '', '$2y$10$uBgGJ2lBAJ9gCYBtNDqXN.myL/VrwrqVJeXunCZy8gtmpn5j83lgC', '09169675327', 'Philippines', 'Sector 6, Kipit', 'Zamboanga del Norte', 'Labason', '7117', '1715728183.png', '', 1, 'active', '2024-05-14 15:07:09', '2024-06-06 19:22:39'),
+(4, 'John Doe', 'john@gmail.com', 'Driver\'s License', 'ID1726658103.jpg', 'Selfie1726658103.jpg', '$2y$10$jg9fyNSbyUqP4ZXYhU59WuapemkgY/8WjYqDNhF4JqmHFn8O/v7t.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '033e1030825b8756b2ac1e776fb6f535e9fdb946cdf472d4792632d1fface9d8', 1, NULL, '2024-09-18 11:15:03', '2024-09-18 12:24:53');
 
 -- --------------------------------------------------------
 
@@ -345,7 +361,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (23, '2024_03_30_011652_create_order_details_table', 5),
 (24, '2024_04_01_023404_create_booked_rooms_table', 6),
 (25, '2024_04_11_131657_create_accommodation_rates_table', 7),
-(26, '2024_05_13_074942_create_payments_table', 8);
+(26, '2024_05_13_074942_create_payments_table', 8),
+(27, '2024_09_14_220744_create_room_rates_table', 9);
 
 -- --------------------------------------------------------
 
@@ -375,7 +392,9 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `customer_id`, `order_no`, `transaction_id`, `accommodation_id`, `payment_method`, `card_last_digit`, `paid_amount`, `booking_date`, `status`, `remark`, `created_at`, `updated_at`) VALUES
 (17, 2, '1719208409', '1234567890', 1, 'Gcash', '', '1350', '24/06/2024', 'Completed', 'active', '2024-06-24 05:53:29', '2024-06-24 06:06:23'),
-(18, 2, '1719209269', '1234567890', 4, 'Maya', '', '1050', '24/06/2024', 'Declined', 'active', '2024-06-24 06:07:49', '2024-06-24 06:11:33');
+(18, 2, '1719209269', '1234567890', 4, 'Maya', '', '1050', '24/06/2024', 'Completed', 'active', '2024-06-24 06:07:49', '2024-06-24 06:11:33'),
+(19, 2, '1721994558', 'yittrokojiouihghnuy876096', 1, 'Gcash', '', '1800', '26/07/2024', 'Completed', 'active', '2024-07-26 11:49:18', '2024-07-26 11:49:18'),
+(20, 4, '1726660736', '0-7y985876ytuyiuoi-[', 4, 'Maya', '', '1050', '18/09/2024', 'Pending', 'active', '2024-09-18 11:58:56', '2024-09-18 11:58:56');
 
 -- --------------------------------------------------------
 
@@ -404,7 +423,9 @@ CREATE TABLE `order_details` (
 
 INSERT INTO `order_details` (`id`, `order_id`, `room_id`, `order_no`, `checkin_date`, `checkout_date`, `adult`, `children`, `subtotal`, `remark`, `created_at`, `updated_at`) VALUES
 (18, 17, 1, 1719208409, '25/06/2024', '28/06/2024', '2', '0', '1350', 'active', '2024-06-24 05:53:29', '2024-06-24 05:53:29'),
-(19, 18, 2, 1719209269, '25/06/2024', '28/06/2024', '2', '0', '1050', 'active', '2024-06-24 06:07:49', '2024-06-24 06:07:49');
+(19, 18, 2, 1719209269, '25/06/2024', '28/06/2024', '2', '0', '1050', 'active', '2024-06-24 06:07:49', '2024-06-24 06:07:49'),
+(20, 19, 1, 1721994558, '19/08/2024', '23/08/2024', '2', '0', '1800', 'active', '2024-07-26 11:49:18', '2024-07-26 11:49:18'),
+(21, 20, 2, 1726660736, '18/09/2024', '21/09/2024', '2', '0', '1050', 'active', '2024-09-18 11:58:56', '2024-09-18 11:58:56');
 
 -- --------------------------------------------------------
 
@@ -492,8 +513,9 @@ CREATE TABLE `payments` (
 
 INSERT INTO `payments` (`id`, `accommodation_id`, `gcash_qr`, `gcash_name`, `gcash_number`, `maya_qr`, `maya_name`, `maya_number`, `created_at`, `updated_at`) VALUES
 (1, 0, '1715590306.png', 'Anselmo Lerios', '0936-684-0915', 'maya-qr.jpg', 'Momar Kiram', '0970-077-3326', NULL, '2024-05-13 00:51:46'),
-(2, 1, '1718517245.png', 'Sample Gcash Name', '9868765573362', '1718517245.jpg', 'Sample Maya Name', '90857845345', '2024-06-16 05:42:22', '2024-06-16 05:55:20'),
-(3, 4, 'default_gcash_qr.png', 'Input your gcash name', 'Input your gcash number', 'default_maya_qr.png', 'Input your maya name', 'Input your maya number', '2024-06-16 06:36:15', '2024-06-16 06:36:15');
+(2, 1, '1718517245.png', 'Bayangan Gcash QR', '9868765573362', '1718517245.jpg', 'Bayangan Maya QR', '90857845345', '2024-06-16 05:42:22', '2024-07-26 13:04:39'),
+(3, 4, '1721996949.jpg', 'Casi Hotel Gcash', '0912-123-1234', '1721996949.webp', 'Casi Hotel Maya', '0912-123-1234', '2024-06-16 06:36:15', '2024-07-26 12:29:09'),
+(4, 8, 'default_gcash_qr.png', 'Input your gcash name', 'ex. 09123456789', 'default_maya_qr.png', 'Input your maya name', 'ex. 09123456789', '2024-09-03 12:17:10', '2024-09-03 12:17:10');
 
 -- --------------------------------------------------------
 
@@ -562,7 +584,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `photo`, `heading`, `short_content`, `content`, `total_view`, `remark`, `created_at`, `updated_at`) VALUES
-(1, '1712208486.jpg', 'Essential Travel Packing Tips: Pack Smarter, Travel Lighter: Your Guide to Stress-Free Packing', 'Discover top tips and tricks to pack efficiently for your next adventure and travel stress-free.', '<p>Packing efficiently for a trip can be a daunting task, but with the right strategies, you can streamline the process and ensure you have everything you need while traveling light. In this article, we\'ll explore essential travel packing tips to help you pack smarter and travel lighter on your next adventure.</p><p><b>1. Make a Packing List:</b>\r\n<br class=\"Apple-interchange-newline\"></p><p>Before you start packing, make a list of essential items you\'ll need for your trip. This will help you stay organized and avoid forgetting important items. Divide your list into categories such as clothing, toiletries, electronics, and documents to ensure you don\'t overlook anything.</p><p><b>2. Choose Versatile Clothing:</b></p><p>When selecting clothing for your trip, opt for versatile pieces that can be mixed and matched to create multiple outfits. Choose neutral colors and fabrics that are lightweight, breathable, and wrinkle-resistant. Consider the climate and activities you\'ll be participating in to determine the appropriate clothing items to pack.</p><p><b>3. Roll Your Clothes:</b></p><p>Maximize space in your suitcase by rolling your clothes instead of folding them. Rolling your clothes not only saves space but also helps prevent wrinkles and creases. Start with heavier items like jeans and sweaters at the bottom of your suitcase and roll lighter items like t-shirts and underwear on top.</p><p><b>4. Use Packing Cubes:</b></p><p>Invest in packing cubes to keep your clothing and accessories organized and easy to find. Packing cubes come in various sizes and colors and are designed to fit neatly inside your suitcase. Use different cubes for different types of clothing or organize them by outfit to make unpacking a breeze.</p><p><b>5. Pack Light:</b></p><p>When it comes to packing, less is more. Try to pack only the essentials and leave behind items you can live without. Consider your destination and the amenities available, such as laundry facilities, to determine how many clothing items you\'ll need. Remember, you can always buy things you need while traveling.</p><p><b>6. Layer Your Clothing:</b></p><p>Layering is key to staying comfortable and adapting to changing weather conditions while traveling. Pack lightweight layers that can be easily added or removed as needed, such as t-shirts, sweaters, and jackets. Choose fabrics that are moisture-wicking and quick-drying for maximum versatility.</p><p><b>7. Pack Multi-Purpose Items:</b></p><p>Save space in your suitcase by packing multi-purpose items that serve multiple functions. For example, a sarong can double as a beach towel, a picnic blanket, or a scarf, while a lightweight scarf can be used as a wrap, a headscarf, or a makeshift bag.</p><p><b>8. Minimize Toiletries:</b></p><p>Pack travel-sized toiletries to save space in your luggage and comply with TSA regulations. Look for mini versions of your favorite products or invest in reusable travel containers to transfer your toiletries into. Consider purchasing toiletries like shampoo, conditioner, and sunscreen at your destination to save space and weight in your luggage.</p><p><b>9. Leave Room for Souvenirs:</b></p><p>Leave some empty space in your suitcase for souvenirs and gifts you may acquire during your trip. Consider packing a collapsible bag or duffel for extra storage or purchasing a lightweight suitcase with expandable compartments. Remember to check baggage allowances and weight restrictions for both outbound and return flights to avoid excess baggage fees.</p><p><b>10. Pack Essential Documents:</b></p><p>Finally, don\'t forget to pack essential documents such as your passport, visa, travel insurance, and itinerary. Keep these documents organized and easily accessible in a waterproof travel wallet or pouch. Consider making photocopies or digital scans of important documents and storing them securely online or in a separate location in case of loss or theft.</p><p>By following these packing tips, you can pack smarter, travel lighter, and enjoy a stress-free journey to your destination. Bon voyage!</p>', 17, 'active', '2024-04-03 21:28:06', '2024-06-05 22:13:22'),
+(1, '1712208486.jpg', 'Essential Travel Packing Tips: Pack Smarter, Travel Lighter: Your Guide to Stress-Free Packing', 'Discover top tips and tricks to pack efficiently for your next adventure and travel stress-free.', '<p>Packing efficiently for a trip can be a daunting task, but with the right strategies, you can streamline the process and ensure you have everything you need while traveling light. In this article, we\'ll explore essential travel packing tips to help you pack smarter and travel lighter on your next adventure.</p><p><b>1. Make a Packing List:</b>\r\n<br class=\"Apple-interchange-newline\"></p><p>Before you start packing, make a list of essential items you\'ll need for your trip. This will help you stay organized and avoid forgetting important items. Divide your list into categories such as clothing, toiletries, electronics, and documents to ensure you don\'t overlook anything.</p><p><b>2. Choose Versatile Clothing:</b></p><p>When selecting clothing for your trip, opt for versatile pieces that can be mixed and matched to create multiple outfits. Choose neutral colors and fabrics that are lightweight, breathable, and wrinkle-resistant. Consider the climate and activities you\'ll be participating in to determine the appropriate clothing items to pack.</p><p><b>3. Roll Your Clothes:</b></p><p>Maximize space in your suitcase by rolling your clothes instead of folding them. Rolling your clothes not only saves space but also helps prevent wrinkles and creases. Start with heavier items like jeans and sweaters at the bottom of your suitcase and roll lighter items like t-shirts and underwear on top.</p><p><b>4. Use Packing Cubes:</b></p><p>Invest in packing cubes to keep your clothing and accessories organized and easy to find. Packing cubes come in various sizes and colors and are designed to fit neatly inside your suitcase. Use different cubes for different types of clothing or organize them by outfit to make unpacking a breeze.</p><p><b>5. Pack Light:</b></p><p>When it comes to packing, less is more. Try to pack only the essentials and leave behind items you can live without. Consider your destination and the amenities available, such as laundry facilities, to determine how many clothing items you\'ll need. Remember, you can always buy things you need while traveling.</p><p><b>6. Layer Your Clothing:</b></p><p>Layering is key to staying comfortable and adapting to changing weather conditions while traveling. Pack lightweight layers that can be easily added or removed as needed, such as t-shirts, sweaters, and jackets. Choose fabrics that are moisture-wicking and quick-drying for maximum versatility.</p><p><b>7. Pack Multi-Purpose Items:</b></p><p>Save space in your suitcase by packing multi-purpose items that serve multiple functions. For example, a sarong can double as a beach towel, a picnic blanket, or a scarf, while a lightweight scarf can be used as a wrap, a headscarf, or a makeshift bag.</p><p><b>8. Minimize Toiletries:</b></p><p>Pack travel-sized toiletries to save space in your luggage and comply with TSA regulations. Look for mini versions of your favorite products or invest in reusable travel containers to transfer your toiletries into. Consider purchasing toiletries like shampoo, conditioner, and sunscreen at your destination to save space and weight in your luggage.</p><p><b>9. Leave Room for Souvenirs:</b></p><p>Leave some empty space in your suitcase for souvenirs and gifts you may acquire during your trip. Consider packing a collapsible bag or duffel for extra storage or purchasing a lightweight suitcase with expandable compartments. Remember to check baggage allowances and weight restrictions for both outbound and return flights to avoid excess baggage fees.</p><p><b>10. Pack Essential Documents:</b></p><p>Finally, don\'t forget to pack essential documents such as your passport, visa, travel insurance, and itinerary. Keep these documents organized and easily accessible in a waterproof travel wallet or pouch. Consider making photocopies or digital scans of important documents and storing them securely online or in a separate location in case of loss or theft.</p><p>By following these packing tips, you can pack smarter, travel lighter, and enjoy a stress-free journey to your destination. Bon voyage!</p>', 21, 'active', '2024-04-03 21:28:06', '2024-08-11 07:08:36'),
 (2, '1712215345.jpg', 'Top 10 Must-Have Travel Accessories: Essential Gear for Your Journey', 'Explore essential travel accessories that can make your journey more comfortable and enjoyable.', '<p>When preparing for a trip, having the right travel accessories can make all the difference in enhancing your travel experience. In this article, we\'ll explore the top 10 must-have travel accessories that you should consider packing for your next adventure.</p><p><b>1. Travel Pillow:</b></p><p>A comfortable travel pillow can provide much-needed support and help you get some rest during long flights or bus rides.</p><p><b>2. Portable Charger:</b></p><p>Keep your devices powered up on the go with a portable charger. This handy accessory ensures you never run out of battery while traveling.</p><p><b>3. Travel Adapter:</b></p><p>A universal travel adapter allows you to charge your devices in any country, making it essential for international travel.</p><p><b>4. Noise-Canceling Headphones:</b></p><p>Block out unwanted noise and enjoy your favorite music or podcasts with noise-canceling headphones. Perfect for long flights or noisy environments.</p><p><b>5. Travel Wallet:</b></p><p>Keep your passport, boarding passes, and important documents organized and secure with a dedicated travel wallet.</p><p><b>6. Reusable Water Bottle:</b></p><p>Stay hydrated while traveling with a reusable water bottle. Many airports and tourist attractions have water refill stations, allowing you to avoid single-use plastic bottles.</p><p><b>7. Packing Cubes:</b></p><p>Keep your clothing and accessories organized and easy to find with packing cubes. These handy organizers make packing and unpacking a breeze.</p><p><b>8. Lightweight Backpack:</b></p><p>A lightweight backpack is perfect for day trips and excursions, allowing you to carry your essentials comfortably while exploring.</p><p><b>9. Travel-Sized Toiletries:</b></p><p>Pack travel-sized toiletries to save space in your luggage and comply with TSA regulations. Look for mini versions of your favorite products or invest in reusable travel containers.</p><p><b>10. Luggage Locks:</b></p><p>Keep your belongings safe and secure with luggage locks. Choose TSA-approved locks for hassle-free security checks at airports.</p><p>By packing these essential travel accessories, you can ensure you\'re prepared for any adventure and make the most of your travel experience.</p>', 30, 'active', '2024-04-03 22:37:04', '2024-06-10 04:11:09'),
 (3, '1712213126.jpg', 'Global Gastronomy: 5 Culinary Adventures for Solo Foodies: Savor the World\'s Flavors', 'Dive into a world of flavors with these 5 culinary adventures, perfect for solo travelers passionate about food.', '<p>For solo travelers who are passionate about exploring different cuisines and culinary traditions, the world is a treasure trove of gastronomic delights waiting to be discovered. In this article, we\'ll explore 5 culinary experiences that promise solo foodies unforgettable tastes and flavors from around the globe.</p><p><br></p><p><b>1. Street Food Safari:</b></p><p>Embarking on a street food safari is like diving headfirst into the heart of a destination\'s culinary culture. Wander through bustling street markets, where the air is thick with the aromas of sizzling meats, aromatic spices, and freshly baked goods. Sample a variety of dishes from local vendors and food stalls, from piping hot dumplings and crispy spring rolls to sweet treats like freshly made crepes and exotic fruit skewers. Street food markets are not only a feast for the senses but also a window into the daily lives of locals, where you can mingle with street vendors and fellow food enthusiasts alike.</p><p><br></p><p><b>2. Cooking Class Adventure:</b></p><p>A cooking class adventure offers solo travelers the opportunity to roll up their sleeves and get hands-on in the kitchen. Whether it\'s mastering the art of making handmade pasta in Italy, whipping up spicy curries in Thailand, or learning the secrets of sushi-making in Japan, cooking classes provide an immersive culinary experience like no other. Led by expert chefs and local cooks, these classes delve deep into the traditional techniques, ingredients, and flavors of a destination\'s cuisine. Not only do cooking classes offer solo travelers the chance to learn new skills and recipes, but they also provide a unique insight into the cultural heritage and culinary traditions of a region.</p><p><br></p><p><b>3. Market Exploration:</b></p><p>Exploring bustling markets is a sensory adventure that solo travelers won\'t want to miss. From sprawling outdoor bazaars to historic indoor markets, these vibrant hubs of activity are a treasure trove of fresh produce, spices, and artisanal products unique to each destination. Wander through stalls piled high with colorful fruits and vegetables, inhale the intoxicating scents of exotic spices and herbs, and browse handcrafted goods and souvenirs made by local artisans. Whether you\'re bargaining for the freshest seafood, sampling street snacks, or simply soaking up the bustling atmosphere, market exploration offers solo travelers an authentic taste of local life and culture.</p><p><br></p><p><b>4. Food Tour Feast:</b></p><p>Joining a food tour is the perfect way for solo travelers to discover the culinary secrets of a destination with the guidance of local experts. Led by knowledgeable guides, food tours take you on a gastronomic journey through the streets and neighborhoods of a city, where you\'ll sample an array of dishes from hidden gems and local eateries. From savory street food to sweet treats, each stop offers a tantalizing taste of the region\'s culinary scene, accompanied by fascinating stories and insights into the history and culture behind the food. Whether you\'re exploring bustling night markets, historic food districts, or off-the-beaten-path neighborhoods, a food tour feast promises solo travelers an unforgettable culinary adventure filled with flavors, aromas, and discoveries.</p><p><br></p><p><b>5. Dining Solo:</b></p><p>Dining solo is a liberating experience that allows solo travelers to indulge their culinary cravings on their own terms. Whether you\'re sampling street food from a bustling market stall, enjoying a leisurely meal at a cozy cafe, or dining at a fine-dining restaurant, solo dining offers the freedom to explore a destination\'s culinary scene at your own pace. Solo travelers can savor each bite, engage with locals and fellow diners, and soak up the ambiance of their surroundings without the pressure of keeping up with group dynamics. Whether you\'re a seasoned solo traveler or embarking on your first solo adventure, dining solo offers a chance to connect with the flavors of a destination and create memorable culinary experiences that will last a lifetime.</p><p><br></p><p>For solo travelers with a love for food and adventure, these 5 culinary experiences offer a tantalizing glimpse into the diverse flavors and cuisines of the world. From street food safaris to cooking class adventures, market explorations, food tour feasts, and dining solo, each experience promises unforgettable tastes and discoveries that will delight the senses and nourish the soul. Embark on a solo culinary journey and taste your way through the rich tapestry of global gastronomy, one delicious bite at a time.</p>', 22, 'active', '2024-04-03 22:45:26', '2024-06-06 19:26:05');
 
@@ -598,11 +620,11 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `accommodation_id`, `room_name`, `description`, `price`, `total_rooms`, `amenities`, `size`, `total_beds`, `total_bathrooms`, `total_balconies`, `total_guests`, `featured_photo`, `video_id`, `remark`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Standard Room', '<p>This is a description for a standard room</p>', '450', '2', '1,2,3,4,5,6,7,8', '60', '1', '1', '1', '2', '1712264174.jpg', 'qemqQHaeCYo', 'active', 'published', '2024-04-04 12:56:14', '2024-06-20 03:15:02'),
-(2, 4, 'Single Room', '<p>This is a description of a single room</p>', '350', '2', '1,2,3,4,5,8,9,16', '50 sq. meters', '1', '1', '0', '2', '1712659450.jpg', 's8vnc9l8sz4', 'active', 'published', '2024-04-09 02:44:10', '2024-06-21 05:17:21'),
+(1, 1, 'Standard Room', '<p>This is a description for a standard room</p>', '450', '2', '1,2,3,4,5,6,7,8', '60', '1', '1', '1', '2', '1712264174.jpg', 'qemqQHaeCYo', 'active', 'published', '2024-04-04 12:56:14', '2024-08-09 05:41:17'),
+(2, 4, 'Single Room', '<p>This is a description of a single room</p>', '350', '2', '1,2,3,4,5,8,9,16', '50 sq. meters', '1', '1', '0', '2', '1712659450.jpg', 's8vnc9l8sz4', 'active', 'published', '2024-04-09 02:44:10', '2024-08-09 05:53:50'),
 (3, 3, 'Room 001', '<p>This is a sample description of a room 1 in Abetom Apartment</p>', '3600', '1', '4,5,7,8,9,19,21,22', '60 sq. meters', '1', '1', '0', '3', '1713173100.jpg', 'T3Oo7VaeW-E', 'active', 'pending', '2024-04-15 01:25:00', '2024-04-15 01:25:00'),
 (4, 5, 'BH Room 1', '<p>This is a short description for the bh room 1</p>', '1500', '1', '2,7,18,20,21', '40 sq. meters', '2', '1', '0', '2', '1717654759.jpg', 'kljghjhf', 'active', 'pending', '2024-06-05 22:19:19', '2024-06-05 22:19:19'),
-(5, 1, 'Deluxe Room', '<p>This is a sample description for the deluxe room</p>', '360', '3', '5,11,15', '60 sq. meters', '2', '1', '0', '2', '1718626723.jpg', 'MCxlipHR4mY', NULL, 'pending', '2024-06-17 10:48:23', '2024-06-17 12:18:43');
+(5, 1, 'Deluxe Room', '<p>This is a sample description for the deluxe room</p>', '360', '3', '5,11,15', '60 sq. meters', '2', '1', '0', '2', '1718626723.jpg', 'MCxlipHR4mY', 'active', 'pending', '2024-06-17 10:48:23', '2024-06-17 12:18:43');
 
 -- --------------------------------------------------------
 
@@ -630,6 +652,30 @@ INSERT INTO `room_photos` (`id`, `room_id`, `photo`, `created_at`, `updated_at`)
 (5, 3, '1713173145.jpg', '2024-04-15 01:25:45', '2024-04-15 01:25:45'),
 (6, 3, '1713173157.jpg', '2024-04-15 01:25:57', '2024-04-15 01:25:57'),
 (7, 3, '1713173178.jpg', '2024-04-15 01:26:18', '2024-04-15 01:26:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `room_rates`
+--
+
+CREATE TABLE `room_rates` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `rate` int(11) NOT NULL,
+  `review_heading` text NOT NULL,
+  `review_description` text NOT NULL,
+  `customer_id` bigint(20) UNSIGNED NOT NULL,
+  `room_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `room_rates`
+--
+
+INSERT INTO `room_rates` (`id`, `rate`, `review_heading`, `review_description`, `customer_id`, `room_id`, `created_at`, `updated_at`) VALUES
+(1, 5, 'Absolutely Recommended!', 'I love my stay at this room because it\'s very cool and comfy!!!', 2, 1, '2024-09-16 09:11:46', '2024-09-16 09:29:03');
 
 -- --------------------------------------------------------
 
@@ -669,7 +715,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `logo`, `favicon`, `top_bar_phone`, `top_bar_email`, `home_feature_status`, `home_room_total`, `home_room_status`, `home_testimonial_status`, `home_latest_post_total`, `home_latest_post_status`, `footer_address`, `footer_phone`, `footer_email`, `copyright`, `facebook`, `twitter`, `linkedin`, `pinterest`, `theme_color_1`, `theme_color_2`, `analytic_id`, `created_at`, `updated_at`) VALUES
-(1, 'logo.png', 'lsh_favicon_front.svg', '0999-753-2024', 'contact@labason.space', 'Show', '4', 'Show', 'Show', '4', 'Show', 'Tandang Sora St., Antonino, Labason, Zamboanga del Norte', '0999-753-2024', 'contact@labason.space', 'Copyright 2024. Labason Safe Haven. All rights reserved.', NULL, NULL, NULL, NULL, '#deb887', '#f0f0f0', 'kgjdf', NULL, '2024-06-06 19:25:54');
+(1, 'logo.png', 'lsh_favicon_front.svg', '0999-753-2024', 'contact@labason.space', 'Show', '4', 'Show', 'Show', '4', 'Show', 'Tandang Sora St., Antonino, Labason, Zamboanga del Norte', '0999-753-2024', 'contact@labason.space', 'Copyright 2024. Labason Safe Haven. All rights reserved.', NULL, NULL, NULL, NULL, '#deb887', '#f0f0f0', 'kgjdf', NULL, '2024-07-31 14:46:42');
 
 -- --------------------------------------------------------
 
@@ -927,6 +973,14 @@ ALTER TABLE `room_photos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `room_rates`
+--
+ALTER TABLE `room_rates`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `room_rates_customer_id_foreign` (`customer_id`),
+  ADD KEY `room_rates_room_id_foreign` (`room_id`);
+
+--
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
@@ -971,13 +1025,13 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `accommodations`
 --
 ALTER TABLE `accommodations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `accommodation_rates`
 --
 ALTER TABLE `accommodation_rates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `accommodation_types`
@@ -1001,13 +1055,13 @@ ALTER TABLE `amenities`
 -- AUTO_INCREMENT for table `booked_rooms`
 --
 ALTER TABLE `booked_rooms`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1031,19 +1085,19 @@ ALTER TABLE `features`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -1055,7 +1109,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1086,6 +1140,12 @@ ALTER TABLE `rooms`
 --
 ALTER TABLE `room_photos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `room_rates`
+--
+ALTER TABLE `room_rates`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -1145,6 +1205,13 @@ ALTER TABLE `accommodation_rates`
 --
 ALTER TABLE `rooms`
   ADD CONSTRAINT `rooms_accommodation_id_foreign` FOREIGN KEY (`accommodation_id`) REFERENCES `accommodations` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `room_rates`
+--
+ALTER TABLE `room_rates`
+  ADD CONSTRAINT `room_rates_customer_id_foreign` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `room_rates_room_id_foreign` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
