@@ -20,7 +20,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="card video-gallery-card">
                         <div class="photo-thumb card-img-top">
-                            <img src="http://img.youtube.com/vi/{{ $item->video_id }}/0.jpg" alt="">
+                            <img src="http://img.youtube.com/vi/{{ $item->video_id }}/0.jpg" alt="" class="video-gallery-img">
                             <div class="bg"></div>
                             <div class="icon">
                                 <a href="http://www.youtube.com/watch?v={{ $item->video_id }}" class="video-button"><i class="fa fa-play"></i></a>
