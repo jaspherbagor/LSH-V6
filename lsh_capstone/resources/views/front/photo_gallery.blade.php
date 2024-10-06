@@ -20,7 +20,7 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="card photo-gallery-card mb-4">
                         <div class="photo-thumb card-img-top">
-                            <img src="{{ asset('uploads/'.$item->photo) }}" alt="">
+                            <img src="{{ asset('uploads/'.$item->photo) }}" alt="" class="photo-gallery-img">
                             <div class="bg"></div>
                             <div class="icon">
                                 <a href="{{ asset('uploads/'.$item->photo) }}" class="magnific"><i class="fa fa-search-plus"></i></a>
